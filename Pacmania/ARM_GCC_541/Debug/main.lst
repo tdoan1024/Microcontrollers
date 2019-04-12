@@ -1,0 +1,1192 @@
+ARM GAS  C:\Users\sur\AppData\Local\Temp\cc6i8Bsd.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.comm	GLCD_FONT8x16,1552,4
+  20              		.global	__aeabi_i2d
+  21              		.global	__aeabi_dmul
+  22              		.global	__aeabi_ddiv
+  23              		.global	__aeabi_d2iz
+  24              		.section	.text.GLCD_Draw_Line_Polar,"ax",%progbits
+  25              		.align	2
+  26              		.global	GLCD_Draw_Line_Polar
+  27              		.code	16
+  28              		.thumb_func
+  29              		.type	GLCD_Draw_Line_Polar, %function
+  30              	GLCD_Draw_Line_Polar:
+  31              	.LFB34:
+  32              		.file 1 "main.c"
+   1:main.c        **** 
+   2:main.c        **** // Tai Doan
+   3:main.c        **** // Assignment 1: Pacmania
+   4:main.c        **** // The Pacmania program shall display a “Pacman” image on the PSoC4 GLCD.
+   5:main.c        **** // The wedge-shaped mouth of the Pacman image shall be made to appear to open and close repeatedly 
+   6:main.c        **** // as long as the program is running.
+   7:main.c        **** 
+   8:main.c        **** 
+   9:main.c        **** #include <device.h>
+  10:main.c        **** #include <header01.h>
+  11:main.c        **** #include <math.h> 
+  12:main.c        ****  
+  13:main.c        **** void GLCD_Draw_Line_Polar(int centerX, int centerY, int angle, int length, int color) {
+  33              		.loc 1 13 0
+  34              		.cfi_startproc
+  35              		@ args = 4, pretend = 0, frame = 40
+  36              		@ frame_needed = 1, uses_anonymous_args = 0
+  37 0000 B0B5     		push	{r4, r5, r7, lr}
+  38              		.cfi_def_cfa_offset 16
+  39              		.cfi_offset 4, -16
+  40              		.cfi_offset 5, -12
+  41              		.cfi_offset 7, -8
+  42              		.cfi_offset 14, -4
+  43 0002 8CB0     		sub	sp, sp, #48
+  44              		.cfi_def_cfa_offset 64
+ARM GAS  C:\Users\sur\AppData\Local\Temp\cc6i8Bsd.s 			page 2
+
+
+  45 0004 02AF     		add	r7, sp, #8
+  46              		.cfi_def_cfa 7, 56
+  47 0006 F860     		str	r0, [r7, #12]
+  48 0008 B960     		str	r1, [r7, #8]
+  49 000a 7A60     		str	r2, [r7, #4]
+  50 000c 3B60     		str	r3, [r7]
+  14:main.c        ****     //draw a line from a center point to a point defined using a polar coordinate system
+  15:main.c        ****     double pi = 3.14;
+  51              		.loc 1 15 0
+  52 000e 344B     		ldr	r3, .L2
+  53 0010 344C     		ldr	r4, .L2+4
+  54 0012 3B62     		str	r3, [r7, #32]
+  55 0014 7C62     		str	r4, [r7, #36]
+  16:main.c        ****     int x,y;
+  17:main.c        ****     x=length*cos(angle*pi/180);
+  56              		.loc 1 17 0
+  57 0016 3868     		ldr	r0, [r7]
+  58 0018 FFF7FEFF 		bl	__aeabi_i2d
+  59 001c 0400     		movs	r4, r0
+  60 001e 0D00     		movs	r5, r1
+  61 0020 7868     		ldr	r0, [r7, #4]
+  62 0022 FFF7FEFF 		bl	__aeabi_i2d
+  63 0026 3A6A     		ldr	r2, [r7, #32]
+  64 0028 7B6A     		ldr	r3, [r7, #36]
+  65 002a FFF7FEFF 		bl	__aeabi_dmul
+  66 002e 0200     		movs	r2, r0
+  67 0030 0B00     		movs	r3, r1
+  68 0032 1000     		movs	r0, r2
+  69 0034 1900     		movs	r1, r3
+  70 0036 0022     		movs	r2, #0
+  71 0038 2B4B     		ldr	r3, .L2+8
+  72 003a FFF7FEFF 		bl	__aeabi_ddiv
+  73 003e 0200     		movs	r2, r0
+  74 0040 0B00     		movs	r3, r1
+  75 0042 1000     		movs	r0, r2
+  76 0044 1900     		movs	r1, r3
+  77 0046 FFF7FEFF 		bl	cos
+  78 004a 0200     		movs	r2, r0
+  79 004c 0B00     		movs	r3, r1
+  80 004e 2000     		movs	r0, r4
+  81 0050 2900     		movs	r1, r5
+  82 0052 FFF7FEFF 		bl	__aeabi_dmul
+  83 0056 0300     		movs	r3, r0
+  84 0058 0C00     		movs	r4, r1
+  85 005a 1800     		movs	r0, r3
+  86 005c 2100     		movs	r1, r4
+  87 005e FFF7FEFF 		bl	__aeabi_d2iz
+  88 0062 0300     		movs	r3, r0
+  89 0064 FB61     		str	r3, [r7, #28]
+  18:main.c        ****     y=length*sin(angle*pi/180);
+  90              		.loc 1 18 0
+  91 0066 3868     		ldr	r0, [r7]
+  92 0068 FFF7FEFF 		bl	__aeabi_i2d
+  93 006c 0400     		movs	r4, r0
+  94 006e 0D00     		movs	r5, r1
+  95 0070 7868     		ldr	r0, [r7, #4]
+  96 0072 FFF7FEFF 		bl	__aeabi_i2d
+ARM GAS  C:\Users\sur\AppData\Local\Temp\cc6i8Bsd.s 			page 3
+
+
+  97 0076 3A6A     		ldr	r2, [r7, #32]
+  98 0078 7B6A     		ldr	r3, [r7, #36]
+  99 007a FFF7FEFF 		bl	__aeabi_dmul
+ 100 007e 0200     		movs	r2, r0
+ 101 0080 0B00     		movs	r3, r1
+ 102 0082 1000     		movs	r0, r2
+ 103 0084 1900     		movs	r1, r3
+ 104 0086 0022     		movs	r2, #0
+ 105 0088 174B     		ldr	r3, .L2+8
+ 106 008a FFF7FEFF 		bl	__aeabi_ddiv
+ 107 008e 0200     		movs	r2, r0
+ 108 0090 0B00     		movs	r3, r1
+ 109 0092 1000     		movs	r0, r2
+ 110 0094 1900     		movs	r1, r3
+ 111 0096 FFF7FEFF 		bl	sin
+ 112 009a 0200     		movs	r2, r0
+ 113 009c 0B00     		movs	r3, r1
+ 114 009e 2000     		movs	r0, r4
+ 115 00a0 2900     		movs	r1, r5
+ 116 00a2 FFF7FEFF 		bl	__aeabi_dmul
+ 117 00a6 0300     		movs	r3, r0
+ 118 00a8 0C00     		movs	r4, r1
+ 119 00aa 1800     		movs	r0, r3
+ 120 00ac 2100     		movs	r1, r4
+ 121 00ae FFF7FEFF 		bl	__aeabi_d2iz
+ 122 00b2 0300     		movs	r3, r0
+ 123 00b4 BB61     		str	r3, [r7, #24]
+  19:main.c        ****     int x2 = centerX+x;
+ 124              		.loc 1 19 0
+ 125 00b6 FA68     		ldr	r2, [r7, #12]
+ 126 00b8 FB69     		ldr	r3, [r7, #28]
+ 127 00ba D318     		adds	r3, r2, r3
+ 128 00bc 7B61     		str	r3, [r7, #20]
+  20:main.c        ****     int y2 = centerY+y;
+ 129              		.loc 1 20 0
+ 130 00be BA68     		ldr	r2, [r7, #8]
+ 131 00c0 BB69     		ldr	r3, [r7, #24]
+ 132 00c2 D318     		adds	r3, r2, r3
+ 133 00c4 3B61     		str	r3, [r7, #16]
+  21:main.c        ****     GLCD_DrawLine(centerX,centerY,y2,x2, color);
+ 134              		.loc 1 21 0
+ 135 00c6 7C69     		ldr	r4, [r7, #20]
+ 136 00c8 3A69     		ldr	r2, [r7, #16]
+ 137 00ca B968     		ldr	r1, [r7, #8]
+ 138 00cc F868     		ldr	r0, [r7, #12]
+ 139 00ce BB6B     		ldr	r3, [r7, #56]
+ 140 00d0 0093     		str	r3, [sp]
+ 141 00d2 2300     		movs	r3, r4
+ 142 00d4 FFF7FEFF 		bl	GLCD_DrawLine
+  22:main.c        **** }
+ 143              		.loc 1 22 0
+ 144 00d8 C046     		nop
+ 145 00da BD46     		mov	sp, r7
+ 146 00dc 0AB0     		add	sp, sp, #40
+ 147              		@ sp needed
+ 148 00de B0BD     		pop	{r4, r5, r7, pc}
+ 149              	.L3:
+ARM GAS  C:\Users\sur\AppData\Local\Temp\cc6i8Bsd.s 			page 4
+
+
+ 150              		.align	2
+ 151              	.L2:
+ 152 00e0 1F85EB51 		.word	1374389535
+ 153 00e4 B81E0940 		.word	1074339512
+ 154 00e8 00806640 		.word	1080459264
+ 155              		.cfi_endproc
+ 156              	.LFE34:
+ 157              		.size	GLCD_Draw_Line_Polar, .-GLCD_Draw_Line_Polar
+ 158              		.section	.text.main,"ax",%progbits
+ 159              		.align	2
+ 160              		.global	main
+ 161              		.code	16
+ 162              		.thumb_func
+ 163              		.type	main, %function
+ 164              	main:
+ 165              	.LFB35:
+  23:main.c        **** int main()
+  24:main.c        **** {
+ 166              		.loc 1 24 0
+ 167              		.cfi_startproc
+ 168              		@ args = 0, pretend = 0, frame = 32
+ 169              		@ frame_needed = 1, uses_anonymous_args = 0
+ 170 0000 80B5     		push	{r7, lr}
+ 171              		.cfi_def_cfa_offset 8
+ 172              		.cfi_offset 7, -8
+ 173              		.cfi_offset 14, -4
+ 174 0002 8AB0     		sub	sp, sp, #40
+ 175              		.cfi_def_cfa_offset 48
+ 176 0004 02AF     		add	r7, sp, #8
+ 177              		.cfi_def_cfa 7, 40
+  25:main.c        ****     int16 i;       // counter variable -- int16 will take up less room than int32
+  26:main.c        ****     int16 x = CENTER;  // x and y coordinates for center of circle
+ 178              		.loc 1 26 0
+ 179 0006 BB1D     		adds	r3, r7, #6
+ 180 0008 3E22     		movs	r2, #62
+ 181 000a 1A80     		strh	r2, [r3]
+  27:main.c        ****     int16 y = CENTER;
+ 182              		.loc 1 27 0
+ 183 000c 3B1D     		adds	r3, r7, #4
+ 184 000e 3E22     		movs	r2, #62
+ 185 0010 1A80     		strh	r2, [r3]
+  28:main.c        **** 	
+  29:main.c        **** 	// Initialize LCD
+  30:main.c        ****     GLCD_Start();  
+ 186              		.loc 1 30 0
+ 187 0012 FFF7FEFF 		bl	GLCD_Start
+  31:main.c        ****     Backlight_Write(1);       // turn on backlight
+ 188              		.loc 1 31 0
+ 189 0016 0120     		movs	r0, #1
+ 190 0018 FFF7FEFF 		bl	Backlight_Write
+  32:main.c        ****     
+  33:main.c        ****     LED_Blue_Write(1); LED_Green_Write(1); LED_Red_Write(1); // turn off all LEDs (1 means off)
+ 191              		.loc 1 33 0
+ 192 001c 0120     		movs	r0, #1
+ 193 001e FFF7FEFF 		bl	LED_Blue_Write
+ 194 0022 0120     		movs	r0, #1
+ 195 0024 FFF7FEFF 		bl	LED_Green_Write
+ARM GAS  C:\Users\sur\AppData\Local\Temp\cc6i8Bsd.s 			page 5
+
+
+ 196 0028 0120     		movs	r0, #1
+ 197 002a FFF7FEFF 		bl	LED_Red_Write
+  34:main.c        ****  
+  35:main.c        ****     
+  36:main.c        ****     // clear LCD to black
+  37:main.c        ****     GLCD_Clear(GLCD_BLACK);
+ 198              		.loc 1 37 0
+ 199 002e 0020     		movs	r0, #0
+ 200 0030 FFF7FEFF 		bl	GLCD_Clear
+  38:main.c        ****         
+  39:main.c        ****     // Draw a filled circle in yellow by drawing a series of circles of increasing radius 
+  40:main.c        ****     for (i = 0; i<50; i++) {
+ 201              		.loc 1 40 0
+ 202 0034 1E23     		movs	r3, #30
+ 203 0036 FB18     		adds	r3, r7, r3
+ 204 0038 0022     		movs	r2, #0
+ 205 003a 1A80     		strh	r2, [r3]
+ 206 003c 17E0     		b	.L5
+ 207              	.L6:
+  41:main.c        ****         GLCD_DrawCircle (x,y,i, GLCD_YELLOW);
+ 208              		.loc 1 41 0 discriminator 3
+ 209 003e BB1D     		adds	r3, r7, #6
+ 210 0040 0020     		movs	r0, #0
+ 211 0042 185E     		ldrsh	r0, [r3, r0]
+ 212 0044 3B1D     		adds	r3, r7, #4
+ 213 0046 0021     		movs	r1, #0
+ 214 0048 595E     		ldrsh	r1, [r3, r1]
+ 215 004a 1E23     		movs	r3, #30
+ 216 004c FB18     		adds	r3, r7, r3
+ 217 004e 0022     		movs	r2, #0
+ 218 0050 9A5E     		ldrsh	r2, [r3, r2]
+ 219 0052 FF23     		movs	r3, #255
+ 220 0054 1B01     		lsls	r3, r3, #4
+ 221 0056 FFF7FEFF 		bl	GLCD_DrawCircle
+  40:main.c        ****         GLCD_DrawCircle (x,y,i, GLCD_YELLOW);
+ 222              		.loc 1 40 0 discriminator 3
+ 223 005a 1E23     		movs	r3, #30
+ 224 005c FB18     		adds	r3, r7, r3
+ 225 005e 0022     		movs	r2, #0
+ 226 0060 9B5E     		ldrsh	r3, [r3, r2]
+ 227 0062 9BB2     		uxth	r3, r3
+ 228 0064 0133     		adds	r3, r3, #1
+ 229 0066 9AB2     		uxth	r2, r3
+ 230 0068 1E23     		movs	r3, #30
+ 231 006a FB18     		adds	r3, r7, r3
+ 232 006c 1A80     		strh	r2, [r3]
+ 233              	.L5:
+  40:main.c        ****         GLCD_DrawCircle (x,y,i, GLCD_YELLOW);
+ 234              		.loc 1 40 0 is_stmt 0 discriminator 1
+ 235 006e 1E23     		movs	r3, #30
+ 236 0070 FB18     		adds	r3, r7, r3
+ 237 0072 0022     		movs	r2, #0
+ 238 0074 9B5E     		ldrsh	r3, [r3, r2]
+ 239 0076 312B     		cmp	r3, #49
+ 240 0078 E1DD     		ble	.L6
+ 241              	.L17:
+ 242              	.LBB2:
+ARM GAS  C:\Users\sur\AppData\Local\Temp\cc6i8Bsd.s 			page 6
+
+
+  42:main.c        ****     }
+  43:main.c        ****     //Loop for animation
+  44:main.c        ****     while(1) {
+  45:main.c        ****         //for loop to open the mouth
+  46:main.c        ****         for (int i =0;i<35;i++) {   
+ 243              		.loc 1 46 0 is_stmt 1
+ 244 007a 0023     		movs	r3, #0
+ 245 007c BB61     		str	r3, [r7, #24]
+ 246 007e 1BE0     		b	.L7
+ 247              	.L8:
+  47:main.c        ****             GLCD_Draw_Line_Polar(x,y,i,50,GLCD_BLACK);                  
+ 248              		.loc 1 47 0 discriminator 3
+ 249 0080 BB1D     		adds	r3, r7, #6
+ 250 0082 0020     		movs	r0, #0
+ 251 0084 185E     		ldrsh	r0, [r3, r0]
+ 252 0086 3B1D     		adds	r3, r7, #4
+ 253 0088 0021     		movs	r1, #0
+ 254 008a 595E     		ldrsh	r1, [r3, r1]
+ 255 008c BA69     		ldr	r2, [r7, #24]
+ 256 008e 0023     		movs	r3, #0
+ 257 0090 0093     		str	r3, [sp]
+ 258 0092 3223     		movs	r3, #50
+ 259 0094 FFF7FEFF 		bl	GLCD_Draw_Line_Polar
+  48:main.c        ****             GLCD_Draw_Line_Polar(x,y,-i,50,GLCD_BLACK);
+ 260              		.loc 1 48 0 discriminator 3
+ 261 0098 BB1D     		adds	r3, r7, #6
+ 262 009a 0020     		movs	r0, #0
+ 263 009c 185E     		ldrsh	r0, [r3, r0]
+ 264 009e 3B1D     		adds	r3, r7, #4
+ 265 00a0 0021     		movs	r1, #0
+ 266 00a2 595E     		ldrsh	r1, [r3, r1]
+ 267 00a4 BB69     		ldr	r3, [r7, #24]
+ 268 00a6 5A42     		rsbs	r2, r3, #0
+ 269 00a8 0023     		movs	r3, #0
+ 270 00aa 0093     		str	r3, [sp]
+ 271 00ac 3223     		movs	r3, #50
+ 272 00ae FFF7FEFF 		bl	GLCD_Draw_Line_Polar
+  46:main.c        ****             GLCD_Draw_Line_Polar(x,y,i,50,GLCD_BLACK);                  
+ 273              		.loc 1 46 0 discriminator 3
+ 274 00b2 BB69     		ldr	r3, [r7, #24]
+ 275 00b4 0133     		adds	r3, r3, #1
+ 276 00b6 BB61     		str	r3, [r7, #24]
+ 277              	.L7:
+  46:main.c        ****             GLCD_Draw_Line_Polar(x,y,i,50,GLCD_BLACK);                  
+ 278              		.loc 1 46 0 is_stmt 0 discriminator 1
+ 279 00b8 BB69     		ldr	r3, [r7, #24]
+ 280 00ba 222B     		cmp	r3, #34
+ 281 00bc E0DD     		ble	.L8
+ 282              	.LBE2:
+ 283              	.LBB3:
+  49:main.c        ****         }
+  50:main.c        ****         //for loop to make a little moving dot
+  51:main.c        ****         for (int j = 121;j>y+20;j--) {
+ 284              		.loc 1 51 0 is_stmt 1
+ 285 00be 7923     		movs	r3, #121
+ 286 00c0 7B61     		str	r3, [r7, #20]
+ 287 00c2 24E0     		b	.L9
+ARM GAS  C:\Users\sur\AppData\Local\Temp\cc6i8Bsd.s 			page 7
+
+
+ 288              	.L14:
+ 289              	.LBB4:
+  52:main.c        ****             for (int i = 0; i<5; i++) {
+ 290              		.loc 1 52 0
+ 291 00c4 0023     		movs	r3, #0
+ 292 00c6 3B61     		str	r3, [r7, #16]
+ 293 00c8 0AE0     		b	.L10
+ 294              	.L11:
+  53:main.c        ****                 GLCD_DrawCircle(x,j,i,GLCD_PINK);
+ 295              		.loc 1 53 0 discriminator 3
+ 296 00ca BB1D     		adds	r3, r7, #6
+ 297 00cc 0020     		movs	r0, #0
+ 298 00ce 185E     		ldrsh	r0, [r3, r0]
+ 299 00d0 274B     		ldr	r3, .L18
+ 300 00d2 3A69     		ldr	r2, [r7, #16]
+ 301 00d4 7969     		ldr	r1, [r7, #20]
+ 302 00d6 FFF7FEFF 		bl	GLCD_DrawCircle
+  52:main.c        ****             for (int i = 0; i<5; i++) {
+ 303              		.loc 1 52 0 discriminator 3
+ 304 00da 3B69     		ldr	r3, [r7, #16]
+ 305 00dc 0133     		adds	r3, r3, #1
+ 306 00de 3B61     		str	r3, [r7, #16]
+ 307              	.L10:
+  52:main.c        ****             for (int i = 0; i<5; i++) {
+ 308              		.loc 1 52 0 is_stmt 0 discriminator 1
+ 309 00e0 3B69     		ldr	r3, [r7, #16]
+ 310 00e2 042B     		cmp	r3, #4
+ 311 00e4 F1DD     		ble	.L11
+ 312              	.LBE4:
+ 313              	.LBB5:
+  54:main.c        ****             }
+  55:main.c        ****             for (int i = 0; i<5; i++) {
+ 314              		.loc 1 55 0 is_stmt 1
+ 315 00e6 0023     		movs	r3, #0
+ 316 00e8 FB60     		str	r3, [r7, #12]
+ 317 00ea 0AE0     		b	.L12
+ 318              	.L13:
+  56:main.c        ****                 GLCD_DrawCircle(x,j,i,GLCD_BLACK);
+ 319              		.loc 1 56 0 discriminator 3
+ 320 00ec BB1D     		adds	r3, r7, #6
+ 321 00ee 0020     		movs	r0, #0
+ 322 00f0 185E     		ldrsh	r0, [r3, r0]
+ 323 00f2 FA68     		ldr	r2, [r7, #12]
+ 324 00f4 7969     		ldr	r1, [r7, #20]
+ 325 00f6 0023     		movs	r3, #0
+ 326 00f8 FFF7FEFF 		bl	GLCD_DrawCircle
+  55:main.c        ****                 GLCD_DrawCircle(x,j,i,GLCD_BLACK);
+ 327              		.loc 1 55 0 discriminator 3
+ 328 00fc FB68     		ldr	r3, [r7, #12]
+ 329 00fe 0133     		adds	r3, r3, #1
+ 330 0100 FB60     		str	r3, [r7, #12]
+ 331              	.L12:
+  55:main.c        ****                 GLCD_DrawCircle(x,j,i,GLCD_BLACK);
+ 332              		.loc 1 55 0 is_stmt 0 discriminator 1
+ 333 0102 FB68     		ldr	r3, [r7, #12]
+ 334 0104 042B     		cmp	r3, #4
+ 335 0106 F1DD     		ble	.L13
+ARM GAS  C:\Users\sur\AppData\Local\Temp\cc6i8Bsd.s 			page 8
+
+
+ 336              	.LBE5:
+  51:main.c        ****             for (int i = 0; i<5; i++) {
+ 337              		.loc 1 51 0 is_stmt 1 discriminator 2
+ 338 0108 7B69     		ldr	r3, [r7, #20]
+ 339 010a 013B     		subs	r3, r3, #1
+ 340 010c 7B61     		str	r3, [r7, #20]
+ 341              	.L9:
+  51:main.c        ****             for (int i = 0; i<5; i++) {
+ 342              		.loc 1 51 0 is_stmt 0 discriminator 1
+ 343 010e 3B1D     		adds	r3, r7, #4
+ 344 0110 0022     		movs	r2, #0
+ 345 0112 9B5E     		ldrsh	r3, [r3, r2]
+ 346 0114 1433     		adds	r3, r3, #20
+ 347 0116 1A00     		movs	r2, r3
+ 348 0118 7B69     		ldr	r3, [r7, #20]
+ 349 011a 9A42     		cmp	r2, r3
+ 350 011c D2DB     		blt	.L14
+ 351              	.LBE3:
+ 352              	.LBB6:
+  57:main.c        ****             }
+  58:main.c        ****         }
+  59:main.c        ****         //for loop to close the mouth
+  60:main.c        ****         for (int i =325;i<360;i++) {   
+ 353              		.loc 1 60 0 is_stmt 1
+ 354 011e 4623     		movs	r3, #70
+ 355 0120 FF33     		adds	r3, r3, #255
+ 356 0122 BB60     		str	r3, [r7, #8]
+ 357 0124 1DE0     		b	.L15
+ 358              	.L16:
+  61:main.c        ****             GLCD_Draw_Line_Polar(x,y,i,50,GLCD_YELLOW);                  
+ 359              		.loc 1 61 0 discriminator 3
+ 360 0126 BB1D     		adds	r3, r7, #6
+ 361 0128 0020     		movs	r0, #0
+ 362 012a 185E     		ldrsh	r0, [r3, r0]
+ 363 012c 3B1D     		adds	r3, r7, #4
+ 364 012e 0021     		movs	r1, #0
+ 365 0130 595E     		ldrsh	r1, [r3, r1]
+ 366 0132 BA68     		ldr	r2, [r7, #8]
+ 367 0134 FF23     		movs	r3, #255
+ 368 0136 1B01     		lsls	r3, r3, #4
+ 369 0138 0093     		str	r3, [sp]
+ 370 013a 3223     		movs	r3, #50
+ 371 013c FFF7FEFF 		bl	GLCD_Draw_Line_Polar
+  62:main.c        ****             GLCD_Draw_Line_Polar(x,y,-i,50,GLCD_YELLOW);
+ 372              		.loc 1 62 0 discriminator 3
+ 373 0140 BB1D     		adds	r3, r7, #6
+ 374 0142 0020     		movs	r0, #0
+ 375 0144 185E     		ldrsh	r0, [r3, r0]
+ 376 0146 3B1D     		adds	r3, r7, #4
+ 377 0148 0021     		movs	r1, #0
+ 378 014a 595E     		ldrsh	r1, [r3, r1]
+ 379 014c BB68     		ldr	r3, [r7, #8]
+ 380 014e 5A42     		rsbs	r2, r3, #0
+ 381 0150 FF23     		movs	r3, #255
+ 382 0152 1B01     		lsls	r3, r3, #4
+ 383 0154 0093     		str	r3, [sp]
+ 384 0156 3223     		movs	r3, #50
+ARM GAS  C:\Users\sur\AppData\Local\Temp\cc6i8Bsd.s 			page 9
+
+
+ 385 0158 FFF7FEFF 		bl	GLCD_Draw_Line_Polar
+  60:main.c        ****             GLCD_Draw_Line_Polar(x,y,i,50,GLCD_YELLOW);                  
+ 386              		.loc 1 60 0 discriminator 3
+ 387 015c BB68     		ldr	r3, [r7, #8]
+ 388 015e 0133     		adds	r3, r3, #1
+ 389 0160 BB60     		str	r3, [r7, #8]
+ 390              	.L15:
+  60:main.c        ****             GLCD_Draw_Line_Polar(x,y,i,50,GLCD_YELLOW);                  
+ 391              		.loc 1 60 0 is_stmt 0 discriminator 1
+ 392 0162 BA68     		ldr	r2, [r7, #8]
+ 393 0164 6823     		movs	r3, #104
+ 394 0166 FF33     		adds	r3, r3, #255
+ 395 0168 9A42     		cmp	r2, r3
+ 396 016a DCDD     		ble	.L16
+ 397              	.LBE6:
+  63:main.c        ****         }
+  64:main.c        ****     }	
+ 398              		.loc 1 64 0 is_stmt 1
+ 399 016c 85E7     		b	.L17
+ 400              	.L19:
+ 401 016e C046     		.align	2
+ 402              	.L18:
+ 403 0170 6A0F0000 		.word	3946
+ 404              		.cfi_endproc
+ 405              	.LFE35:
+ 406              		.size	main, .-main
+ 407              		.text
+ 408              	.Letext0:
+ 409              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 410              		.file 3 "Generated_Source\\PSoC4/GLCD.h"
+ 411              		.section	.debug_info,"",%progbits
+ 412              	.Ldebug_info0:
+ 413 0000 27020000 		.4byte	0x227
+ 414 0004 0400     		.2byte	0x4
+ 415 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 416 000a 04       		.byte	0x4
+ 417 000b 01       		.uleb128 0x1
+ 418 000c 97000000 		.4byte	.LASF23
+ 419 0010 0C       		.byte	0xc
+ 420 0011 87010000 		.4byte	.LASF24
+ 421 0015 5D000000 		.4byte	.LASF25
+ 422 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 423 001d 00000000 		.4byte	0
+ 424 0021 00000000 		.4byte	.Ldebug_line0
+ 425 0025 02       		.uleb128 0x2
+ 426 0026 01       		.byte	0x1
+ 427 0027 06       		.byte	0x6
+ 428 0028 B2010000 		.4byte	.LASF0
+ 429 002c 02       		.uleb128 0x2
+ 430 002d 01       		.byte	0x1
+ 431 002e 08       		.byte	0x8
+ 432 002f 37000000 		.4byte	.LASF1
+ 433 0033 02       		.uleb128 0x2
+ 434 0034 02       		.byte	0x2
+ 435 0035 05       		.byte	0x5
+ 436 0036 93010000 		.4byte	.LASF2
+ 437 003a 02       		.uleb128 0x2
+ARM GAS  C:\Users\sur\AppData\Local\Temp\cc6i8Bsd.s 			page 10
+
+
+ 438 003b 02       		.byte	0x2
+ 439 003c 07       		.byte	0x7
+ 440 003d 10000000 		.4byte	.LASF3
+ 441 0041 02       		.uleb128 0x2
+ 442 0042 04       		.byte	0x4
+ 443 0043 05       		.byte	0x5
+ 444 0044 9D010000 		.4byte	.LASF4
+ 445 0048 02       		.uleb128 0x2
+ 446 0049 04       		.byte	0x4
+ 447 004a 07       		.byte	0x7
+ 448 004b 4B000000 		.4byte	.LASF5
+ 449 004f 02       		.uleb128 0x2
+ 450 0050 08       		.byte	0x8
+ 451 0051 05       		.byte	0x5
+ 452 0052 79010000 		.4byte	.LASF6
+ 453 0056 02       		.uleb128 0x2
+ 454 0057 08       		.byte	0x8
+ 455 0058 07       		.byte	0x7
+ 456 0059 59010000 		.4byte	.LASF7
+ 457 005d 03       		.uleb128 0x3
+ 458 005e 04       		.byte	0x4
+ 459 005f 05       		.byte	0x5
+ 460 0060 696E7400 		.ascii	"int\000"
+ 461 0064 02       		.uleb128 0x2
+ 462 0065 04       		.byte	0x4
+ 463 0066 07       		.byte	0x7
+ 464 0067 4C010000 		.4byte	.LASF8
+ 465 006b 04       		.uleb128 0x4
+ 466 006c 8B000000 		.4byte	.LASF9
+ 467 0070 02       		.byte	0x2
+ 468 0071 B901     		.2byte	0x1b9
+ 469 0073 2C000000 		.4byte	0x2c
+ 470 0077 04       		.uleb128 0x4
+ 471 0078 45000000 		.4byte	.LASF10
+ 472 007c 02       		.byte	0x2
+ 473 007d BD01     		.2byte	0x1bd
+ 474 007f 33000000 		.4byte	0x33
+ 475 0083 02       		.uleb128 0x2
+ 476 0084 04       		.byte	0x4
+ 477 0085 04       		.byte	0x4
+ 478 0086 31000000 		.4byte	.LASF11
+ 479 008a 02       		.uleb128 0x2
+ 480 008b 08       		.byte	0x8
+ 481 008c 04       		.byte	0x4
+ 482 008d 25010000 		.4byte	.LASF12
+ 483 0091 02       		.uleb128 0x2
+ 484 0092 01       		.byte	0x1
+ 485 0093 08       		.byte	0x8
+ 486 0094 8E010000 		.4byte	.LASF13
+ 487 0098 02       		.uleb128 0x2
+ 488 0099 08       		.byte	0x8
+ 489 009a 04       		.byte	0x4
+ 490 009b A6010000 		.4byte	.LASF14
+ 491 009f 02       		.uleb128 0x2
+ 492 00a0 04       		.byte	0x4
+ 493 00a1 07       		.byte	0x7
+ 494 00a2 70010000 		.4byte	.LASF15
+ARM GAS  C:\Users\sur\AppData\Local\Temp\cc6i8Bsd.s 			page 11
+
+
+ 495 00a6 05       		.uleb128 0x5
+ 496 00a7 2C010000 		.4byte	.LASF21
+ 497 00ab 01       		.byte	0x1
+ 498 00ac 0D       		.byte	0xd
+ 499 00ad 00000000 		.4byte	.LFB34
+ 500 00b1 EC000000 		.4byte	.LFE34-.LFB34
+ 501 00b5 01       		.uleb128 0x1
+ 502 00b6 9C       		.byte	0x9c
+ 503 00b7 41010000 		.4byte	0x141
+ 504 00bb 06       		.uleb128 0x6
+ 505 00bc 00000000 		.4byte	.LASF16
+ 506 00c0 01       		.byte	0x1
+ 507 00c1 0D       		.byte	0xd
+ 508 00c2 5D000000 		.4byte	0x5d
+ 509 00c6 02       		.uleb128 0x2
+ 510 00c7 91       		.byte	0x91
+ 511 00c8 54       		.sleb128 -44
+ 512 00c9 06       		.uleb128 0x6
+ 513 00ca 08000000 		.4byte	.LASF17
+ 514 00ce 01       		.byte	0x1
+ 515 00cf 0D       		.byte	0xd
+ 516 00d0 5D000000 		.4byte	0x5d
+ 517 00d4 02       		.uleb128 0x2
+ 518 00d5 91       		.byte	0x91
+ 519 00d6 50       		.sleb128 -48
+ 520 00d7 06       		.uleb128 0x6
+ 521 00d8 91000000 		.4byte	.LASF18
+ 522 00dc 01       		.byte	0x1
+ 523 00dd 0D       		.byte	0xd
+ 524 00de 5D000000 		.4byte	0x5d
+ 525 00e2 02       		.uleb128 0x2
+ 526 00e3 91       		.byte	0x91
+ 527 00e4 4C       		.sleb128 -52
+ 528 00e5 06       		.uleb128 0x6
+ 529 00e6 BE010000 		.4byte	.LASF19
+ 530 00ea 01       		.byte	0x1
+ 531 00eb 0D       		.byte	0xd
+ 532 00ec 5D000000 		.4byte	0x5d
+ 533 00f0 02       		.uleb128 0x2
+ 534 00f1 91       		.byte	0x91
+ 535 00f2 48       		.sleb128 -56
+ 536 00f3 06       		.uleb128 0x6
+ 537 00f4 41010000 		.4byte	.LASF20
+ 538 00f8 01       		.byte	0x1
+ 539 00f9 0D       		.byte	0xd
+ 540 00fa 5D000000 		.4byte	0x5d
+ 541 00fe 02       		.uleb128 0x2
+ 542 00ff 91       		.byte	0x91
+ 543 0100 00       		.sleb128 0
+ 544 0101 07       		.uleb128 0x7
+ 545 0102 706900   		.ascii	"pi\000"
+ 546 0105 01       		.byte	0x1
+ 547 0106 0F       		.byte	0xf
+ 548 0107 8A000000 		.4byte	0x8a
+ 549 010b 02       		.uleb128 0x2
+ 550 010c 91       		.byte	0x91
+ 551 010d 68       		.sleb128 -24
+ARM GAS  C:\Users\sur\AppData\Local\Temp\cc6i8Bsd.s 			page 12
+
+
+ 552 010e 07       		.uleb128 0x7
+ 553 010f 7800     		.ascii	"x\000"
+ 554 0111 01       		.byte	0x1
+ 555 0112 10       		.byte	0x10
+ 556 0113 5D000000 		.4byte	0x5d
+ 557 0117 02       		.uleb128 0x2
+ 558 0118 91       		.byte	0x91
+ 559 0119 64       		.sleb128 -28
+ 560 011a 07       		.uleb128 0x7
+ 561 011b 7900     		.ascii	"y\000"
+ 562 011d 01       		.byte	0x1
+ 563 011e 10       		.byte	0x10
+ 564 011f 5D000000 		.4byte	0x5d
+ 565 0123 02       		.uleb128 0x2
+ 566 0124 91       		.byte	0x91
+ 567 0125 60       		.sleb128 -32
+ 568 0126 07       		.uleb128 0x7
+ 569 0127 783200   		.ascii	"x2\000"
+ 570 012a 01       		.byte	0x1
+ 571 012b 13       		.byte	0x13
+ 572 012c 5D000000 		.4byte	0x5d
+ 573 0130 02       		.uleb128 0x2
+ 574 0131 91       		.byte	0x91
+ 575 0132 5C       		.sleb128 -36
+ 576 0133 07       		.uleb128 0x7
+ 577 0134 793200   		.ascii	"y2\000"
+ 578 0137 01       		.byte	0x1
+ 579 0138 14       		.byte	0x14
+ 580 0139 5D000000 		.4byte	0x5d
+ 581 013d 02       		.uleb128 0x2
+ 582 013e 91       		.byte	0x91
+ 583 013f 58       		.sleb128 -40
+ 584 0140 00       		.byte	0
+ 585 0141 08       		.uleb128 0x8
+ 586 0142 47010000 		.4byte	.LASF22
+ 587 0146 01       		.byte	0x1
+ 588 0147 17       		.byte	0x17
+ 589 0148 5D000000 		.4byte	0x5d
+ 590 014c 00000000 		.4byte	.LFB35
+ 591 0150 74010000 		.4byte	.LFE35-.LFB35
+ 592 0154 01       		.uleb128 0x1
+ 593 0155 9C       		.byte	0x9c
+ 594 0156 F9010000 		.4byte	0x1f9
+ 595 015a 07       		.uleb128 0x7
+ 596 015b 6900     		.ascii	"i\000"
+ 597 015d 01       		.byte	0x1
+ 598 015e 19       		.byte	0x19
+ 599 015f 77000000 		.4byte	0x77
+ 600 0163 02       		.uleb128 0x2
+ 601 0164 91       		.byte	0x91
+ 602 0165 76       		.sleb128 -10
+ 603 0166 07       		.uleb128 0x7
+ 604 0167 7800     		.ascii	"x\000"
+ 605 0169 01       		.byte	0x1
+ 606 016a 1A       		.byte	0x1a
+ 607 016b 77000000 		.4byte	0x77
+ 608 016f 02       		.uleb128 0x2
+ARM GAS  C:\Users\sur\AppData\Local\Temp\cc6i8Bsd.s 			page 13
+
+
+ 609 0170 91       		.byte	0x91
+ 610 0171 5E       		.sleb128 -34
+ 611 0172 07       		.uleb128 0x7
+ 612 0173 7900     		.ascii	"y\000"
+ 613 0175 01       		.byte	0x1
+ 614 0176 1B       		.byte	0x1b
+ 615 0177 77000000 		.4byte	0x77
+ 616 017b 02       		.uleb128 0x2
+ 617 017c 91       		.byte	0x91
+ 618 017d 5C       		.sleb128 -36
+ 619 017e 09       		.uleb128 0x9
+ 620 017f 7A000000 		.4byte	.LBB2
+ 621 0183 44000000 		.4byte	.LBE2-.LBB2
+ 622 0187 98010000 		.4byte	0x198
+ 623 018b 07       		.uleb128 0x7
+ 624 018c 6900     		.ascii	"i\000"
+ 625 018e 01       		.byte	0x1
+ 626 018f 2E       		.byte	0x2e
+ 627 0190 5D000000 		.4byte	0x5d
+ 628 0194 02       		.uleb128 0x2
+ 629 0195 91       		.byte	0x91
+ 630 0196 70       		.sleb128 -16
+ 631 0197 00       		.byte	0
+ 632 0198 09       		.uleb128 0x9
+ 633 0199 BE000000 		.4byte	.LBB3
+ 634 019d 60000000 		.4byte	.LBE3-.LBB3
+ 635 01a1 E2010000 		.4byte	0x1e2
+ 636 01a5 07       		.uleb128 0x7
+ 637 01a6 6A00     		.ascii	"j\000"
+ 638 01a8 01       		.byte	0x1
+ 639 01a9 33       		.byte	0x33
+ 640 01aa 5D000000 		.4byte	0x5d
+ 641 01ae 02       		.uleb128 0x2
+ 642 01af 91       		.byte	0x91
+ 643 01b0 6C       		.sleb128 -20
+ 644 01b1 09       		.uleb128 0x9
+ 645 01b2 C4000000 		.4byte	.LBB4
+ 646 01b6 22000000 		.4byte	.LBE4-.LBB4
+ 647 01ba CB010000 		.4byte	0x1cb
+ 648 01be 07       		.uleb128 0x7
+ 649 01bf 6900     		.ascii	"i\000"
+ 650 01c1 01       		.byte	0x1
+ 651 01c2 34       		.byte	0x34
+ 652 01c3 5D000000 		.4byte	0x5d
+ 653 01c7 02       		.uleb128 0x2
+ 654 01c8 91       		.byte	0x91
+ 655 01c9 68       		.sleb128 -24
+ 656 01ca 00       		.byte	0
+ 657 01cb 0A       		.uleb128 0xa
+ 658 01cc E6000000 		.4byte	.LBB5
+ 659 01d0 22000000 		.4byte	.LBE5-.LBB5
+ 660 01d4 07       		.uleb128 0x7
+ 661 01d5 6900     		.ascii	"i\000"
+ 662 01d7 01       		.byte	0x1
+ 663 01d8 37       		.byte	0x37
+ 664 01d9 5D000000 		.4byte	0x5d
+ 665 01dd 02       		.uleb128 0x2
+ARM GAS  C:\Users\sur\AppData\Local\Temp\cc6i8Bsd.s 			page 14
+
+
+ 666 01de 91       		.byte	0x91
+ 667 01df 64       		.sleb128 -28
+ 668 01e0 00       		.byte	0
+ 669 01e1 00       		.byte	0
+ 670 01e2 0A       		.uleb128 0xa
+ 671 01e3 1E010000 		.4byte	.LBB6
+ 672 01e7 4E000000 		.4byte	.LBE6-.LBB6
+ 673 01eb 07       		.uleb128 0x7
+ 674 01ec 6900     		.ascii	"i\000"
+ 675 01ee 01       		.byte	0x1
+ 676 01ef 3C       		.byte	0x3c
+ 677 01f0 5D000000 		.4byte	0x5d
+ 678 01f4 02       		.uleb128 0x2
+ 679 01f5 91       		.byte	0x91
+ 680 01f6 60       		.sleb128 -32
+ 681 01f7 00       		.byte	0
+ 682 01f8 00       		.byte	0
+ 683 01f9 0B       		.uleb128 0xb
+ 684 01fa 0F020000 		.4byte	0x20f
+ 685 01fe 0F020000 		.4byte	0x20f
+ 686 0202 0C       		.uleb128 0xc
+ 687 0203 9F000000 		.4byte	0x9f
+ 688 0207 60       		.byte	0x60
+ 689 0208 0C       		.uleb128 0xc
+ 690 0209 9F000000 		.4byte	0x9f
+ 691 020d 0F       		.byte	0xf
+ 692 020e 00       		.byte	0
+ 693 020f 0D       		.uleb128 0xd
+ 694 0210 6B000000 		.4byte	0x6b
+ 695 0214 0E       		.uleb128 0xe
+ 696 0215 23000000 		.4byte	.LASF26
+ 697 0219 03       		.byte	0x3
+ 698 021a 42       		.byte	0x42
+ 699 021b 25020000 		.4byte	0x225
+ 700 021f 05       		.uleb128 0x5
+ 701 0220 03       		.byte	0x3
+ 702 0221 00000000 		.4byte	GLCD_FONT8x16
+ 703 0225 0D       		.uleb128 0xd
+ 704 0226 F9010000 		.4byte	0x1f9
+ 705 022a 00       		.byte	0
+ 706              		.section	.debug_abbrev,"",%progbits
+ 707              	.Ldebug_abbrev0:
+ 708 0000 01       		.uleb128 0x1
+ 709 0001 11       		.uleb128 0x11
+ 710 0002 01       		.byte	0x1
+ 711 0003 25       		.uleb128 0x25
+ 712 0004 0E       		.uleb128 0xe
+ 713 0005 13       		.uleb128 0x13
+ 714 0006 0B       		.uleb128 0xb
+ 715 0007 03       		.uleb128 0x3
+ 716 0008 0E       		.uleb128 0xe
+ 717 0009 1B       		.uleb128 0x1b
+ 718 000a 0E       		.uleb128 0xe
+ 719 000b 55       		.uleb128 0x55
+ 720 000c 17       		.uleb128 0x17
+ 721 000d 11       		.uleb128 0x11
+ 722 000e 01       		.uleb128 0x1
+ARM GAS  C:\Users\sur\AppData\Local\Temp\cc6i8Bsd.s 			page 15
+
+
+ 723 000f 10       		.uleb128 0x10
+ 724 0010 17       		.uleb128 0x17
+ 725 0011 00       		.byte	0
+ 726 0012 00       		.byte	0
+ 727 0013 02       		.uleb128 0x2
+ 728 0014 24       		.uleb128 0x24
+ 729 0015 00       		.byte	0
+ 730 0016 0B       		.uleb128 0xb
+ 731 0017 0B       		.uleb128 0xb
+ 732 0018 3E       		.uleb128 0x3e
+ 733 0019 0B       		.uleb128 0xb
+ 734 001a 03       		.uleb128 0x3
+ 735 001b 0E       		.uleb128 0xe
+ 736 001c 00       		.byte	0
+ 737 001d 00       		.byte	0
+ 738 001e 03       		.uleb128 0x3
+ 739 001f 24       		.uleb128 0x24
+ 740 0020 00       		.byte	0
+ 741 0021 0B       		.uleb128 0xb
+ 742 0022 0B       		.uleb128 0xb
+ 743 0023 3E       		.uleb128 0x3e
+ 744 0024 0B       		.uleb128 0xb
+ 745 0025 03       		.uleb128 0x3
+ 746 0026 08       		.uleb128 0x8
+ 747 0027 00       		.byte	0
+ 748 0028 00       		.byte	0
+ 749 0029 04       		.uleb128 0x4
+ 750 002a 16       		.uleb128 0x16
+ 751 002b 00       		.byte	0
+ 752 002c 03       		.uleb128 0x3
+ 753 002d 0E       		.uleb128 0xe
+ 754 002e 3A       		.uleb128 0x3a
+ 755 002f 0B       		.uleb128 0xb
+ 756 0030 3B       		.uleb128 0x3b
+ 757 0031 05       		.uleb128 0x5
+ 758 0032 49       		.uleb128 0x49
+ 759 0033 13       		.uleb128 0x13
+ 760 0034 00       		.byte	0
+ 761 0035 00       		.byte	0
+ 762 0036 05       		.uleb128 0x5
+ 763 0037 2E       		.uleb128 0x2e
+ 764 0038 01       		.byte	0x1
+ 765 0039 3F       		.uleb128 0x3f
+ 766 003a 19       		.uleb128 0x19
+ 767 003b 03       		.uleb128 0x3
+ 768 003c 0E       		.uleb128 0xe
+ 769 003d 3A       		.uleb128 0x3a
+ 770 003e 0B       		.uleb128 0xb
+ 771 003f 3B       		.uleb128 0x3b
+ 772 0040 0B       		.uleb128 0xb
+ 773 0041 27       		.uleb128 0x27
+ 774 0042 19       		.uleb128 0x19
+ 775 0043 11       		.uleb128 0x11
+ 776 0044 01       		.uleb128 0x1
+ 777 0045 12       		.uleb128 0x12
+ 778 0046 06       		.uleb128 0x6
+ 779 0047 40       		.uleb128 0x40
+ARM GAS  C:\Users\sur\AppData\Local\Temp\cc6i8Bsd.s 			page 16
+
+
+ 780 0048 18       		.uleb128 0x18
+ 781 0049 9642     		.uleb128 0x2116
+ 782 004b 19       		.uleb128 0x19
+ 783 004c 01       		.uleb128 0x1
+ 784 004d 13       		.uleb128 0x13
+ 785 004e 00       		.byte	0
+ 786 004f 00       		.byte	0
+ 787 0050 06       		.uleb128 0x6
+ 788 0051 05       		.uleb128 0x5
+ 789 0052 00       		.byte	0
+ 790 0053 03       		.uleb128 0x3
+ 791 0054 0E       		.uleb128 0xe
+ 792 0055 3A       		.uleb128 0x3a
+ 793 0056 0B       		.uleb128 0xb
+ 794 0057 3B       		.uleb128 0x3b
+ 795 0058 0B       		.uleb128 0xb
+ 796 0059 49       		.uleb128 0x49
+ 797 005a 13       		.uleb128 0x13
+ 798 005b 02       		.uleb128 0x2
+ 799 005c 18       		.uleb128 0x18
+ 800 005d 00       		.byte	0
+ 801 005e 00       		.byte	0
+ 802 005f 07       		.uleb128 0x7
+ 803 0060 34       		.uleb128 0x34
+ 804 0061 00       		.byte	0
+ 805 0062 03       		.uleb128 0x3
+ 806 0063 08       		.uleb128 0x8
+ 807 0064 3A       		.uleb128 0x3a
+ 808 0065 0B       		.uleb128 0xb
+ 809 0066 3B       		.uleb128 0x3b
+ 810 0067 0B       		.uleb128 0xb
+ 811 0068 49       		.uleb128 0x49
+ 812 0069 13       		.uleb128 0x13
+ 813 006a 02       		.uleb128 0x2
+ 814 006b 18       		.uleb128 0x18
+ 815 006c 00       		.byte	0
+ 816 006d 00       		.byte	0
+ 817 006e 08       		.uleb128 0x8
+ 818 006f 2E       		.uleb128 0x2e
+ 819 0070 01       		.byte	0x1
+ 820 0071 3F       		.uleb128 0x3f
+ 821 0072 19       		.uleb128 0x19
+ 822 0073 03       		.uleb128 0x3
+ 823 0074 0E       		.uleb128 0xe
+ 824 0075 3A       		.uleb128 0x3a
+ 825 0076 0B       		.uleb128 0xb
+ 826 0077 3B       		.uleb128 0x3b
+ 827 0078 0B       		.uleb128 0xb
+ 828 0079 49       		.uleb128 0x49
+ 829 007a 13       		.uleb128 0x13
+ 830 007b 11       		.uleb128 0x11
+ 831 007c 01       		.uleb128 0x1
+ 832 007d 12       		.uleb128 0x12
+ 833 007e 06       		.uleb128 0x6
+ 834 007f 40       		.uleb128 0x40
+ 835 0080 18       		.uleb128 0x18
+ 836 0081 9642     		.uleb128 0x2116
+ARM GAS  C:\Users\sur\AppData\Local\Temp\cc6i8Bsd.s 			page 17
+
+
+ 837 0083 19       		.uleb128 0x19
+ 838 0084 01       		.uleb128 0x1
+ 839 0085 13       		.uleb128 0x13
+ 840 0086 00       		.byte	0
+ 841 0087 00       		.byte	0
+ 842 0088 09       		.uleb128 0x9
+ 843 0089 0B       		.uleb128 0xb
+ 844 008a 01       		.byte	0x1
+ 845 008b 11       		.uleb128 0x11
+ 846 008c 01       		.uleb128 0x1
+ 847 008d 12       		.uleb128 0x12
+ 848 008e 06       		.uleb128 0x6
+ 849 008f 01       		.uleb128 0x1
+ 850 0090 13       		.uleb128 0x13
+ 851 0091 00       		.byte	0
+ 852 0092 00       		.byte	0
+ 853 0093 0A       		.uleb128 0xa
+ 854 0094 0B       		.uleb128 0xb
+ 855 0095 01       		.byte	0x1
+ 856 0096 11       		.uleb128 0x11
+ 857 0097 01       		.uleb128 0x1
+ 858 0098 12       		.uleb128 0x12
+ 859 0099 06       		.uleb128 0x6
+ 860 009a 00       		.byte	0
+ 861 009b 00       		.byte	0
+ 862 009c 0B       		.uleb128 0xb
+ 863 009d 01       		.uleb128 0x1
+ 864 009e 01       		.byte	0x1
+ 865 009f 49       		.uleb128 0x49
+ 866 00a0 13       		.uleb128 0x13
+ 867 00a1 01       		.uleb128 0x1
+ 868 00a2 13       		.uleb128 0x13
+ 869 00a3 00       		.byte	0
+ 870 00a4 00       		.byte	0
+ 871 00a5 0C       		.uleb128 0xc
+ 872 00a6 21       		.uleb128 0x21
+ 873 00a7 00       		.byte	0
+ 874 00a8 49       		.uleb128 0x49
+ 875 00a9 13       		.uleb128 0x13
+ 876 00aa 2F       		.uleb128 0x2f
+ 877 00ab 0B       		.uleb128 0xb
+ 878 00ac 00       		.byte	0
+ 879 00ad 00       		.byte	0
+ 880 00ae 0D       		.uleb128 0xd
+ 881 00af 26       		.uleb128 0x26
+ 882 00b0 00       		.byte	0
+ 883 00b1 49       		.uleb128 0x49
+ 884 00b2 13       		.uleb128 0x13
+ 885 00b3 00       		.byte	0
+ 886 00b4 00       		.byte	0
+ 887 00b5 0E       		.uleb128 0xe
+ 888 00b6 34       		.uleb128 0x34
+ 889 00b7 00       		.byte	0
+ 890 00b8 03       		.uleb128 0x3
+ 891 00b9 0E       		.uleb128 0xe
+ 892 00ba 3A       		.uleb128 0x3a
+ 893 00bb 0B       		.uleb128 0xb
+ARM GAS  C:\Users\sur\AppData\Local\Temp\cc6i8Bsd.s 			page 18
+
+
+ 894 00bc 3B       		.uleb128 0x3b
+ 895 00bd 0B       		.uleb128 0xb
+ 896 00be 49       		.uleb128 0x49
+ 897 00bf 13       		.uleb128 0x13
+ 898 00c0 3F       		.uleb128 0x3f
+ 899 00c1 19       		.uleb128 0x19
+ 900 00c2 02       		.uleb128 0x2
+ 901 00c3 18       		.uleb128 0x18
+ 902 00c4 00       		.byte	0
+ 903 00c5 00       		.byte	0
+ 904 00c6 00       		.byte	0
+ 905              		.section	.debug_aranges,"",%progbits
+ 906 0000 24000000 		.4byte	0x24
+ 907 0004 0200     		.2byte	0x2
+ 908 0006 00000000 		.4byte	.Ldebug_info0
+ 909 000a 04       		.byte	0x4
+ 910 000b 00       		.byte	0
+ 911 000c 0000     		.2byte	0
+ 912 000e 0000     		.2byte	0
+ 913 0010 00000000 		.4byte	.LFB34
+ 914 0014 EC000000 		.4byte	.LFE34-.LFB34
+ 915 0018 00000000 		.4byte	.LFB35
+ 916 001c 74010000 		.4byte	.LFE35-.LFB35
+ 917 0020 00000000 		.4byte	0
+ 918 0024 00000000 		.4byte	0
+ 919              		.section	.debug_ranges,"",%progbits
+ 920              	.Ldebug_ranges0:
+ 921 0000 00000000 		.4byte	.LFB34
+ 922 0004 EC000000 		.4byte	.LFE34
+ 923 0008 00000000 		.4byte	.LFB35
+ 924 000c 74010000 		.4byte	.LFE35
+ 925 0010 00000000 		.4byte	0
+ 926 0014 00000000 		.4byte	0
+ 927              		.section	.debug_line,"",%progbits
+ 928              	.Ldebug_line0:
+ 929 0000 F4000000 		.section	.debug_str,"MS",%progbits,1
+ 929      02004B00 
+ 929      00000201 
+ 929      FB0E0D00 
+ 929      01010101 
+ 930              	.LASF16:
+ 931 0000 63656E74 		.ascii	"centerX\000"
+ 931      65725800 
+ 932              	.LASF17:
+ 933 0008 63656E74 		.ascii	"centerY\000"
+ 933      65725900 
+ 934              	.LASF3:
+ 935 0010 73686F72 		.ascii	"short unsigned int\000"
+ 935      7420756E 
+ 935      7369676E 
+ 935      65642069 
+ 935      6E7400
+ 936              	.LASF26:
+ 937 0023 474C4344 		.ascii	"GLCD_FONT8x16\000"
+ 937      5F464F4E 
+ 937      54387831 
+ 937      3600
+ARM GAS  C:\Users\sur\AppData\Local\Temp\cc6i8Bsd.s 			page 19
+
+
+ 938              	.LASF11:
+ 939 0031 666C6F61 		.ascii	"float\000"
+ 939      7400
+ 940              	.LASF1:
+ 941 0037 756E7369 		.ascii	"unsigned char\000"
+ 941      676E6564 
+ 941      20636861 
+ 941      7200
+ 942              	.LASF10:
+ 943 0045 696E7431 		.ascii	"int16\000"
+ 943      3600
+ 944              	.LASF5:
+ 945 004b 6C6F6E67 		.ascii	"long unsigned int\000"
+ 945      20756E73 
+ 945      69676E65 
+ 945      6420696E 
+ 945      7400
+ 946              	.LASF25:
+ 947 005d 433A5C55 		.ascii	"C:\\Users\\sur\\Desktop\\SPU doc\\GLCD_Test1.cydsn\000"
+ 947      73657273 
+ 947      5C737572 
+ 947      5C446573 
+ 947      6B746F70 
+ 948              	.LASF9:
+ 949 008b 75696E74 		.ascii	"uint8\000"
+ 949      3800
+ 950              	.LASF18:
+ 951 0091 616E676C 		.ascii	"angle\000"
+ 951      6500
+ 952              	.LASF23:
+ 953 0097 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 953      43313120 
+ 953      352E342E 
+ 953      31203230 
+ 953      31363036 
+ 954 00ca 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 954      20726576 
+ 954      6973696F 
+ 954      6E203233 
+ 954      37373135 
+ 955 00fd 30202D66 		.ascii	"0 -ffunction-sections -ffat-lto-objects\000"
+ 955      66756E63 
+ 955      74696F6E 
+ 955      2D736563 
+ 955      74696F6E 
+ 956              	.LASF12:
+ 957 0125 646F7562 		.ascii	"double\000"
+ 957      6C6500
+ 958              	.LASF21:
+ 959 012c 474C4344 		.ascii	"GLCD_Draw_Line_Polar\000"
+ 959      5F447261 
+ 959      775F4C69 
+ 959      6E655F50 
+ 959      6F6C6172 
+ 960              	.LASF20:
+ 961 0141 636F6C6F 		.ascii	"color\000"
+ 961      7200
+ARM GAS  C:\Users\sur\AppData\Local\Temp\cc6i8Bsd.s 			page 20
+
+
+ 962              	.LASF22:
+ 963 0147 6D61696E 		.ascii	"main\000"
+ 963      00
+ 964              	.LASF8:
+ 965 014c 756E7369 		.ascii	"unsigned int\000"
+ 965      676E6564 
+ 965      20696E74 
+ 965      00
+ 966              	.LASF7:
+ 967 0159 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 967      206C6F6E 
+ 967      6720756E 
+ 967      7369676E 
+ 967      65642069 
+ 968              	.LASF15:
+ 969 0170 73697A65 		.ascii	"sizetype\000"
+ 969      74797065 
+ 969      00
+ 970              	.LASF6:
+ 971 0179 6C6F6E67 		.ascii	"long long int\000"
+ 971      206C6F6E 
+ 971      6720696E 
+ 971      7400
+ 972              	.LASF24:
+ 973 0187 6D61696E 		.ascii	"main.c\000"
+ 973      2E6300
+ 974              	.LASF13:
+ 975 018e 63686172 		.ascii	"char\000"
+ 975      00
+ 976              	.LASF2:
+ 977 0193 73686F72 		.ascii	"short int\000"
+ 977      7420696E 
+ 977      7400
+ 978              	.LASF4:
+ 979 019d 6C6F6E67 		.ascii	"long int\000"
+ 979      20696E74 
+ 979      00
+ 980              	.LASF14:
+ 981 01a6 6C6F6E67 		.ascii	"long double\000"
+ 981      20646F75 
+ 981      626C6500 
+ 982              	.LASF0:
+ 983 01b2 7369676E 		.ascii	"signed char\000"
+ 983      65642063 
+ 983      68617200 
+ 984              	.LASF19:
+ 985 01be 6C656E67 		.ascii	"length\000"
+ 985      746800
+ 986              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

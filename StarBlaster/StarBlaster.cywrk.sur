@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CyXmlSerializer>
+<!--This file is machine generated and read. It is not intended to be edited by hand.-->
+<!--Due to this, there is no schema for this file.-->
+<CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21 type_name="CyDesigner.Common.ProjMgmt.Model.CyPrjMgmtWrkspcCustomData" version="4">
+<CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997 type_name="CyDesigner.Common.Base.CyCustomData" version="2">
+<userData>
+<dataGuid v="1b906a0f-a7b6-4e4d-a428-82f98b53cb35">
+<CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35 type_name="CyDesigner.Common.ProjMgmt.GUI.CyExplorerWindow+CyExplorerWindowState" version="3" SelectedTab="Source">
+<TreeKeys>
+<v>Source</v>
+<v>Components</v>
+<v>Output</v>
+</TreeKeys>
+<TreeStates>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="StarBlaster\StarBlaster\Source Files\main.c">
+<ExpandedNodeIds>
+<v>StarBlaster</v>
+<v>StarBlaster\StarBlaster</v>
+<v>StarBlaster\StarBlaster\TopDesign</v>
+<v>StarBlaster\StarBlaster\StarBlaster.cydwr</v>
+<v>StarBlaster\StarBlaster\StarBlaster.cydwr\Pins</v>
+<v>StarBlaster\StarBlaster\StarBlaster.cydwr\Analog</v>
+<v>StarBlaster\StarBlaster\StarBlaster.cydwr\Clocks</v>
+<v>StarBlaster\StarBlaster\StarBlaster.cydwr\Interrupts</v>
+<v>StarBlaster\StarBlaster\StarBlaster.cydwr\System</v>
+<v>StarBlaster\StarBlaster\StarBlaster.cydwr\Directives</v>
+<v>StarBlaster\StarBlaster\StarBlaster.cydwr\Flash Security</v>
+<v>StarBlaster\StarBlaster\Header Files</v>
+<v>StarBlaster\StarBlaster\Header Files\cyapicallbacks.h</v>
+<v>StarBlaster\StarBlaster\Source Files</v>
+<v>StarBlaster\StarBlaster\Source Files\main.c</v>
+<v>StarBlaster\StarBlaster\Generated_Source</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>StarBlaster\StarBlaster\Source Files</v>
+<v>StarBlaster\StarBlaster\Source Files\main.c</v>
+<v>StarBlaster\StarBlaster\Generated_Source</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\A</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\B</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\Backlight</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\C</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\cy_boot</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\cy_lfclk</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\D</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\Em_EEPROM_Dynamic</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\GLCD</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\GLCD_MOSI</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\GLCD_Reset</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\GLCD_SCLK</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\GLCD_SPIM_UDB</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\GLCD_SPIM_UDB_IntClock</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\GLCD_SS</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\Joy_Center</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\LED_Blue</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\LED_Green</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\LED_Red</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\cycodeshareexport.ld</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\cycodeshareimport.ld</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\cycodeshareimport.scat</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\cydevice_trm.h</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\cydevicegnu_trm.inc</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\cydeviceiar_trm.inc</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\cydevicerv_trm.inc</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\cydisabledsheets.h</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\cyfitter.h</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\cyfitter_cfg.c</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\cyfitter_cfg.h</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\cyfittergnu.inc</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\cyfitteriar.inc</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\cyfitterrv.inc</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\cymetadata.c</v>
+<v>StarBlaster\StarBlaster\Generated_Source\PSoC4\project.h</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="StarBlaster\StarBlaster">
+<ExpandedNodeIds>
+<v>StarBlaster</v>
+<v>StarBlaster\StarBlaster</v>
+<v>StarBlaster\StarBlaster\SF_ColorShield_v0_3</v>
+<v>StarBlaster\StarBlaster\SF_ColorShield_v0_3\API</v>
+<v>StarBlaster\StarBlaster\SF_ColorShield_v0_3\API\GLCD.c</v>
+<v>StarBlaster\StarBlaster\SF_ColorShield_v0_3\API\GLCD.h</v>
+<v>StarBlaster\StarBlaster\SF_ColorShield_v0_3\API\GLCD_Font.c</v>
+<v>StarBlaster\StarBlaster\SF_ColorShield_v0_3\PSoC4</v>
+<v>StarBlaster\StarBlaster\SF_ColorShield_v0_3\PSoC4\SF_ColorShield_v0_3.cysch</v>
+<v>StarBlaster\StarBlaster\SF_ColorShield_v0_3\PSoC5</v>
+<v>StarBlaster\StarBlaster\SF_ColorShield_v0_3\PSoC5\SF_ColorShield_v0_3.cysch</v>
+<v>StarBlaster\StarBlaster\SF_ColorShield_v0_3\ColorLcdShield.pdf</v>
+<v>StarBlaster\StarBlaster\SF_ColorShield_v0_3\SF_ColorShield_v0_3.cysym</v>
+<v>StarBlaster\StarBlaster\TopDesign</v>
+<v>StarBlaster\StarBlaster\TopDesign\TopDesign.cysch</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>StarBlaster</v>
+<v>StarBlaster\StarBlaster</v>
+<v>StarBlaster\StarBlaster\SF_ColorShield_v0_3</v>
+<v>StarBlaster\StarBlaster\SF_ColorShield_v0_3\API</v>
+<v>StarBlaster\StarBlaster\SF_ColorShield_v0_3\API\GLCD.c</v>
+<v>StarBlaster\StarBlaster\SF_ColorShield_v0_3\API\GLCD.h</v>
+<v>StarBlaster\StarBlaster\SF_ColorShield_v0_3\API\GLCD_Font.c</v>
+<v>StarBlaster\StarBlaster\SF_ColorShield_v0_3\PSoC4</v>
+<v>StarBlaster\StarBlaster\SF_ColorShield_v0_3\PSoC4\SF_ColorShield_v0_3.cysch</v>
+<v>StarBlaster\StarBlaster\SF_ColorShield_v0_3\PSoC5</v>
+<v>StarBlaster\StarBlaster\SF_ColorShield_v0_3\PSoC5\SF_ColorShield_v0_3.cysch</v>
+<v>StarBlaster\StarBlaster\SF_ColorShield_v0_3\ColorLcdShield.pdf</v>
+<v>StarBlaster\StarBlaster\SF_ColorShield_v0_3\SF_ColorShield_v0_3.cysym</v>
+<v>StarBlaster\StarBlaster\TopDesign</v>
+<v>StarBlaster\StarBlaster\TopDesign\TopDesign.cysch</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>StarBlaster</v>
+<v>StarBlaster\StarBlaster</v>
+<v>StarBlaster\StarBlaster\CortexM0</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\A.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\A_PM.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\B.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\B_PM.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\Backlight.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\Backlight_PM.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\C.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\C_PM.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\Cm0Start.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLFClk.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\D.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\D_PM.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_Font.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_MOSI.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_Reset.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SCLK.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB_INT.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB_IntClock.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB_PM.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SS.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\Joy_Center.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\Joy_Center_PM.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\LED_Blue.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\LED_Blue_PM.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\LED_Green.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\LED_Green_PM.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\LED_Red.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\LED_Red_PM.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\main.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\StarBlaster.elf</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\StarBlaster.hex</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\StarBlaster.map</v>
+<v>StarBlaster\StarBlaster\StarBlaster.gpdsc</v>
+<v>StarBlaster\StarBlaster\StarBlaster.rpt</v>
+<v>StarBlaster\StarBlaster\StarBlaster_timing.html</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>StarBlaster</v>
+<v>StarBlaster\StarBlaster</v>
+<v>StarBlaster\StarBlaster\CortexM0</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\A.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\A_PM.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\B.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\B_PM.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\Backlight.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\Backlight_PM.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\C.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\C_PM.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\Cm0Start.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\cy_em_eeprom.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\CyBootAsmGnu.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\cyfitter_cfg.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\CyFlash.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLFClk.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\CyLib.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\cymetadata.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\cyPm.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\cyutils.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\D.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\D_PM.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_Font.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_MOSI.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_Reset.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SCLK.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB_INT.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB_IntClock.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SPIM_UDB_PM.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\GLCD_SS.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\Joy_Center.lst</v>
+<v>StarBlaster\StarBlaster\CortexM0\ARM_GCC_541\Debug\Listing Files\Joy_Center_PM.lst</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStates>
+<TreeKeysV2>
+<v>Datasheet</v>
+</TreeKeysV2>
+<TreeStatesV2>
+<CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237 type_name="CyDesigner.Common.Base.Controls.CyTreeViewState" version="1" SelectedNodeId="">
+<ExpandedNodeIds>
+<v>StarBlaster</v>
+<v>StarBlaster\StarBlaster</v>
+<v>StarBlaster\StarBlaster\PSoC 4 Architecture TRM</v>
+<v>StarBlaster\StarBlaster\PSoC 4200 Family Datasheet</v>
+<v>StarBlaster\StarBlaster\System Reference Guides</v>
+<v>StarBlaster\StarBlaster\System Reference Guides\cy_boot_v5_70</v>
+<v>StarBlaster\StarBlaster\System Reference Guides\cy_lfclk_v1_20</v>
+<v>StarBlaster\StarBlaster\cy_pins_v2_20</v>
+<v>StarBlaster\StarBlaster\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>StarBlaster\StarBlaster\ColorLcdShield.pdf</v>
+</ExpandedNodeIds>
+<VisibleNodeIds>
+<v>StarBlaster</v>
+<v>StarBlaster\StarBlaster</v>
+<v>StarBlaster\StarBlaster\PSoC 4 Architecture TRM</v>
+<v>StarBlaster\StarBlaster\PSoC 4200 Family Datasheet</v>
+<v>StarBlaster\StarBlaster\System Reference Guides</v>
+<v>StarBlaster\StarBlaster\System Reference Guides\cy_boot_v5_70</v>
+<v>StarBlaster\StarBlaster\System Reference Guides\cy_lfclk_v1_20</v>
+<v>StarBlaster\StarBlaster\cy_pins_v2_20</v>
+<v>StarBlaster\StarBlaster\cy_pins_v2_20\cy_pins_v2_20.pdf</v>
+<v>StarBlaster\StarBlaster\ColorLcdShield.pdf</v>
+</VisibleNodeIds>
+</CyGuid_2a325b3b-c96a-4e9f-b7a0-2c44ecb5f237>
+</TreeStatesV2>
+</CyGuid_1b906a0f-a7b6-4e4d-a428-82f98b53cb35>
+</dataGuid>
+</userData>
+</CyGuid_fdba8dfd-b15b-4469-9bbb-9e40c3e70997>
+<Unloaded />
+<OpenDocs>
+<name v=".\StarBlaster.cydsn\TopDesign\TopDesign.cysch" />
+<name v=".\StarBlaster.cydsn\StarBlaster.cydwr" />
+<name v=".\StarBlaster.cydsn\main.c" />
+</OpenDocs>
+<OpenDocsLayout><![CDATA[<?xml version="1.0"?><!--
+
+  Actipro Docking/MDI for WinForms
+  Copyright (c) 2001-2016 Actipro Software LLC.  All rights reserved.
+  http://www.actiprosoftware.com
+
+--><DocumentLayout Version="1.0"><LayoutData><TabbedMdiRootContainer Orientation="Horizontal"><TabbedMdiContainer Size="1042, 543" SelectedTabbedMdiWindow="c3a53b39-381a-46d7-a9e3-9e6bf96f5e7f"><ToolWindow Key="Start Page:bd4649ab-da6b-4d04-a663-c722b8bf99db:Start Page" Guid="58b26e4b-36ee-49e7-a4fe-77568af7e972" /><DocumentWindow Key="C:\Users\sur\Documents\PSoC Creator\StarBlaster\StarBlaster.cydsn\TopDesign\TopDesign.cysch" Guid="ea6e35f3-8652-489d-beaf-958b1aae8570" /><DocumentWindow Key="C:\Users\sur\Documents\PSoC Creator\StarBlaster\StarBlaster.cydsn\StarBlaster.cydwr" Guid="c20a2211-fb28-41b1-aab2-70130eed13a1" /><DocumentWindow Key="C:\Users\sur\Documents\PSoC Creator\StarBlaster\StarBlaster.cydsn\main.c" Guid="c3a53b39-381a-46d7-a9e3-9e6bf96f5e7f" /></TabbedMdiContainer></TabbedMdiRootContainer><FloatingContainers /></LayoutData></DocumentLayout>]]></OpenDocsLayout>
+<config v="" />
+<AutoUpdate v="true" />
+</CyGuid_843a90a4-0c4b-4e44-991d-05e7fb117a21>
+</CyXmlSerializer>

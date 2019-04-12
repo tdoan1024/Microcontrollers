@@ -1,0 +1,8 @@
+C:\Users\sur\Desktop\SPU doc\GLCD_Test1.cydsn\GLCD_Test1.cyprj|9d41f060-c433-4dc1-9d95-74a49d75cd6a
+C:\Users\sur\Desktop\SPU doc\GLCD_Test1.cydsn\Shield_GLCD_Lib.cylib\Shield_GLCD_Lib.cyprj|5ceeb5cd-ada6-44be-80ea-3ca0fe244100
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|e1640de5-d578-4e7d-a0af-4f89481ef800
+C:\Users\sur\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|83cf6d08-f51f-4673-a5e3-7cfa50310122
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|fe488e4c-0d8c-4ccd-89d0-88bab4cf8874
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|7a1a0693-b4e7-4afa-90d7-2375635e057d
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|6396f7e1-3f50-46bc-b3de-e33c65368f15
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyReferenceLibrary\CyReferenceLibrary.cylib\CyReferenceLibrary.cyprj|43ad581a-62d4-4a16-9aff-5ea617f9d8d8

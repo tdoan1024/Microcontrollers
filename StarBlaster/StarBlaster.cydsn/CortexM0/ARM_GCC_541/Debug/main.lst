@@ -1,0 +1,3058 @@
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 1
+
+
+   1              		.syntax unified
+   2              		.cpu cortex-m0
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 1
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.thumb
+  14              		.syntax unified
+  15              		.file	"main.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.crosshair,"ax",%progbits
+  20              		.align	2
+  21              		.global	crosshair
+  22              		.code	16
+  23              		.thumb_func
+  24              		.type	crosshair, %function
+  25              	crosshair:
+  26              	.LFB32:
+  27              		.file 1 "main.c"
+   1:main.c        **** /* ========================================
+   2:main.c        ****  *
+   3:main.c        ****  * Copyright YOUR COMPANY, THE YEAR
+   4:main.c        ****  * All Rights Reserved
+   5:main.c        ****  * UNPUBLISHED, LICENSED SOFTWARE.
+   6:main.c        ****  *
+   7:main.c        ****  * CONFIDENTIAL AND PROPRIETARY INFORMATION
+   8:main.c        ****  * WHICH IS THE PROPERTY OF your company.
+   9:main.c        ****  *
+  10:main.c        ****  * ========================================
+  11:main.c        **** */
+  12:main.c        **** #include <project.h>
+  13:main.c        **** #include <stdlib.h>
+  14:main.c        **** 
+  15:main.c        **** //Make a struct to store coordinates of a star
+  16:main.c        **** struct Star {
+  17:main.c        ****     int16 x_Coor;
+  18:main.c        ****     int16 y_Coor;
+  19:main.c        **** };
+  20:main.c        **** 
+  21:main.c        **** //Function to draw the crosshair, takes 4 integers as its parameters:
+  22:main.c        **** //x and y are the coordinates of the crosshair's center, radius of the circle and the color of it.
+  23:main.c        **** void crosshair(int x, int y, int radius, int color) {
+  28              		.loc 1 23 0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              	.LVL0:
+  33 0000 70B5     		push	{r4, r5, r6, lr}
+  34              		.cfi_def_cfa_offset 16
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 2
+
+
+  35              		.cfi_offset 4, -16
+  36              		.cfi_offset 5, -12
+  37              		.cfi_offset 6, -8
+  38              		.cfi_offset 14, -4
+  39 0002 82B0     		sub	sp, sp, #8
+  40              		.cfi_def_cfa_offset 24
+  41 0004 0500     		movs	r5, r0
+  42 0006 0C00     		movs	r4, r1
+  43 0008 1E00     		movs	r6, r3
+  24:main.c        ****     GLCD_DrawCircle(x,y,radius,color);
+  44              		.loc 1 24 0
+  45 000a FFF7FEFF 		bl	GLCD_DrawCircle
+  46              	.LVL1:
+  25:main.c        ****     GLCD_DrawLine(x-10,y,x+10,y,color);
+  47              		.loc 1 25 0
+  48 000e 2800     		movs	r0, r5
+  49 0010 0A38     		subs	r0, r0, #10
+  50 0012 2A00     		movs	r2, r5
+  51 0014 0A32     		adds	r2, r2, #10
+  52 0016 0096     		str	r6, [sp]
+  53 0018 2300     		movs	r3, r4
+  54 001a 2100     		movs	r1, r4
+  55 001c FFF7FEFF 		bl	GLCD_DrawLine
+  56              	.LVL2:
+  26:main.c        ****     GLCD_DrawLine(x,y-10,x,y+10,color);
+  57              		.loc 1 26 0
+  58 0020 2100     		movs	r1, r4
+  59 0022 0A39     		subs	r1, r1, #10
+  60 0024 2300     		movs	r3, r4
+  61 0026 0A33     		adds	r3, r3, #10
+  62 0028 0096     		str	r6, [sp]
+  63 002a 2A00     		movs	r2, r5
+  64 002c 2800     		movs	r0, r5
+  65 002e FFF7FEFF 		bl	GLCD_DrawLine
+  66              	.LVL3:
+  27:main.c        **** }
+  67              		.loc 1 27 0
+  68 0032 02B0     		add	sp, sp, #8
+  69              		@ sp needed
+  70              	.LVL4:
+  71              	.LVL5:
+  72              	.LVL6:
+  73 0034 70BD     		pop	{r4, r5, r6, pc}
+  74              		.cfi_endproc
+  75              	.LFE32:
+  76              		.size	crosshair, .-crosshair
+  77 0036 C046     		.section	.text.fire1,"ax",%progbits
+  78              		.align	2
+  79              		.global	fire1
+  80              		.code	16
+  81              		.thumb_func
+  82              		.type	fire1, %function
+  83              	fire1:
+  84              	.LFB33:
+  28:main.c        **** void fire1(int x,int y) {
+  85              		.loc 1 28 0
+  86              		.cfi_startproc
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 3
+
+
+  87              		@ args = 0, pretend = 0, frame = 0
+  88              		@ frame_needed = 0, uses_anonymous_args = 0
+  89              	.LVL7:
+  90 0000 70B5     		push	{r4, r5, r6, lr}
+  91              		.cfi_def_cfa_offset 16
+  92              		.cfi_offset 4, -16
+  93              		.cfi_offset 5, -12
+  94              		.cfi_offset 6, -8
+  95              		.cfi_offset 14, -4
+  96 0002 0500     		movs	r5, r0
+  97 0004 0E00     		movs	r6, r1
+  98              	.LVL8:
+  99              	.LBB2:
+  29:main.c        ****     for (int i=0;i<25;i++) {
+ 100              		.loc 1 29 0
+ 101 0006 0024     		movs	r4, #0
+ 102 0008 06E0     		b	.L3
+ 103              	.LVL9:
+ 104              	.L4:
+  30:main.c        ****         GLCD_DrawCircle(x,y,i,GLCD_PINK);
+ 105              		.loc 1 30 0 discriminator 3
+ 106 000a 0D4B     		ldr	r3, .L7
+ 107 000c 2200     		movs	r2, r4
+ 108 000e 3100     		movs	r1, r6
+ 109 0010 2800     		movs	r0, r5
+ 110 0012 FFF7FEFF 		bl	GLCD_DrawCircle
+ 111              	.LVL10:
+  29:main.c        ****     for (int i=0;i<25;i++) {
+ 112              		.loc 1 29 0 discriminator 3
+ 113 0016 0134     		adds	r4, r4, #1
+ 114              	.LVL11:
+ 115              	.L3:
+  29:main.c        ****     for (int i=0;i<25;i++) {
+ 116              		.loc 1 29 0 is_stmt 0 discriminator 1
+ 117 0018 182C     		cmp	r4, #24
+ 118 001a F6DD     		ble	.L4
+ 119 001c 0024     		movs	r4, #0
+ 120              	.LVL12:
+ 121 001e 0CE0     		b	.L5
+ 122              	.LVL13:
+ 123              	.L6:
+ 124              	.LBE2:
+ 125              	.LBB3:
+  31:main.c        ****     }
+  32:main.c        ****     for (int i=0;i<25;i++) {
+  33:main.c        ****         GLCD_DrawCircle(x,y,i,GLCD_SKYBLUE);
+ 126              		.loc 1 33 0 is_stmt 1 discriminator 3
+ 127 0020 084B     		ldr	r3, .L7+4
+ 128 0022 2200     		movs	r2, r4
+ 129 0024 3100     		movs	r1, r6
+ 130 0026 2800     		movs	r0, r5
+ 131 0028 FFF7FEFF 		bl	GLCD_DrawCircle
+ 132              	.LVL14:
+  34:main.c        ****         GLCD_DrawCircle(x,y,i,GLCD_BLACK);
+ 133              		.loc 1 34 0 discriminator 3
+ 134 002c 0023     		movs	r3, #0
+ 135 002e 2200     		movs	r2, r4
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 4
+
+
+ 136 0030 3100     		movs	r1, r6
+ 137 0032 2800     		movs	r0, r5
+ 138 0034 FFF7FEFF 		bl	GLCD_DrawCircle
+ 139              	.LVL15:
+  32:main.c        ****         GLCD_DrawCircle(x,y,i,GLCD_SKYBLUE);
+ 140              		.loc 1 32 0 discriminator 3
+ 141 0038 0134     		adds	r4, r4, #1
+ 142              	.LVL16:
+ 143              	.L5:
+  32:main.c        ****         GLCD_DrawCircle(x,y,i,GLCD_SKYBLUE);
+ 144              		.loc 1 32 0 is_stmt 0 discriminator 1
+ 145 003a 182C     		cmp	r4, #24
+ 146 003c F0DD     		ble	.L6
+ 147              	.LBE3:
+  35:main.c        ****     }
+  36:main.c        **** }
+ 148              		.loc 1 36 0 is_stmt 1
+ 149              		@ sp needed
+ 150              	.LVL17:
+ 151              	.LVL18:
+ 152              	.LVL19:
+ 153 003e 70BD     		pop	{r4, r5, r6, pc}
+ 154              	.L8:
+ 155              		.align	2
+ 156              	.L7:
+ 157 0040 6A0F0000 		.word	3946
+ 158 0044 CE080000 		.word	2254
+ 159              		.cfi_endproc
+ 160              	.LFE33:
+ 161              		.size	fire1, .-fire1
+ 162              		.section	.text.fire2,"ax",%progbits
+ 163              		.align	2
+ 164              		.global	fire2
+ 165              		.code	16
+ 166              		.thumb_func
+ 167              		.type	fire2, %function
+ 168              	fire2:
+ 169              	.LFB34:
+  37:main.c        **** void fire2(int x, int y) {
+ 170              		.loc 1 37 0
+ 171              		.cfi_startproc
+ 172              		@ args = 0, pretend = 0, frame = 0
+ 173              		@ frame_needed = 0, uses_anonymous_args = 0
+ 174              	.LVL20:
+ 175 0000 70B5     		push	{r4, r5, r6, lr}
+ 176              		.cfi_def_cfa_offset 16
+ 177              		.cfi_offset 4, -16
+ 178              		.cfi_offset 5, -12
+ 179              		.cfi_offset 6, -8
+ 180              		.cfi_offset 14, -4
+ 181 0002 0500     		movs	r5, r0
+ 182 0004 0E00     		movs	r6, r1
+ 183              	.LVL21:
+ 184              	.LBB4:
+  38:main.c        ****     for (int i=0;i<45;i++) {
+ 185              		.loc 1 38 0
+ 186 0006 0024     		movs	r4, #0
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 5
+
+
+ 187 0008 06E0     		b	.L10
+ 188              	.LVL22:
+ 189              	.L11:
+  39:main.c        ****         GLCD_DrawCircle(x,y,i,GLCD_WHITE);
+ 190              		.loc 1 39 0 discriminator 3
+ 191 000a 0A4B     		ldr	r3, .L14
+ 192 000c 2200     		movs	r2, r4
+ 193 000e 3100     		movs	r1, r6
+ 194 0010 2800     		movs	r0, r5
+ 195 0012 FFF7FEFF 		bl	GLCD_DrawCircle
+ 196              	.LVL23:
+  38:main.c        ****     for (int i=0;i<45;i++) {
+ 197              		.loc 1 38 0 discriminator 3
+ 198 0016 0134     		adds	r4, r4, #1
+ 199              	.LVL24:
+ 200              	.L10:
+  38:main.c        ****     for (int i=0;i<45;i++) {
+ 201              		.loc 1 38 0 is_stmt 0 discriminator 1
+ 202 0018 2C2C     		cmp	r4, #44
+ 203 001a F6DD     		ble	.L11
+ 204 001c 0024     		movs	r4, #0
+ 205              	.LVL25:
+ 206 001e 06E0     		b	.L12
+ 207              	.LVL26:
+ 208              	.L13:
+ 209              	.LBE4:
+ 210              	.LBB5:
+  40:main.c        ****     }
+  41:main.c        ****     for (int i=0;i<45;i++) {
+  42:main.c        ****         GLCD_DrawCircle(x,y,i,GLCD_BLACK);
+ 211              		.loc 1 42 0 is_stmt 1 discriminator 3
+ 212 0020 0023     		movs	r3, #0
+ 213 0022 2200     		movs	r2, r4
+ 214 0024 3100     		movs	r1, r6
+ 215 0026 2800     		movs	r0, r5
+ 216 0028 FFF7FEFF 		bl	GLCD_DrawCircle
+ 217              	.LVL27:
+  41:main.c        ****         GLCD_DrawCircle(x,y,i,GLCD_BLACK);
+ 218              		.loc 1 41 0 discriminator 3
+ 219 002c 0134     		adds	r4, r4, #1
+ 220              	.LVL28:
+ 221              	.L12:
+  41:main.c        ****         GLCD_DrawCircle(x,y,i,GLCD_BLACK);
+ 222              		.loc 1 41 0 is_stmt 0 discriminator 1
+ 223 002e 2C2C     		cmp	r4, #44
+ 224 0030 F6DD     		ble	.L13
+ 225              	.LBE5:
+  43:main.c        ****     }
+  44:main.c        **** }
+ 226              		.loc 1 44 0 is_stmt 1
+ 227              		@ sp needed
+ 228              	.LVL29:
+ 229              	.LVL30:
+ 230              	.LVL31:
+ 231 0032 70BD     		pop	{r4, r5, r6, pc}
+ 232              	.L15:
+ 233              		.align	2
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 6
+
+
+ 234              	.L14:
+ 235 0034 FF0F0000 		.word	4095
+ 236              		.cfi_endproc
+ 237              	.LFE34:
+ 238              		.size	fire2, .-fire2
+ 239              		.global	__aeabi_idivmod
+ 240              		.section	.text.main,"ax",%progbits
+ 241              		.align	2
+ 242              		.global	main
+ 243              		.code	16
+ 244              		.thumb_func
+ 245              		.type	main, %function
+ 246              	main:
+ 247              	.LFB35:
+  45:main.c        **** int main(void)
+  46:main.c        **** {
+ 248              		.loc 1 46 0
+ 249              		.cfi_startproc
+ 250              		@ args = 0, pretend = 0, frame = 616
+ 251              		@ frame_needed = 0, uses_anonymous_args = 0
+ 252 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 253              		.cfi_def_cfa_offset 20
+ 254              		.cfi_offset 4, -20
+ 255              		.cfi_offset 5, -16
+ 256              		.cfi_offset 6, -12
+ 257              		.cfi_offset 7, -8
+ 258              		.cfi_offset 14, -4
+ 259 0002 804C     		ldr	r4, .L33
+ 260 0004 A544     		add	sp, sp, r4
+ 261              		.cfi_def_cfa_offset 640
+  47:main.c        ****     CyGlobalIntEnable; /* Enable global interrupts. */
+ 262              		.loc 1 47 0
+ 263              		.syntax divided
+ 264              	@ 47 "main.c" 1
+ 265 0006 62B6     		CPSIE   i
+ 266              	@ 0 "" 2
+ 267              	.LVL32:
+  48:main.c        ****     
+  49:main.c        ****     int16 i;
+  50:main.c        ****     int16 x_Center = 62; //x-coordinate of center point
+  51:main.c        ****     int16 y_Center = 62; //y-coordinate of center point
+  52:main.c        ****     int16 xCur=x_Center,yCur=y_Center; //current coordinates of the crosshair
+  53:main.c        ****     int16 count = 100;
+  54:main.c        **** 
+  55:main.c        ****     
+  56:main.c        ****     struct Star stars[150]; //Array of 150 stars
+  57:main.c        ****     
+  58:main.c        ****     //Randomly put stars into the2 array
+  59:main.c        ****     for (i=0;i<150;i++) {
+ 268              		.loc 1 59 0
+ 269              		.thumb
+ 270              		.syntax unified
+ 271 0008 0024     		movs	r4, #0
+ 272 000a 12E0     		b	.L17
+ 273              	.LVL33:
+ 274              	.L18:
+  60:main.c        ****         stars[i].x_Coor = rand() % 132;
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 7
+
+
+ 275              		.loc 1 60 0 discriminator 3
+ 276 000c FFF7FEFF 		bl	rand
+ 277              	.LVL34:
+ 278 0010 8421     		movs	r1, #132
+ 279 0012 FFF7FEFF 		bl	__aeabi_idivmod
+ 280              	.LVL35:
+ 281 0016 A500     		lsls	r5, r4, #2
+ 282 0018 04AB     		add	r3, sp, #16
+ 283 001a E952     		strh	r1, [r5, r3]
+  61:main.c        ****         stars[i].y_Coor = rand() % 132;
+ 284              		.loc 1 61 0 discriminator 3
+ 285 001c FFF7FEFF 		bl	rand
+ 286              	.LVL36:
+ 287 0020 8421     		movs	r1, #132
+ 288 0022 FFF7FEFF 		bl	__aeabi_idivmod
+ 289              	.LVL37:
+ 290 0026 04AB     		add	r3, sp, #16
+ 291 0028 9C46     		mov	ip, r3
+ 292 002a 6544     		add	r5, r5, ip
+ 293 002c 6980     		strh	r1, [r5, #2]
+  59:main.c        ****         stars[i].x_Coor = rand() % 132;
+ 294              		.loc 1 59 0 discriminator 3
+ 295 002e 0134     		adds	r4, r4, #1
+ 296              	.LVL38:
+ 297 0030 24B2     		sxth	r4, r4
+ 298              	.LVL39:
+ 299              	.L17:
+  59:main.c        ****         stars[i].x_Coor = rand() % 132;
+ 300              		.loc 1 59 0 is_stmt 0 discriminator 1
+ 301 0032 952C     		cmp	r4, #149
+ 302 0034 EADD     		ble	.L18
+  62:main.c        ****     }
+  63:main.c        ****     
+  64:main.c        ****     //Initialize the LCD
+  65:main.c        ****     GLCD_Start();  
+ 303              		.loc 1 65 0 is_stmt 1
+ 304 0036 FFF7FEFF 		bl	GLCD_Start
+ 305              	.LVL40:
+  66:main.c        ****     Backlight_Write(1);       // turn on backlight
+ 306              		.loc 1 66 0
+ 307 003a 0120     		movs	r0, #1
+ 308 003c FFF7FEFF 		bl	Backlight_Write
+ 309              	.LVL41:
+  67:main.c        ****     GLCD_Clear(GLCD_BLACK);   //turn background to black
+ 310              		.loc 1 67 0
+ 311 0040 0020     		movs	r0, #0
+ 312 0042 FFF7FEFF 		bl	GLCD_Clear
+ 313              	.LVL42:
+  68:main.c        ****     LED_Red_Write(1); LED_Green_Write(1); LED_Blue_Write(0);  // make sure all LEDs are off
+ 314              		.loc 1 68 0
+ 315 0046 0120     		movs	r0, #1
+ 316 0048 FFF7FEFF 		bl	LED_Red_Write
+ 317              	.LVL43:
+ 318 004c 0120     		movs	r0, #1
+ 319 004e FFF7FEFF 		bl	LED_Green_Write
+ 320              	.LVL44:
+ 321 0052 0020     		movs	r0, #0
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 8
+
+
+ 322 0054 FFF7FEFF 		bl	LED_Blue_Write
+ 323              	.LVL45:
+  53:main.c        **** 
+ 324              		.loc 1 53 0
+ 325 0058 6427     		movs	r7, #100
+  52:main.c        ****     int16 count = 100;
+ 326              		.loc 1 52 0
+ 327 005a 3E24     		movs	r4, #62
+ 328              	.LVL46:
+ 329 005c 3E25     		movs	r5, #62
+ 330              	.LVL47:
+ 331              	.L19:
+ 332              	.LBB6:
+  69:main.c        ****     for(;;) {
+  70:main.c        ****         //Draw stars
+  71:main.c        ****         for (i=0;i<150;i++) {
+ 333              		.loc 1 71 0
+ 334 005e 0026     		movs	r6, #0
+ 335 0060 0CE0     		b	.L20
+ 336              	.LVL48:
+ 337              	.L21:
+  72:main.c        ****             GLCD_Pixel(stars[i].x_Coor, stars[i].y_Coor,GLCD_WHITE);
+ 338              		.loc 1 72 0 discriminator 3
+ 339 0062 B300     		lsls	r3, r6, #2
+ 340 0064 04AA     		add	r2, sp, #16
+ 341 0066 985E     		ldrsh	r0, [r3, r2]
+ 342 0068 04AA     		add	r2, sp, #16
+ 343 006a 9446     		mov	ip, r2
+ 344 006c 6344     		add	r3, r3, ip
+ 345 006e 0221     		movs	r1, #2
+ 346 0070 595E     		ldrsh	r1, [r3, r1]
+ 347 0072 654A     		ldr	r2, .L33+4
+ 348 0074 FFF7FEFF 		bl	GLCD_Pixel
+ 349              	.LVL49:
+  71:main.c        ****             GLCD_Pixel(stars[i].x_Coor, stars[i].y_Coor,GLCD_WHITE);
+ 350              		.loc 1 71 0 discriminator 3
+ 351 0078 0136     		adds	r6, r6, #1
+ 352              	.LVL50:
+ 353 007a 36B2     		sxth	r6, r6
+ 354              	.LVL51:
+ 355              	.L20:
+  71:main.c        ****             GLCD_Pixel(stars[i].x_Coor, stars[i].y_Coor,GLCD_WHITE);
+ 356              		.loc 1 71 0 is_stmt 0 discriminator 1
+ 357 007c 952E     		cmp	r6, #149
+ 358 007e F0DD     		ble	.L21
+  73:main.c        ****         }
+  74:main.c        ****         crosshair(xCur,yCur,8,GLCD_YELLOW);
+ 359              		.loc 1 74 0 is_stmt 1
+ 360 0080 0295     		str	r5, [sp, #8]
+ 361 0082 0394     		str	r4, [sp, #12]
+ 362 0084 FF23     		movs	r3, #255
+ 363 0086 1B01     		lsls	r3, r3, #4
+ 364 0088 0822     		movs	r2, #8
+ 365 008a 2100     		movs	r1, r4
+ 366 008c 2800     		movs	r0, r5
+ 367 008e FFF7FEFF 		bl	crosshair
+ 368              	.LVL52:
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 9
+
+
+  75:main.c        ****         
+  76:main.c        ****         //Make the starts twinking
+  77:main.c        ****         int16 randomS = rand() % 150;
+ 369              		.loc 1 77 0
+ 370 0092 FFF7FEFF 		bl	rand
+ 371              	.LVL53:
+ 372 0096 9621     		movs	r1, #150
+ 373 0098 FFF7FEFF 		bl	__aeabi_idivmod
+ 374              	.LVL54:
+ 375 009c 09B2     		sxth	r1, r1
+ 376              	.LVL55:
+  78:main.c        ****         GLCD_Pixel(stars[randomS].x_Coor, stars[randomS].y_Coor,GLCD_BLACK);
+ 377              		.loc 1 78 0
+ 378 009e 8900     		lsls	r1, r1, #2
+ 379              	.LVL56:
+ 380 00a0 04AB     		add	r3, sp, #16
+ 381 00a2 CE5E     		ldrsh	r6, [r1, r3]
+ 382              	.LVL57:
+ 383 00a4 04AB     		add	r3, sp, #16
+ 384 00a6 9C46     		mov	ip, r3
+ 385 00a8 6144     		add	r1, r1, ip
+ 386 00aa 0222     		movs	r2, #2
+ 387 00ac 8B5E     		ldrsh	r3, [r1, r2]
+ 388 00ae 0022     		movs	r2, #0
+ 389 00b0 0193     		str	r3, [sp, #4]
+ 390 00b2 1900     		movs	r1, r3
+ 391 00b4 3000     		movs	r0, r6
+ 392 00b6 FFF7FEFF 		bl	GLCD_Pixel
+ 393              	.LVL58:
+  79:main.c        ****         CyDelay(50);
+ 394              		.loc 1 79 0
+ 395 00ba 3220     		movs	r0, #50
+ 396 00bc FFF7FEFF 		bl	CyDelay
+ 397              	.LVL59:
+  80:main.c        ****         GLCD_Pixel(stars[randomS].x_Coor, stars[randomS].y_Coor,GLCD_WHITE);
+ 398              		.loc 1 80 0
+ 399 00c0 514A     		ldr	r2, .L33+4
+ 400 00c2 0199     		ldr	r1, [sp, #4]
+ 401 00c4 3000     		movs	r0, r6
+ 402 00c6 FFF7FEFF 		bl	GLCD_Pixel
+ 403              	.LVL60:
+  81:main.c        **** 
+  82:main.c        ****         //Draw the crosshair
+  83:main.c        ****         if (D_Read()==0 && yCur>=15){
+ 404              		.loc 1 83 0
+ 405 00ca FFF7FEFF 		bl	D_Read
+ 406              	.LVL61:
+ 407 00ce 0028     		cmp	r0, #0
+ 408 00d0 12D1     		bne	.L22
+ 409              		.loc 1 83 0 is_stmt 0 discriminator 1
+ 410 00d2 0E2C     		cmp	r4, #14
+ 411 00d4 10DD     		ble	.L22
+  84:main.c        ****             crosshair(xCur,yCur,8,GLCD_BLACK);
+ 412              		.loc 1 84 0 is_stmt 1
+ 413 00d6 0023     		movs	r3, #0
+ 414 00d8 0822     		movs	r2, #8
+ 415 00da 039E     		ldr	r6, [sp, #12]
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 10
+
+
+ 416 00dc 3100     		movs	r1, r6
+ 417 00de 0298     		ldr	r0, [sp, #8]
+ 418 00e0 FFF7FEFF 		bl	crosshair
+ 419              	.LVL62:
+  85:main.c        ****             crosshair(xCur,yCur-4,8,GLCD_YELLOW);
+ 420              		.loc 1 85 0
+ 421 00e4 3100     		movs	r1, r6
+ 422 00e6 0439     		subs	r1, r1, #4
+ 423 00e8 FF23     		movs	r3, #255
+ 424 00ea 1B01     		lsls	r3, r3, #4
+ 425 00ec 0822     		movs	r2, #8
+ 426 00ee 0298     		ldr	r0, [sp, #8]
+ 427 00f0 FFF7FEFF 		bl	crosshair
+ 428              	.LVL63:
+  86:main.c        ****             yCur = yCur - 4;
+ 429              		.loc 1 86 0
+ 430 00f4 043C     		subs	r4, r4, #4
+ 431              	.LVL64:
+ 432 00f6 24B2     		sxth	r4, r4
+ 433              	.LVL65:
+ 434              	.L22:
+  87:main.c        ****         }
+  88:main.c        ****         if (A_Read()==0 && xCur>=15){
+ 435              		.loc 1 88 0
+ 436 00f8 FFF7FEFF 		bl	A_Read
+ 437              	.LVL66:
+ 438 00fc 0028     		cmp	r0, #0
+ 439 00fe 11D1     		bne	.L23
+ 440              		.loc 1 88 0 is_stmt 0 discriminator 1
+ 441 0100 0E2D     		cmp	r5, #14
+ 442 0102 0FDD     		ble	.L23
+  89:main.c        ****             crosshair(xCur-4,yCur,8,GLCD_YELLOW);
+ 443              		.loc 1 89 0 is_stmt 1
+ 444 0104 029E     		ldr	r6, [sp, #8]
+ 445 0106 301F     		subs	r0, r6, #4
+ 446 0108 FF23     		movs	r3, #255
+ 447 010a 1B01     		lsls	r3, r3, #4
+ 448 010c 0822     		movs	r2, #8
+ 449 010e 2100     		movs	r1, r4
+ 450 0110 FFF7FEFF 		bl	crosshair
+ 451              	.LVL67:
+  90:main.c        ****             crosshair(xCur,yCur,8,GLCD_BLACK);
+ 452              		.loc 1 90 0
+ 453 0114 0023     		movs	r3, #0
+ 454 0116 0822     		movs	r2, #8
+ 455 0118 2100     		movs	r1, r4
+ 456 011a 3000     		movs	r0, r6
+ 457 011c FFF7FEFF 		bl	crosshair
+ 458              	.LVL68:
+  91:main.c        ****             xCur=xCur-4;
+ 459              		.loc 1 91 0
+ 460 0120 043D     		subs	r5, r5, #4
+ 461              	.LVL69:
+ 462 0122 2DB2     		sxth	r5, r5
+ 463              	.LVL70:
+ 464              	.L23:
+  92:main.c        ****         }
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 11
+
+
+  93:main.c        ****         if (B_Read()==0 && yCur <=116){
+ 465              		.loc 1 93 0
+ 466 0124 FFF7FEFF 		bl	B_Read
+ 467              	.LVL71:
+ 468 0128 0028     		cmp	r0, #0
+ 469 012a 10D1     		bne	.L24
+ 470              		.loc 1 93 0 is_stmt 0 discriminator 1
+ 471 012c 742C     		cmp	r4, #116
+ 472 012e 0EDC     		bgt	.L24
+  94:main.c        ****             crosshair(xCur,yCur+4,8,GLCD_YELLOW);
+ 473              		.loc 1 94 0 is_stmt 1
+ 474 0130 211D     		adds	r1, r4, #4
+ 475 0132 FF23     		movs	r3, #255
+ 476 0134 1B01     		lsls	r3, r3, #4
+ 477 0136 0822     		movs	r2, #8
+ 478 0138 2800     		movs	r0, r5
+ 479 013a FFF7FEFF 		bl	crosshair
+ 480              	.LVL72:
+  95:main.c        ****             crosshair(xCur,yCur,8,GLCD_BLACK);
+ 481              		.loc 1 95 0
+ 482 013e 0023     		movs	r3, #0
+ 483 0140 0822     		movs	r2, #8
+ 484 0142 2100     		movs	r1, r4
+ 485 0144 2800     		movs	r0, r5
+ 486 0146 FFF7FEFF 		bl	crosshair
+ 487              	.LVL73:
+  96:main.c        ****             yCur=yCur+4;
+ 488              		.loc 1 96 0
+ 489 014a 0434     		adds	r4, r4, #4
+ 490              	.LVL74:
+ 491 014c 24B2     		sxth	r4, r4
+ 492              	.LVL75:
+ 493              	.L24:
+  97:main.c        ****         }
+  98:main.c        ****         if (C_Read()==0 && xCur <=116){
+ 494              		.loc 1 98 0
+ 495 014e FFF7FEFF 		bl	C_Read
+ 496              	.LVL76:
+ 497 0152 0028     		cmp	r0, #0
+ 498 0154 10D1     		bne	.L25
+ 499              		.loc 1 98 0 is_stmt 0 discriminator 1
+ 500 0156 742D     		cmp	r5, #116
+ 501 0158 0EDC     		bgt	.L25
+  99:main.c        ****             crosshair(xCur+4,yCur,8,GLCD_YELLOW);
+ 502              		.loc 1 99 0 is_stmt 1
+ 503 015a 281D     		adds	r0, r5, #4
+ 504 015c FF23     		movs	r3, #255
+ 505 015e 1B01     		lsls	r3, r3, #4
+ 506 0160 0822     		movs	r2, #8
+ 507 0162 2100     		movs	r1, r4
+ 508 0164 FFF7FEFF 		bl	crosshair
+ 509              	.LVL77:
+ 100:main.c        ****             crosshair(xCur,yCur,8,GLCD_BLACK);
+ 510              		.loc 1 100 0
+ 511 0168 0023     		movs	r3, #0
+ 512 016a 0822     		movs	r2, #8
+ 513 016c 2100     		movs	r1, r4
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 12
+
+
+ 514 016e 2800     		movs	r0, r5
+ 515 0170 FFF7FEFF 		bl	crosshair
+ 516              	.LVL78:
+ 101:main.c        ****             xCur=xCur+4;
+ 517              		.loc 1 101 0
+ 518 0174 0435     		adds	r5, r5, #4
+ 519              	.LVL79:
+ 520 0176 2DB2     		sxth	r5, r5
+ 521              	.LVL80:
+ 522              	.L25:
+ 102:main.c        ****         }
+ 103:main.c        ****                
+ 104:main.c        ****         if (count == 0) {
+ 523              		.loc 1 104 0
+ 524 0178 002F     		cmp	r7, #0
+ 525 017a 02D1     		bne	.L26
+ 105:main.c        ****             LED_Red_Write(0);
+ 526              		.loc 1 105 0
+ 527 017c 0020     		movs	r0, #0
+ 528 017e FFF7FEFF 		bl	LED_Red_Write
+ 529              	.LVL81:
+ 530              	.L26:
+ 106:main.c        ****         }
+ 107:main.c        ****         if ((LED_Red_Read() == 0)&& (Joy_Center_Read()==0))
+ 531              		.loc 1 107 0
+ 532 0182 FFF7FEFF 		bl	LED_Red_Read
+ 533              	.LVL82:
+ 534 0186 0028     		cmp	r0, #0
+ 535 0188 04D1     		bne	.L27
+ 536              		.loc 1 107 0 is_stmt 0 discriminator 1
+ 537 018a FFF7FEFF 		bl	Joy_Center_Read
+ 538              	.LVL83:
+ 539 018e 0028     		cmp	r0, #0
+ 540 0190 00D1     		bne	.LCB524
+ 541 0192 64E7     		b	.L19	@long jump
+ 542              	.LCB524:
+ 543              	.L27:
+ 108:main.c        ****             continue;
+ 109:main.c        ****         
+ 110:main.c        ****         if (count == 50) {       
+ 544              		.loc 1 110 0 is_stmt 1
+ 545 0194 322F     		cmp	r7, #50
+ 546 0196 05D1     		bne	.L29
+ 111:main.c        ****             LED_Red_Write(1);
+ 547              		.loc 1 111 0
+ 548 0198 0120     		movs	r0, #1
+ 549 019a FFF7FEFF 		bl	LED_Red_Write
+ 550              	.LVL84:
+ 112:main.c        ****             LED_Green_Write(0);
+ 551              		.loc 1 112 0
+ 552 019e 0020     		movs	r0, #0
+ 553 01a0 FFF7FEFF 		bl	LED_Green_Write
+ 554              	.LVL85:
+ 555              	.L29:
+ 113:main.c        ****         }
+ 114:main.c        ****         if ((count >=50) && (count <100) && (Joy_Center_Read()==0)){
+ 556              		.loc 1 114 0
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 13
+
+
+ 557 01a4 3B00     		movs	r3, r7
+ 558 01a6 323B     		subs	r3, r3, #50
+ 559 01a8 9BB2     		uxth	r3, r3
+ 560 01aa 312B     		cmp	r3, #49
+ 561 01ac 0ED8     		bhi	.L30
+ 562              		.loc 1 114 0 is_stmt 0 discriminator 1
+ 563 01ae FFF7FEFF 		bl	Joy_Center_Read
+ 564              	.LVL86:
+ 565 01b2 0028     		cmp	r0, #0
+ 566 01b4 0AD1     		bne	.L30
+ 115:main.c        ****             fire1(xCur,yCur);
+ 567              		.loc 1 115 0 is_stmt 1
+ 568 01b6 2100     		movs	r1, r4
+ 569 01b8 2800     		movs	r0, r5
+ 570 01ba FFF7FEFF 		bl	fire1
+ 571              	.LVL87:
+ 116:main.c        ****             LED_Green_Write(1);
+ 572              		.loc 1 116 0
+ 573 01be 0120     		movs	r0, #1
+ 574 01c0 FFF7FEFF 		bl	LED_Green_Write
+ 575              	.LVL88:
+ 117:main.c        ****             LED_Red_Write(0);
+ 576              		.loc 1 117 0
+ 577 01c4 0020     		movs	r0, #0
+ 578 01c6 FFF7FEFF 		bl	LED_Red_Write
+ 579              	.LVL89:
+ 118:main.c        ****             count = 0;
+ 580              		.loc 1 118 0
+ 581 01ca 0027     		movs	r7, #0
+ 582              	.LVL90:
+ 583              	.L30:
+ 119:main.c        ****         }
+ 120:main.c        ****         
+ 121:main.c        ****         if (count == 100) {      
+ 584              		.loc 1 121 0
+ 585 01cc 642F     		cmp	r7, #100
+ 586 01ce 05D1     		bne	.L31
+ 122:main.c        ****             LED_Green_Write(1);
+ 587              		.loc 1 122 0
+ 588 01d0 0120     		movs	r0, #1
+ 589 01d2 FFF7FEFF 		bl	LED_Green_Write
+ 590              	.LVL91:
+ 123:main.c        ****             LED_Blue_Write(0);
+ 591              		.loc 1 123 0
+ 592 01d6 0020     		movs	r0, #0
+ 593 01d8 FFF7FEFF 		bl	LED_Blue_Write
+ 594              	.LVL92:
+ 595              	.L31:
+ 124:main.c        ****         }
+ 125:main.c        ****         if ((count >=100) && (Joy_Center_Read()==0)) {
+ 596              		.loc 1 125 0
+ 597 01dc 632F     		cmp	r7, #99
+ 598 01de 0EDD     		ble	.L32
+ 599              		.loc 1 125 0 is_stmt 0 discriminator 1
+ 600 01e0 FFF7FEFF 		bl	Joy_Center_Read
+ 601              	.LVL93:
+ 602 01e4 0028     		cmp	r0, #0
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 14
+
+
+ 603 01e6 0AD1     		bne	.L32
+ 126:main.c        ****             fire2(xCur,yCur);
+ 604              		.loc 1 126 0 is_stmt 1
+ 605 01e8 2100     		movs	r1, r4
+ 606 01ea 2800     		movs	r0, r5
+ 607 01ec FFF7FEFF 		bl	fire2
+ 608              	.LVL94:
+ 127:main.c        ****             LED_Blue_Write(1);
+ 609              		.loc 1 127 0
+ 610 01f0 0120     		movs	r0, #1
+ 611 01f2 FFF7FEFF 		bl	LED_Blue_Write
+ 612              	.LVL95:
+ 128:main.c        ****             LED_Red_Write(0);
+ 613              		.loc 1 128 0
+ 614 01f6 0020     		movs	r0, #0
+ 615 01f8 FFF7FEFF 		bl	LED_Red_Write
+ 616              	.LVL96:
+ 129:main.c        ****             count = 0;
+ 617              		.loc 1 129 0
+ 618 01fc 0027     		movs	r7, #0
+ 619              	.LVL97:
+ 620              	.L32:
+ 130:main.c        ****         }
+ 131:main.c        ****         count++;
+ 621              		.loc 1 131 0
+ 622 01fe 7B1C     		adds	r3, r7, #1
+ 623 0200 1FB2     		sxth	r7, r3
+ 624              	.LVL98:
+ 625 0202 2CE7     		b	.L19
+ 626              	.L34:
+ 627              		.align	2
+ 628              	.L33:
+ 629 0204 94FDFFFF 		.word	-620
+ 630 0208 FF0F0000 		.word	4095
+ 631              	.LBE6:
+ 632              		.cfi_endproc
+ 633              	.LFE35:
+ 634              		.size	main, .-main
+ 635              		.comm	GLCD_FONT8x16,1552,4
+ 636              		.text
+ 637              	.Letext0:
+ 638              		.file 2 "Generated_Source\\PSoC4/cytypes.h"
+ 639              		.file 3 "Generated_Source\\PSoC4/GLCD.h"
+ 640              		.file 4 "c:\\program files (x86)\\cypress\\psoc creator\\4.2\\psoc creator\\import\\gnu\\arm\\5.4.
+ 641              		.file 5 "Generated_Source\\PSoC4/CyLib.h"
+ 642              		.file 6 "Generated_Source\\PSoC4/D.h"
+ 643              		.file 7 "Generated_Source\\PSoC4/A.h"
+ 644              		.file 8 "Generated_Source\\PSoC4/B.h"
+ 645              		.file 9 "Generated_Source\\PSoC4/C.h"
+ 646              		.file 10 "Generated_Source\\PSoC4/LED_Red.h"
+ 647              		.file 11 "Generated_Source\\PSoC4/Joy_Center.h"
+ 648              		.file 12 "Generated_Source\\PSoC4/LED_Green.h"
+ 649              		.file 13 "Generated_Source\\PSoC4/LED_Blue.h"
+ 650              		.file 14 "Generated_Source\\PSoC4/Backlight.h"
+ 651              		.section	.debug_info,"",%progbits
+ 652              	.Ldebug_info0:
+ 653 0000 25080000 		.4byte	0x825
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 15
+
+
+ 654 0004 0400     		.2byte	0x4
+ 655 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 656 000a 04       		.byte	0x4
+ 657 000b 01       		.uleb128 0x1
+ 658 000c 58000000 		.4byte	.LASF47
+ 659 0010 0C       		.byte	0xc
+ 660 0011 18020000 		.4byte	.LASF48
+ 661 0015 2D010000 		.4byte	.LASF49
+ 662 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 663 001d 00000000 		.4byte	0
+ 664 0021 00000000 		.4byte	.Ldebug_line0
+ 665 0025 02       		.uleb128 0x2
+ 666 0026 01       		.byte	0x1
+ 667 0027 06       		.byte	0x6
+ 668 0028 9E020000 		.4byte	.LASF0
+ 669 002c 02       		.uleb128 0x2
+ 670 002d 01       		.byte	0x1
+ 671 002e 08       		.byte	0x8
+ 672 002f 18010000 		.4byte	.LASF1
+ 673 0033 02       		.uleb128 0x2
+ 674 0034 02       		.byte	0x2
+ 675 0035 05       		.byte	0x5
+ 676 0036 41020000 		.4byte	.LASF2
+ 677 003a 02       		.uleb128 0x2
+ 678 003b 02       		.byte	0x2
+ 679 003c 07       		.byte	0x7
+ 680 003d 3F000000 		.4byte	.LASF3
+ 681 0041 02       		.uleb128 0x2
+ 682 0042 04       		.byte	0x4
+ 683 0043 05       		.byte	0x5
+ 684 0044 7D020000 		.4byte	.LASF4
+ 685 0048 02       		.uleb128 0x2
+ 686 0049 04       		.byte	0x4
+ 687 004a 07       		.byte	0x7
+ 688 004b 89010000 		.4byte	.LASF5
+ 689 004f 02       		.uleb128 0x2
+ 690 0050 08       		.byte	0x8
+ 691 0051 05       		.byte	0x5
+ 692 0052 01020000 		.4byte	.LASF6
+ 693 0056 02       		.uleb128 0x2
+ 694 0057 08       		.byte	0x8
+ 695 0058 07       		.byte	0x7
+ 696 0059 B7010000 		.4byte	.LASF7
+ 697 005d 03       		.uleb128 0x3
+ 698 005e 04       		.byte	0x4
+ 699 005f 05       		.byte	0x5
+ 700 0060 696E7400 		.ascii	"int\000"
+ 701 0064 02       		.uleb128 0x2
+ 702 0065 04       		.byte	0x4
+ 703 0066 07       		.byte	0x7
+ 704 0067 9B010000 		.4byte	.LASF8
+ 705 006b 04       		.uleb128 0x4
+ 706 006c 12010000 		.4byte	.LASF9
+ 707 0070 02       		.byte	0x2
+ 708 0071 E401     		.2byte	0x1e4
+ 709 0073 2C000000 		.4byte	0x2c
+ 710 0077 04       		.uleb128 0x4
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 16
+
+
+ 711 0078 07010000 		.4byte	.LASF10
+ 712 007c 02       		.byte	0x2
+ 713 007d E801     		.2byte	0x1e8
+ 714 007f 33000000 		.4byte	0x33
+ 715 0083 02       		.uleb128 0x2
+ 716 0084 04       		.byte	0x4
+ 717 0085 04       		.byte	0x4
+ 718 0086 E6000000 		.4byte	.LASF11
+ 719 008a 02       		.uleb128 0x2
+ 720 008b 08       		.byte	0x8
+ 721 008c 04       		.byte	0x4
+ 722 008d 26010000 		.4byte	.LASF12
+ 723 0091 02       		.uleb128 0x2
+ 724 0092 01       		.byte	0x1
+ 725 0093 08       		.byte	0x8
+ 726 0094 1F020000 		.4byte	.LASF13
+ 727 0098 02       		.uleb128 0x2
+ 728 0099 08       		.byte	0x8
+ 729 009a 04       		.byte	0x4
+ 730 009b 8B020000 		.4byte	.LASF14
+ 731 009f 02       		.uleb128 0x2
+ 732 00a0 04       		.byte	0x4
+ 733 00a1 07       		.byte	0x7
+ 734 00a2 0F020000 		.4byte	.LASF15
+ 735 00a6 05       		.uleb128 0x5
+ 736 00a7 0D010000 		.4byte	.LASF50
+ 737 00ab 04       		.byte	0x4
+ 738 00ac 01       		.byte	0x1
+ 739 00ad 10       		.byte	0x10
+ 740 00ae CB000000 		.4byte	0xcb
+ 741 00b2 06       		.uleb128 0x6
+ 742 00b3 F9000000 		.4byte	.LASF16
+ 743 00b7 01       		.byte	0x1
+ 744 00b8 11       		.byte	0x11
+ 745 00b9 77000000 		.4byte	0x77
+ 746 00bd 00       		.byte	0
+ 747 00be 06       		.uleb128 0x6
+ 748 00bf EA010000 		.4byte	.LASF17
+ 749 00c3 01       		.byte	0x1
+ 750 00c4 12       		.byte	0x12
+ 751 00c5 77000000 		.4byte	0x77
+ 752 00c9 02       		.byte	0x2
+ 753 00ca 00       		.byte	0
+ 754 00cb 07       		.uleb128 0x7
+ 755 00cc 24020000 		.4byte	.LASF20
+ 756 00d0 01       		.byte	0x1
+ 757 00d1 17       		.byte	0x17
+ 758 00d2 00000000 		.4byte	.LFB32
+ 759 00d6 36000000 		.4byte	.LFE32-.LFB32
+ 760 00da 01       		.uleb128 0x1
+ 761 00db 9C       		.byte	0x9c
+ 762 00dc 96010000 		.4byte	0x196
+ 763 00e0 08       		.uleb128 0x8
+ 764 00e1 7800     		.ascii	"x\000"
+ 765 00e3 01       		.byte	0x1
+ 766 00e4 17       		.byte	0x17
+ 767 00e5 5D000000 		.4byte	0x5d
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 17
+
+
+ 768 00e9 00000000 		.4byte	.LLST0
+ 769 00ed 08       		.uleb128 0x8
+ 770 00ee 7900     		.ascii	"y\000"
+ 771 00f0 01       		.byte	0x1
+ 772 00f1 17       		.byte	0x17
+ 773 00f2 5D000000 		.4byte	0x5d
+ 774 00f6 2C000000 		.4byte	.LLST1
+ 775 00fa 09       		.uleb128 0x9
+ 776 00fb 16000000 		.4byte	.LASF18
+ 777 00ff 01       		.byte	0x1
+ 778 0100 17       		.byte	0x17
+ 779 0101 5D000000 		.4byte	0x5d
+ 780 0105 58000000 		.4byte	.LLST2
+ 781 0109 09       		.uleb128 0x9
+ 782 010a 6F010000 		.4byte	.LASF19
+ 783 010e 01       		.byte	0x1
+ 784 010f 17       		.byte	0x17
+ 785 0110 5D000000 		.4byte	0x5d
+ 786 0114 79000000 		.4byte	.LLST3
+ 787 0118 0A       		.uleb128 0xa
+ 788 0119 0E000000 		.4byte	.LVL1
+ 789 011d 6D070000 		.4byte	0x76d
+ 790 0121 3F010000 		.4byte	0x13f
+ 791 0125 0B       		.uleb128 0xb
+ 792 0126 01       		.uleb128 0x1
+ 793 0127 50       		.byte	0x50
+ 794 0128 02       		.uleb128 0x2
+ 795 0129 75       		.byte	0x75
+ 796 012a 00       		.sleb128 0
+ 797 012b 0B       		.uleb128 0xb
+ 798 012c 01       		.uleb128 0x1
+ 799 012d 51       		.byte	0x51
+ 800 012e 02       		.uleb128 0x2
+ 801 012f 74       		.byte	0x74
+ 802 0130 00       		.sleb128 0
+ 803 0131 0B       		.uleb128 0xb
+ 804 0132 01       		.uleb128 0x1
+ 805 0133 52       		.byte	0x52
+ 806 0134 03       		.uleb128 0x3
+ 807 0135 F3       		.byte	0xf3
+ 808 0136 01       		.uleb128 0x1
+ 809 0137 52       		.byte	0x52
+ 810 0138 0B       		.uleb128 0xb
+ 811 0139 01       		.uleb128 0x1
+ 812 013a 53       		.byte	0x53
+ 813 013b 02       		.uleb128 0x2
+ 814 013c 76       		.byte	0x76
+ 815 013d 00       		.sleb128 0
+ 816 013e 00       		.byte	0
+ 817 013f 0A       		.uleb128 0xa
+ 818 0140 20000000 		.4byte	.LVL2
+ 819 0144 78070000 		.4byte	0x778
+ 820 0148 6C010000 		.4byte	0x16c
+ 821 014c 0B       		.uleb128 0xb
+ 822 014d 01       		.uleb128 0x1
+ 823 014e 50       		.byte	0x50
+ 824 014f 02       		.uleb128 0x2
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 18
+
+
+ 825 0150 75       		.byte	0x75
+ 826 0151 76       		.sleb128 -10
+ 827 0152 0B       		.uleb128 0xb
+ 828 0153 01       		.uleb128 0x1
+ 829 0154 51       		.byte	0x51
+ 830 0155 02       		.uleb128 0x2
+ 831 0156 74       		.byte	0x74
+ 832 0157 00       		.sleb128 0
+ 833 0158 0B       		.uleb128 0xb
+ 834 0159 01       		.uleb128 0x1
+ 835 015a 52       		.byte	0x52
+ 836 015b 02       		.uleb128 0x2
+ 837 015c 75       		.byte	0x75
+ 838 015d 0A       		.sleb128 10
+ 839 015e 0B       		.uleb128 0xb
+ 840 015f 01       		.uleb128 0x1
+ 841 0160 53       		.byte	0x53
+ 842 0161 02       		.uleb128 0x2
+ 843 0162 74       		.byte	0x74
+ 844 0163 00       		.sleb128 0
+ 845 0164 0B       		.uleb128 0xb
+ 846 0165 02       		.uleb128 0x2
+ 847 0166 7D       		.byte	0x7d
+ 848 0167 00       		.sleb128 0
+ 849 0168 02       		.uleb128 0x2
+ 850 0169 76       		.byte	0x76
+ 851 016a 00       		.sleb128 0
+ 852 016b 00       		.byte	0
+ 853 016c 0C       		.uleb128 0xc
+ 854 016d 32000000 		.4byte	.LVL3
+ 855 0171 78070000 		.4byte	0x778
+ 856 0175 0B       		.uleb128 0xb
+ 857 0176 01       		.uleb128 0x1
+ 858 0177 50       		.byte	0x50
+ 859 0178 02       		.uleb128 0x2
+ 860 0179 75       		.byte	0x75
+ 861 017a 00       		.sleb128 0
+ 862 017b 0B       		.uleb128 0xb
+ 863 017c 01       		.uleb128 0x1
+ 864 017d 51       		.byte	0x51
+ 865 017e 02       		.uleb128 0x2
+ 866 017f 74       		.byte	0x74
+ 867 0180 76       		.sleb128 -10
+ 868 0181 0B       		.uleb128 0xb
+ 869 0182 01       		.uleb128 0x1
+ 870 0183 52       		.byte	0x52
+ 871 0184 02       		.uleb128 0x2
+ 872 0185 75       		.byte	0x75
+ 873 0186 00       		.sleb128 0
+ 874 0187 0B       		.uleb128 0xb
+ 875 0188 01       		.uleb128 0x1
+ 876 0189 53       		.byte	0x53
+ 877 018a 02       		.uleb128 0x2
+ 878 018b 74       		.byte	0x74
+ 879 018c 0A       		.sleb128 10
+ 880 018d 0B       		.uleb128 0xb
+ 881 018e 02       		.uleb128 0x2
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 19
+
+
+ 882 018f 7D       		.byte	0x7d
+ 883 0190 00       		.sleb128 0
+ 884 0191 02       		.uleb128 0x2
+ 885 0192 76       		.byte	0x76
+ 886 0193 00       		.sleb128 0
+ 887 0194 00       		.byte	0
+ 888 0195 00       		.byte	0
+ 889 0196 07       		.uleb128 0x7
+ 890 0197 52000000 		.4byte	.LASF21
+ 891 019b 01       		.byte	0x1
+ 892 019c 1C       		.byte	0x1c
+ 893 019d 00000000 		.4byte	.LFB33
+ 894 01a1 48000000 		.4byte	.LFE33-.LFB33
+ 895 01a5 01       		.uleb128 0x1
+ 896 01a6 9C       		.byte	0x9c
+ 897 01a7 63020000 		.4byte	0x263
+ 898 01ab 08       		.uleb128 0x8
+ 899 01ac 7800     		.ascii	"x\000"
+ 900 01ae 01       		.byte	0x1
+ 901 01af 1C       		.byte	0x1c
+ 902 01b0 5D000000 		.4byte	0x5d
+ 903 01b4 A5000000 		.4byte	.LLST4
+ 904 01b8 08       		.uleb128 0x8
+ 905 01b9 7900     		.ascii	"y\000"
+ 906 01bb 01       		.byte	0x1
+ 907 01bc 1C       		.byte	0x1c
+ 908 01bd 5D000000 		.4byte	0x5d
+ 909 01c1 D1000000 		.4byte	.LLST5
+ 910 01c5 0D       		.uleb128 0xd
+ 911 01c6 06000000 		.4byte	.LBB2
+ 912 01ca 1A000000 		.4byte	.LBE2-.LBB2
+ 913 01ce 03020000 		.4byte	0x203
+ 914 01d2 0E       		.uleb128 0xe
+ 915 01d3 6900     		.ascii	"i\000"
+ 916 01d5 01       		.byte	0x1
+ 917 01d6 1D       		.byte	0x1d
+ 918 01d7 5D000000 		.4byte	0x5d
+ 919 01db FD000000 		.4byte	.LLST6
+ 920 01df 0C       		.uleb128 0xc
+ 921 01e0 16000000 		.4byte	.LVL10
+ 922 01e4 6D070000 		.4byte	0x76d
+ 923 01e8 0B       		.uleb128 0xb
+ 924 01e9 01       		.uleb128 0x1
+ 925 01ea 50       		.byte	0x50
+ 926 01eb 02       		.uleb128 0x2
+ 927 01ec 75       		.byte	0x75
+ 928 01ed 00       		.sleb128 0
+ 929 01ee 0B       		.uleb128 0xb
+ 930 01ef 01       		.uleb128 0x1
+ 931 01f0 51       		.byte	0x51
+ 932 01f1 02       		.uleb128 0x2
+ 933 01f2 76       		.byte	0x76
+ 934 01f3 00       		.sleb128 0
+ 935 01f4 0B       		.uleb128 0xb
+ 936 01f5 01       		.uleb128 0x1
+ 937 01f6 52       		.byte	0x52
+ 938 01f7 02       		.uleb128 0x2
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 20
+
+
+ 939 01f8 74       		.byte	0x74
+ 940 01f9 00       		.sleb128 0
+ 941 01fa 0B       		.uleb128 0xb
+ 942 01fb 01       		.uleb128 0x1
+ 943 01fc 53       		.byte	0x53
+ 944 01fd 03       		.uleb128 0x3
+ 945 01fe 0A       		.byte	0xa
+ 946 01ff 6A0F     		.2byte	0xf6a
+ 947 0201 00       		.byte	0
+ 948 0202 00       		.byte	0
+ 949 0203 0F       		.uleb128 0xf
+ 950 0204 20000000 		.4byte	.LBB3
+ 951 0208 1E000000 		.4byte	.LBE3-.LBB3
+ 952 020c 0E       		.uleb128 0xe
+ 953 020d 6900     		.ascii	"i\000"
+ 954 020f 01       		.byte	0x1
+ 955 0210 20       		.byte	0x20
+ 956 0211 5D000000 		.4byte	0x5d
+ 957 0215 1C010000 		.4byte	.LLST7
+ 958 0219 0A       		.uleb128 0xa
+ 959 021a 2C000000 		.4byte	.LVL14
+ 960 021e 6D070000 		.4byte	0x76d
+ 961 0222 40020000 		.4byte	0x240
+ 962 0226 0B       		.uleb128 0xb
+ 963 0227 01       		.uleb128 0x1
+ 964 0228 50       		.byte	0x50
+ 965 0229 02       		.uleb128 0x2
+ 966 022a 75       		.byte	0x75
+ 967 022b 00       		.sleb128 0
+ 968 022c 0B       		.uleb128 0xb
+ 969 022d 01       		.uleb128 0x1
+ 970 022e 51       		.byte	0x51
+ 971 022f 02       		.uleb128 0x2
+ 972 0230 76       		.byte	0x76
+ 973 0231 00       		.sleb128 0
+ 974 0232 0B       		.uleb128 0xb
+ 975 0233 01       		.uleb128 0x1
+ 976 0234 52       		.byte	0x52
+ 977 0235 02       		.uleb128 0x2
+ 978 0236 74       		.byte	0x74
+ 979 0237 00       		.sleb128 0
+ 980 0238 0B       		.uleb128 0xb
+ 981 0239 01       		.uleb128 0x1
+ 982 023a 53       		.byte	0x53
+ 983 023b 03       		.uleb128 0x3
+ 984 023c 0A       		.byte	0xa
+ 985 023d CE08     		.2byte	0x8ce
+ 986 023f 00       		.byte	0
+ 987 0240 0C       		.uleb128 0xc
+ 988 0241 38000000 		.4byte	.LVL15
+ 989 0245 6D070000 		.4byte	0x76d
+ 990 0249 0B       		.uleb128 0xb
+ 991 024a 01       		.uleb128 0x1
+ 992 024b 50       		.byte	0x50
+ 993 024c 02       		.uleb128 0x2
+ 994 024d 75       		.byte	0x75
+ 995 024e 00       		.sleb128 0
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 21
+
+
+ 996 024f 0B       		.uleb128 0xb
+ 997 0250 01       		.uleb128 0x1
+ 998 0251 51       		.byte	0x51
+ 999 0252 02       		.uleb128 0x2
+ 1000 0253 76       		.byte	0x76
+ 1001 0254 00       		.sleb128 0
+ 1002 0255 0B       		.uleb128 0xb
+ 1003 0256 01       		.uleb128 0x1
+ 1004 0257 52       		.byte	0x52
+ 1005 0258 02       		.uleb128 0x2
+ 1006 0259 74       		.byte	0x74
+ 1007 025a 00       		.sleb128 0
+ 1008 025b 0B       		.uleb128 0xb
+ 1009 025c 01       		.uleb128 0x1
+ 1010 025d 53       		.byte	0x53
+ 1011 025e 01       		.uleb128 0x1
+ 1012 025f 30       		.byte	0x30
+ 1013 0260 00       		.byte	0
+ 1014 0261 00       		.byte	0
+ 1015 0262 00       		.byte	0
+ 1016 0263 07       		.uleb128 0x7
+ 1017 0264 33000000 		.4byte	.LASF22
+ 1018 0268 01       		.byte	0x1
+ 1019 0269 25       		.byte	0x25
+ 1020 026a 00000000 		.4byte	.LFB34
+ 1021 026e 38000000 		.4byte	.LFE34-.LFB34
+ 1022 0272 01       		.uleb128 0x1
+ 1023 0273 9C       		.byte	0x9c
+ 1024 0274 09030000 		.4byte	0x309
+ 1025 0278 08       		.uleb128 0x8
+ 1026 0279 7800     		.ascii	"x\000"
+ 1027 027b 01       		.byte	0x1
+ 1028 027c 25       		.byte	0x25
+ 1029 027d 5D000000 		.4byte	0x5d
+ 1030 0281 2F010000 		.4byte	.LLST8
+ 1031 0285 08       		.uleb128 0x8
+ 1032 0286 7900     		.ascii	"y\000"
+ 1033 0288 01       		.byte	0x1
+ 1034 0289 25       		.byte	0x25
+ 1035 028a 5D000000 		.4byte	0x5d
+ 1036 028e 5B010000 		.4byte	.LLST9
+ 1037 0292 0D       		.uleb128 0xd
+ 1038 0293 06000000 		.4byte	.LBB4
+ 1039 0297 1A000000 		.4byte	.LBE4-.LBB4
+ 1040 029b D0020000 		.4byte	0x2d0
+ 1041 029f 0E       		.uleb128 0xe
+ 1042 02a0 6900     		.ascii	"i\000"
+ 1043 02a2 01       		.byte	0x1
+ 1044 02a3 26       		.byte	0x26
+ 1045 02a4 5D000000 		.4byte	0x5d
+ 1046 02a8 87010000 		.4byte	.LLST10
+ 1047 02ac 0C       		.uleb128 0xc
+ 1048 02ad 16000000 		.4byte	.LVL23
+ 1049 02b1 6D070000 		.4byte	0x76d
+ 1050 02b5 0B       		.uleb128 0xb
+ 1051 02b6 01       		.uleb128 0x1
+ 1052 02b7 50       		.byte	0x50
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 22
+
+
+ 1053 02b8 02       		.uleb128 0x2
+ 1054 02b9 75       		.byte	0x75
+ 1055 02ba 00       		.sleb128 0
+ 1056 02bb 0B       		.uleb128 0xb
+ 1057 02bc 01       		.uleb128 0x1
+ 1058 02bd 51       		.byte	0x51
+ 1059 02be 02       		.uleb128 0x2
+ 1060 02bf 76       		.byte	0x76
+ 1061 02c0 00       		.sleb128 0
+ 1062 02c1 0B       		.uleb128 0xb
+ 1063 02c2 01       		.uleb128 0x1
+ 1064 02c3 52       		.byte	0x52
+ 1065 02c4 02       		.uleb128 0x2
+ 1066 02c5 74       		.byte	0x74
+ 1067 02c6 00       		.sleb128 0
+ 1068 02c7 0B       		.uleb128 0xb
+ 1069 02c8 01       		.uleb128 0x1
+ 1070 02c9 53       		.byte	0x53
+ 1071 02ca 03       		.uleb128 0x3
+ 1072 02cb 0A       		.byte	0xa
+ 1073 02cc FF0F     		.2byte	0xfff
+ 1074 02ce 00       		.byte	0
+ 1075 02cf 00       		.byte	0
+ 1076 02d0 0F       		.uleb128 0xf
+ 1077 02d1 20000000 		.4byte	.LBB5
+ 1078 02d5 12000000 		.4byte	.LBE5-.LBB5
+ 1079 02d9 0E       		.uleb128 0xe
+ 1080 02da 6900     		.ascii	"i\000"
+ 1081 02dc 01       		.byte	0x1
+ 1082 02dd 29       		.byte	0x29
+ 1083 02de 5D000000 		.4byte	0x5d
+ 1084 02e2 A6010000 		.4byte	.LLST11
+ 1085 02e6 0C       		.uleb128 0xc
+ 1086 02e7 2C000000 		.4byte	.LVL27
+ 1087 02eb 6D070000 		.4byte	0x76d
+ 1088 02ef 0B       		.uleb128 0xb
+ 1089 02f0 01       		.uleb128 0x1
+ 1090 02f1 50       		.byte	0x50
+ 1091 02f2 02       		.uleb128 0x2
+ 1092 02f3 75       		.byte	0x75
+ 1093 02f4 00       		.sleb128 0
+ 1094 02f5 0B       		.uleb128 0xb
+ 1095 02f6 01       		.uleb128 0x1
+ 1096 02f7 51       		.byte	0x51
+ 1097 02f8 02       		.uleb128 0x2
+ 1098 02f9 76       		.byte	0x76
+ 1099 02fa 00       		.sleb128 0
+ 1100 02fb 0B       		.uleb128 0xb
+ 1101 02fc 01       		.uleb128 0x1
+ 1102 02fd 52       		.byte	0x52
+ 1103 02fe 02       		.uleb128 0x2
+ 1104 02ff 74       		.byte	0x74
+ 1105 0300 00       		.sleb128 0
+ 1106 0301 0B       		.uleb128 0xb
+ 1107 0302 01       		.uleb128 0x1
+ 1108 0303 53       		.byte	0x53
+ 1109 0304 01       		.uleb128 0x1
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 23
+
+
+ 1110 0305 30       		.byte	0x30
+ 1111 0306 00       		.byte	0
+ 1112 0307 00       		.byte	0
+ 1113 0308 00       		.byte	0
+ 1114 0309 10       		.uleb128 0x10
+ 1115 030a 7D010000 		.4byte	.LASF51
+ 1116 030e 01       		.byte	0x1
+ 1117 030f 2D       		.byte	0x2d
+ 1118 0310 5D000000 		.4byte	0x5d
+ 1119 0314 00000000 		.4byte	.LFB35
+ 1120 0318 0C020000 		.4byte	.LFE35-.LFB35
+ 1121 031c 01       		.uleb128 0x1
+ 1122 031d 9C       		.byte	0x9c
+ 1123 031e 2C070000 		.4byte	0x72c
+ 1124 0322 0E       		.uleb128 0xe
+ 1125 0323 6900     		.ascii	"i\000"
+ 1126 0325 01       		.byte	0x1
+ 1127 0326 31       		.byte	0x31
+ 1128 0327 77000000 		.4byte	0x77
+ 1129 032b B9010000 		.4byte	.LLST12
+ 1130 032f 11       		.uleb128 0x11
+ 1131 0330 59020000 		.4byte	.LASF23
+ 1132 0334 01       		.byte	0x1
+ 1133 0335 32       		.byte	0x32
+ 1134 0336 77000000 		.4byte	0x77
+ 1135 033a 3E       		.byte	0x3e
+ 1136 033b 11       		.uleb128 0x11
+ 1137 033c DC010000 		.4byte	.LASF24
+ 1138 0340 01       		.byte	0x1
+ 1139 0341 33       		.byte	0x33
+ 1140 0342 77000000 		.4byte	0x77
+ 1141 0346 3E       		.byte	0x3e
+ 1142 0347 12       		.uleb128 0x12
+ 1143 0348 E5010000 		.4byte	.LASF25
+ 1144 034c 01       		.byte	0x1
+ 1145 034d 34       		.byte	0x34
+ 1146 034e 77000000 		.4byte	0x77
+ 1147 0352 05020000 		.4byte	.LLST13
+ 1148 0356 12       		.uleb128 0x12
+ 1149 0357 86020000 		.4byte	.LASF26
+ 1150 035b 01       		.byte	0x1
+ 1151 035c 34       		.byte	0x34
+ 1152 035d 77000000 		.4byte	0x77
+ 1153 0361 3B020000 		.4byte	.LLST14
+ 1154 0365 12       		.uleb128 0x12
+ 1155 0366 2D000000 		.4byte	.LASF27
+ 1156 036a 01       		.byte	0x1
+ 1157 036b 35       		.byte	0x35
+ 1158 036c 77000000 		.4byte	0x77
+ 1159 0370 71020000 		.4byte	.LLST15
+ 1160 0374 13       		.uleb128 0x13
+ 1161 0375 39000000 		.4byte	.LASF28
+ 1162 0379 01       		.byte	0x1
+ 1163 037a 38       		.byte	0x38
+ 1164 037b 2C070000 		.4byte	0x72c
+ 1165 037f 03       		.uleb128 0x3
+ 1166 0380 91       		.byte	0x91
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 24
+
+
+ 1167 0381 907B     		.sleb128 -624
+ 1168 0383 0D       		.uleb128 0xd
+ 1169 0384 5E000000 		.4byte	.LBB6
+ 1170 0388 AE010000 		.4byte	.LBE6-.LBB6
+ 1171 038c B5060000 		.4byte	0x6b5
+ 1172 0390 12       		.uleb128 0x12
+ 1173 0391 75010000 		.4byte	.LASF29
+ 1174 0395 01       		.byte	0x1
+ 1175 0396 4D       		.byte	0x4d
+ 1176 0397 77000000 		.4byte	0x77
+ 1177 039b BF020000 		.4byte	.LLST16
+ 1178 039f 0A       		.uleb128 0xa
+ 1179 03a0 78000000 		.4byte	.LVL49
+ 1180 03a4 83070000 		.4byte	0x783
+ 1181 03a8 DE030000 		.4byte	0x3de
+ 1182 03ac 0B       		.uleb128 0xb
+ 1183 03ad 01       		.uleb128 0x1
+ 1184 03ae 50       		.byte	0x50
+ 1185 03af 11       		.uleb128 0x11
+ 1186 03b0 76       		.byte	0x76
+ 1187 03b1 00       		.sleb128 0
+ 1188 03b2 32       		.byte	0x32
+ 1189 03b3 24       		.byte	0x24
+ 1190 03b4 91       		.byte	0x91
+ 1191 03b5 00       		.sleb128 0
+ 1192 03b6 22       		.byte	0x22
+ 1193 03b7 0A       		.byte	0xa
+ 1194 03b8 7002     		.2byte	0x270
+ 1195 03ba 1C       		.byte	0x1c
+ 1196 03bb 94       		.byte	0x94
+ 1197 03bc 02       		.byte	0x2
+ 1198 03bd 40       		.byte	0x40
+ 1199 03be 24       		.byte	0x24
+ 1200 03bf 40       		.byte	0x40
+ 1201 03c0 26       		.byte	0x26
+ 1202 03c1 0B       		.uleb128 0xb
+ 1203 03c2 01       		.uleb128 0x1
+ 1204 03c3 51       		.byte	0x51
+ 1205 03c4 11       		.uleb128 0x11
+ 1206 03c5 76       		.byte	0x76
+ 1207 03c6 00       		.sleb128 0
+ 1208 03c7 32       		.byte	0x32
+ 1209 03c8 24       		.byte	0x24
+ 1210 03c9 91       		.byte	0x91
+ 1211 03ca 00       		.sleb128 0
+ 1212 03cb 22       		.byte	0x22
+ 1213 03cc 0A       		.byte	0xa
+ 1214 03cd 6E02     		.2byte	0x26e
+ 1215 03cf 1C       		.byte	0x1c
+ 1216 03d0 94       		.byte	0x94
+ 1217 03d1 02       		.byte	0x2
+ 1218 03d2 40       		.byte	0x40
+ 1219 03d3 24       		.byte	0x24
+ 1220 03d4 40       		.byte	0x40
+ 1221 03d5 26       		.byte	0x26
+ 1222 03d6 0B       		.uleb128 0xb
+ 1223 03d7 01       		.uleb128 0x1
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 25
+
+
+ 1224 03d8 52       		.byte	0x52
+ 1225 03d9 03       		.uleb128 0x3
+ 1226 03da 0A       		.byte	0xa
+ 1227 03db FF0F     		.2byte	0xfff
+ 1228 03dd 00       		.byte	0
+ 1229 03de 0A       		.uleb128 0xa
+ 1230 03df 92000000 		.4byte	.LVL52
+ 1231 03e3 CB000000 		.4byte	0xcb
+ 1232 03e7 04040000 		.4byte	0x404
+ 1233 03eb 0B       		.uleb128 0xb
+ 1234 03ec 01       		.uleb128 0x1
+ 1235 03ed 50       		.byte	0x50
+ 1236 03ee 02       		.uleb128 0x2
+ 1237 03ef 75       		.byte	0x75
+ 1238 03f0 00       		.sleb128 0
+ 1239 03f1 0B       		.uleb128 0xb
+ 1240 03f2 01       		.uleb128 0x1
+ 1241 03f3 51       		.byte	0x51
+ 1242 03f4 02       		.uleb128 0x2
+ 1243 03f5 74       		.byte	0x74
+ 1244 03f6 00       		.sleb128 0
+ 1245 03f7 0B       		.uleb128 0xb
+ 1246 03f8 01       		.uleb128 0x1
+ 1247 03f9 52       		.byte	0x52
+ 1248 03fa 01       		.uleb128 0x1
+ 1249 03fb 38       		.byte	0x38
+ 1250 03fc 0B       		.uleb128 0xb
+ 1251 03fd 01       		.uleb128 0x1
+ 1252 03fe 53       		.byte	0x53
+ 1253 03ff 03       		.uleb128 0x3
+ 1254 0400 0A       		.byte	0xa
+ 1255 0401 F00F     		.2byte	0xff0
+ 1256 0403 00       		.byte	0
+ 1257 0404 14       		.uleb128 0x14
+ 1258 0405 96000000 		.4byte	.LVL53
+ 1259 0409 8E070000 		.4byte	0x78e
+ 1260 040d 0A       		.uleb128 0xa
+ 1261 040e BA000000 		.4byte	.LVL58
+ 1262 0412 83070000 		.4byte	0x783
+ 1263 0416 2E040000 		.4byte	0x42e
+ 1264 041a 0B       		.uleb128 0xb
+ 1265 041b 01       		.uleb128 0x1
+ 1266 041c 50       		.byte	0x50
+ 1267 041d 02       		.uleb128 0x2
+ 1268 041e 76       		.byte	0x76
+ 1269 041f 00       		.sleb128 0
+ 1270 0420 0B       		.uleb128 0xb
+ 1271 0421 01       		.uleb128 0x1
+ 1272 0422 51       		.byte	0x51
+ 1273 0423 04       		.uleb128 0x4
+ 1274 0424 91       		.byte	0x91
+ 1275 0425 847B     		.sleb128 -636
+ 1276 0427 06       		.byte	0x6
+ 1277 0428 0B       		.uleb128 0xb
+ 1278 0429 01       		.uleb128 0x1
+ 1279 042a 52       		.byte	0x52
+ 1280 042b 01       		.uleb128 0x1
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 26
+
+
+ 1281 042c 30       		.byte	0x30
+ 1282 042d 00       		.byte	0
+ 1283 042e 0A       		.uleb128 0xa
+ 1284 042f C0000000 		.4byte	.LVL59
+ 1285 0433 99070000 		.4byte	0x799
+ 1286 0437 42040000 		.4byte	0x442
+ 1287 043b 0B       		.uleb128 0xb
+ 1288 043c 01       		.uleb128 0x1
+ 1289 043d 50       		.byte	0x50
+ 1290 043e 02       		.uleb128 0x2
+ 1291 043f 08       		.byte	0x8
+ 1292 0440 32       		.byte	0x32
+ 1293 0441 00       		.byte	0
+ 1294 0442 0A       		.uleb128 0xa
+ 1295 0443 CA000000 		.4byte	.LVL60
+ 1296 0447 83070000 		.4byte	0x783
+ 1297 044b 65040000 		.4byte	0x465
+ 1298 044f 0B       		.uleb128 0xb
+ 1299 0450 01       		.uleb128 0x1
+ 1300 0451 50       		.byte	0x50
+ 1301 0452 02       		.uleb128 0x2
+ 1302 0453 76       		.byte	0x76
+ 1303 0454 00       		.sleb128 0
+ 1304 0455 0B       		.uleb128 0xb
+ 1305 0456 01       		.uleb128 0x1
+ 1306 0457 51       		.byte	0x51
+ 1307 0458 04       		.uleb128 0x4
+ 1308 0459 91       		.byte	0x91
+ 1309 045a 847B     		.sleb128 -636
+ 1310 045c 06       		.byte	0x6
+ 1311 045d 0B       		.uleb128 0xb
+ 1312 045e 01       		.uleb128 0x1
+ 1313 045f 52       		.byte	0x52
+ 1314 0460 03       		.uleb128 0x3
+ 1315 0461 0A       		.byte	0xa
+ 1316 0462 FF0F     		.2byte	0xfff
+ 1317 0464 00       		.byte	0
+ 1318 0465 14       		.uleb128 0x14
+ 1319 0466 CE000000 		.4byte	.LVL61
+ 1320 046a A4070000 		.4byte	0x7a4
+ 1321 046e 0A       		.uleb128 0xa
+ 1322 046f E4000000 		.4byte	.LVL62
+ 1323 0473 CB000000 		.4byte	0xcb
+ 1324 0477 94040000 		.4byte	0x494
+ 1325 047b 0B       		.uleb128 0xb
+ 1326 047c 01       		.uleb128 0x1
+ 1327 047d 50       		.byte	0x50
+ 1328 047e 04       		.uleb128 0x4
+ 1329 047f 91       		.byte	0x91
+ 1330 0480 887B     		.sleb128 -632
+ 1331 0482 06       		.byte	0x6
+ 1332 0483 0B       		.uleb128 0xb
+ 1333 0484 01       		.uleb128 0x1
+ 1334 0485 51       		.byte	0x51
+ 1335 0486 02       		.uleb128 0x2
+ 1336 0487 76       		.byte	0x76
+ 1337 0488 00       		.sleb128 0
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 27
+
+
+ 1338 0489 0B       		.uleb128 0xb
+ 1339 048a 01       		.uleb128 0x1
+ 1340 048b 52       		.byte	0x52
+ 1341 048c 01       		.uleb128 0x1
+ 1342 048d 38       		.byte	0x38
+ 1343 048e 0B       		.uleb128 0xb
+ 1344 048f 01       		.uleb128 0x1
+ 1345 0490 53       		.byte	0x53
+ 1346 0491 01       		.uleb128 0x1
+ 1347 0492 30       		.byte	0x30
+ 1348 0493 00       		.byte	0
+ 1349 0494 0A       		.uleb128 0xa
+ 1350 0495 F4000000 		.4byte	.LVL63
+ 1351 0499 CB000000 		.4byte	0xcb
+ 1352 049d BC040000 		.4byte	0x4bc
+ 1353 04a1 0B       		.uleb128 0xb
+ 1354 04a2 01       		.uleb128 0x1
+ 1355 04a3 50       		.byte	0x50
+ 1356 04a4 04       		.uleb128 0x4
+ 1357 04a5 91       		.byte	0x91
+ 1358 04a6 887B     		.sleb128 -632
+ 1359 04a8 06       		.byte	0x6
+ 1360 04a9 0B       		.uleb128 0xb
+ 1361 04aa 01       		.uleb128 0x1
+ 1362 04ab 51       		.byte	0x51
+ 1363 04ac 02       		.uleb128 0x2
+ 1364 04ad 76       		.byte	0x76
+ 1365 04ae 7C       		.sleb128 -4
+ 1366 04af 0B       		.uleb128 0xb
+ 1367 04b0 01       		.uleb128 0x1
+ 1368 04b1 52       		.byte	0x52
+ 1369 04b2 01       		.uleb128 0x1
+ 1370 04b3 38       		.byte	0x38
+ 1371 04b4 0B       		.uleb128 0xb
+ 1372 04b5 01       		.uleb128 0x1
+ 1373 04b6 53       		.byte	0x53
+ 1374 04b7 03       		.uleb128 0x3
+ 1375 04b8 0A       		.byte	0xa
+ 1376 04b9 F00F     		.2byte	0xff0
+ 1377 04bb 00       		.byte	0
+ 1378 04bc 14       		.uleb128 0x14
+ 1379 04bd FC000000 		.4byte	.LVL66
+ 1380 04c1 AF070000 		.4byte	0x7af
+ 1381 04c5 0A       		.uleb128 0xa
+ 1382 04c6 14010000 		.4byte	.LVL67
+ 1383 04ca CB000000 		.4byte	0xcb
+ 1384 04ce EB040000 		.4byte	0x4eb
+ 1385 04d2 0B       		.uleb128 0xb
+ 1386 04d3 01       		.uleb128 0x1
+ 1387 04d4 50       		.byte	0x50
+ 1388 04d5 02       		.uleb128 0x2
+ 1389 04d6 76       		.byte	0x76
+ 1390 04d7 7C       		.sleb128 -4
+ 1391 04d8 0B       		.uleb128 0xb
+ 1392 04d9 01       		.uleb128 0x1
+ 1393 04da 51       		.byte	0x51
+ 1394 04db 02       		.uleb128 0x2
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 28
+
+
+ 1395 04dc 74       		.byte	0x74
+ 1396 04dd 00       		.sleb128 0
+ 1397 04de 0B       		.uleb128 0xb
+ 1398 04df 01       		.uleb128 0x1
+ 1399 04e0 52       		.byte	0x52
+ 1400 04e1 01       		.uleb128 0x1
+ 1401 04e2 38       		.byte	0x38
+ 1402 04e3 0B       		.uleb128 0xb
+ 1403 04e4 01       		.uleb128 0x1
+ 1404 04e5 53       		.byte	0x53
+ 1405 04e6 03       		.uleb128 0x3
+ 1406 04e7 0A       		.byte	0xa
+ 1407 04e8 F00F     		.2byte	0xff0
+ 1408 04ea 00       		.byte	0
+ 1409 04eb 0A       		.uleb128 0xa
+ 1410 04ec 20010000 		.4byte	.LVL68
+ 1411 04f0 CB000000 		.4byte	0xcb
+ 1412 04f4 0F050000 		.4byte	0x50f
+ 1413 04f8 0B       		.uleb128 0xb
+ 1414 04f9 01       		.uleb128 0x1
+ 1415 04fa 50       		.byte	0x50
+ 1416 04fb 02       		.uleb128 0x2
+ 1417 04fc 76       		.byte	0x76
+ 1418 04fd 00       		.sleb128 0
+ 1419 04fe 0B       		.uleb128 0xb
+ 1420 04ff 01       		.uleb128 0x1
+ 1421 0500 51       		.byte	0x51
+ 1422 0501 02       		.uleb128 0x2
+ 1423 0502 74       		.byte	0x74
+ 1424 0503 00       		.sleb128 0
+ 1425 0504 0B       		.uleb128 0xb
+ 1426 0505 01       		.uleb128 0x1
+ 1427 0506 52       		.byte	0x52
+ 1428 0507 01       		.uleb128 0x1
+ 1429 0508 38       		.byte	0x38
+ 1430 0509 0B       		.uleb128 0xb
+ 1431 050a 01       		.uleb128 0x1
+ 1432 050b 53       		.byte	0x53
+ 1433 050c 01       		.uleb128 0x1
+ 1434 050d 30       		.byte	0x30
+ 1435 050e 00       		.byte	0
+ 1436 050f 14       		.uleb128 0x14
+ 1437 0510 28010000 		.4byte	.LVL71
+ 1438 0514 BA070000 		.4byte	0x7ba
+ 1439 0518 0A       		.uleb128 0xa
+ 1440 0519 3E010000 		.4byte	.LVL72
+ 1441 051d CB000000 		.4byte	0xcb
+ 1442 0521 3E050000 		.4byte	0x53e
+ 1443 0525 0B       		.uleb128 0xb
+ 1444 0526 01       		.uleb128 0x1
+ 1445 0527 50       		.byte	0x50
+ 1446 0528 02       		.uleb128 0x2
+ 1447 0529 75       		.byte	0x75
+ 1448 052a 00       		.sleb128 0
+ 1449 052b 0B       		.uleb128 0xb
+ 1450 052c 01       		.uleb128 0x1
+ 1451 052d 51       		.byte	0x51
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 29
+
+
+ 1452 052e 02       		.uleb128 0x2
+ 1453 052f 74       		.byte	0x74
+ 1454 0530 04       		.sleb128 4
+ 1455 0531 0B       		.uleb128 0xb
+ 1456 0532 01       		.uleb128 0x1
+ 1457 0533 52       		.byte	0x52
+ 1458 0534 01       		.uleb128 0x1
+ 1459 0535 38       		.byte	0x38
+ 1460 0536 0B       		.uleb128 0xb
+ 1461 0537 01       		.uleb128 0x1
+ 1462 0538 53       		.byte	0x53
+ 1463 0539 03       		.uleb128 0x3
+ 1464 053a 0A       		.byte	0xa
+ 1465 053b F00F     		.2byte	0xff0
+ 1466 053d 00       		.byte	0
+ 1467 053e 0A       		.uleb128 0xa
+ 1468 053f 4A010000 		.4byte	.LVL73
+ 1469 0543 CB000000 		.4byte	0xcb
+ 1470 0547 62050000 		.4byte	0x562
+ 1471 054b 0B       		.uleb128 0xb
+ 1472 054c 01       		.uleb128 0x1
+ 1473 054d 50       		.byte	0x50
+ 1474 054e 02       		.uleb128 0x2
+ 1475 054f 75       		.byte	0x75
+ 1476 0550 00       		.sleb128 0
+ 1477 0551 0B       		.uleb128 0xb
+ 1478 0552 01       		.uleb128 0x1
+ 1479 0553 51       		.byte	0x51
+ 1480 0554 02       		.uleb128 0x2
+ 1481 0555 74       		.byte	0x74
+ 1482 0556 00       		.sleb128 0
+ 1483 0557 0B       		.uleb128 0xb
+ 1484 0558 01       		.uleb128 0x1
+ 1485 0559 52       		.byte	0x52
+ 1486 055a 01       		.uleb128 0x1
+ 1487 055b 38       		.byte	0x38
+ 1488 055c 0B       		.uleb128 0xb
+ 1489 055d 01       		.uleb128 0x1
+ 1490 055e 53       		.byte	0x53
+ 1491 055f 01       		.uleb128 0x1
+ 1492 0560 30       		.byte	0x30
+ 1493 0561 00       		.byte	0
+ 1494 0562 14       		.uleb128 0x14
+ 1495 0563 52010000 		.4byte	.LVL76
+ 1496 0567 C5070000 		.4byte	0x7c5
+ 1497 056b 0A       		.uleb128 0xa
+ 1498 056c 68010000 		.4byte	.LVL77
+ 1499 0570 CB000000 		.4byte	0xcb
+ 1500 0574 91050000 		.4byte	0x591
+ 1501 0578 0B       		.uleb128 0xb
+ 1502 0579 01       		.uleb128 0x1
+ 1503 057a 50       		.byte	0x50
+ 1504 057b 02       		.uleb128 0x2
+ 1505 057c 75       		.byte	0x75
+ 1506 057d 04       		.sleb128 4
+ 1507 057e 0B       		.uleb128 0xb
+ 1508 057f 01       		.uleb128 0x1
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 30
+
+
+ 1509 0580 51       		.byte	0x51
+ 1510 0581 02       		.uleb128 0x2
+ 1511 0582 74       		.byte	0x74
+ 1512 0583 00       		.sleb128 0
+ 1513 0584 0B       		.uleb128 0xb
+ 1514 0585 01       		.uleb128 0x1
+ 1515 0586 52       		.byte	0x52
+ 1516 0587 01       		.uleb128 0x1
+ 1517 0588 38       		.byte	0x38
+ 1518 0589 0B       		.uleb128 0xb
+ 1519 058a 01       		.uleb128 0x1
+ 1520 058b 53       		.byte	0x53
+ 1521 058c 03       		.uleb128 0x3
+ 1522 058d 0A       		.byte	0xa
+ 1523 058e F00F     		.2byte	0xff0
+ 1524 0590 00       		.byte	0
+ 1525 0591 0A       		.uleb128 0xa
+ 1526 0592 74010000 		.4byte	.LVL78
+ 1527 0596 CB000000 		.4byte	0xcb
+ 1528 059a B5050000 		.4byte	0x5b5
+ 1529 059e 0B       		.uleb128 0xb
+ 1530 059f 01       		.uleb128 0x1
+ 1531 05a0 50       		.byte	0x50
+ 1532 05a1 02       		.uleb128 0x2
+ 1533 05a2 75       		.byte	0x75
+ 1534 05a3 00       		.sleb128 0
+ 1535 05a4 0B       		.uleb128 0xb
+ 1536 05a5 01       		.uleb128 0x1
+ 1537 05a6 51       		.byte	0x51
+ 1538 05a7 02       		.uleb128 0x2
+ 1539 05a8 74       		.byte	0x74
+ 1540 05a9 00       		.sleb128 0
+ 1541 05aa 0B       		.uleb128 0xb
+ 1542 05ab 01       		.uleb128 0x1
+ 1543 05ac 52       		.byte	0x52
+ 1544 05ad 01       		.uleb128 0x1
+ 1545 05ae 38       		.byte	0x38
+ 1546 05af 0B       		.uleb128 0xb
+ 1547 05b0 01       		.uleb128 0x1
+ 1548 05b1 53       		.byte	0x53
+ 1549 05b2 01       		.uleb128 0x1
+ 1550 05b3 30       		.byte	0x30
+ 1551 05b4 00       		.byte	0
+ 1552 05b5 0A       		.uleb128 0xa
+ 1553 05b6 82010000 		.4byte	.LVL81
+ 1554 05ba D0070000 		.4byte	0x7d0
+ 1555 05be C8050000 		.4byte	0x5c8
+ 1556 05c2 0B       		.uleb128 0xb
+ 1557 05c3 01       		.uleb128 0x1
+ 1558 05c4 50       		.byte	0x50
+ 1559 05c5 01       		.uleb128 0x1
+ 1560 05c6 30       		.byte	0x30
+ 1561 05c7 00       		.byte	0
+ 1562 05c8 14       		.uleb128 0x14
+ 1563 05c9 86010000 		.4byte	.LVL82
+ 1564 05cd DB070000 		.4byte	0x7db
+ 1565 05d1 14       		.uleb128 0x14
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 31
+
+
+ 1566 05d2 8E010000 		.4byte	.LVL83
+ 1567 05d6 E6070000 		.4byte	0x7e6
+ 1568 05da 0A       		.uleb128 0xa
+ 1569 05db 9E010000 		.4byte	.LVL84
+ 1570 05df D0070000 		.4byte	0x7d0
+ 1571 05e3 ED050000 		.4byte	0x5ed
+ 1572 05e7 0B       		.uleb128 0xb
+ 1573 05e8 01       		.uleb128 0x1
+ 1574 05e9 50       		.byte	0x50
+ 1575 05ea 01       		.uleb128 0x1
+ 1576 05eb 31       		.byte	0x31
+ 1577 05ec 00       		.byte	0
+ 1578 05ed 0A       		.uleb128 0xa
+ 1579 05ee A4010000 		.4byte	.LVL85
+ 1580 05f2 F1070000 		.4byte	0x7f1
+ 1581 05f6 00060000 		.4byte	0x600
+ 1582 05fa 0B       		.uleb128 0xb
+ 1583 05fb 01       		.uleb128 0x1
+ 1584 05fc 50       		.byte	0x50
+ 1585 05fd 01       		.uleb128 0x1
+ 1586 05fe 30       		.byte	0x30
+ 1587 05ff 00       		.byte	0
+ 1588 0600 14       		.uleb128 0x14
+ 1589 0601 B2010000 		.4byte	.LVL86
+ 1590 0605 E6070000 		.4byte	0x7e6
+ 1591 0609 0A       		.uleb128 0xa
+ 1592 060a BE010000 		.4byte	.LVL87
+ 1593 060e 96010000 		.4byte	0x196
+ 1594 0612 23060000 		.4byte	0x623
+ 1595 0616 0B       		.uleb128 0xb
+ 1596 0617 01       		.uleb128 0x1
+ 1597 0618 50       		.byte	0x50
+ 1598 0619 02       		.uleb128 0x2
+ 1599 061a 75       		.byte	0x75
+ 1600 061b 00       		.sleb128 0
+ 1601 061c 0B       		.uleb128 0xb
+ 1602 061d 01       		.uleb128 0x1
+ 1603 061e 51       		.byte	0x51
+ 1604 061f 02       		.uleb128 0x2
+ 1605 0620 74       		.byte	0x74
+ 1606 0621 00       		.sleb128 0
+ 1607 0622 00       		.byte	0
+ 1608 0623 0A       		.uleb128 0xa
+ 1609 0624 C4010000 		.4byte	.LVL88
+ 1610 0628 F1070000 		.4byte	0x7f1
+ 1611 062c 36060000 		.4byte	0x636
+ 1612 0630 0B       		.uleb128 0xb
+ 1613 0631 01       		.uleb128 0x1
+ 1614 0632 50       		.byte	0x50
+ 1615 0633 01       		.uleb128 0x1
+ 1616 0634 31       		.byte	0x31
+ 1617 0635 00       		.byte	0
+ 1618 0636 0A       		.uleb128 0xa
+ 1619 0637 CA010000 		.4byte	.LVL89
+ 1620 063b D0070000 		.4byte	0x7d0
+ 1621 063f 49060000 		.4byte	0x649
+ 1622 0643 0B       		.uleb128 0xb
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 32
+
+
+ 1623 0644 01       		.uleb128 0x1
+ 1624 0645 50       		.byte	0x50
+ 1625 0646 01       		.uleb128 0x1
+ 1626 0647 30       		.byte	0x30
+ 1627 0648 00       		.byte	0
+ 1628 0649 0A       		.uleb128 0xa
+ 1629 064a D6010000 		.4byte	.LVL91
+ 1630 064e F1070000 		.4byte	0x7f1
+ 1631 0652 5C060000 		.4byte	0x65c
+ 1632 0656 0B       		.uleb128 0xb
+ 1633 0657 01       		.uleb128 0x1
+ 1634 0658 50       		.byte	0x50
+ 1635 0659 01       		.uleb128 0x1
+ 1636 065a 31       		.byte	0x31
+ 1637 065b 00       		.byte	0
+ 1638 065c 0A       		.uleb128 0xa
+ 1639 065d DC010000 		.4byte	.LVL92
+ 1640 0661 FC070000 		.4byte	0x7fc
+ 1641 0665 6F060000 		.4byte	0x66f
+ 1642 0669 0B       		.uleb128 0xb
+ 1643 066a 01       		.uleb128 0x1
+ 1644 066b 50       		.byte	0x50
+ 1645 066c 01       		.uleb128 0x1
+ 1646 066d 30       		.byte	0x30
+ 1647 066e 00       		.byte	0
+ 1648 066f 14       		.uleb128 0x14
+ 1649 0670 E4010000 		.4byte	.LVL93
+ 1650 0674 E6070000 		.4byte	0x7e6
+ 1651 0678 0A       		.uleb128 0xa
+ 1652 0679 F0010000 		.4byte	.LVL94
+ 1653 067d 63020000 		.4byte	0x263
+ 1654 0681 92060000 		.4byte	0x692
+ 1655 0685 0B       		.uleb128 0xb
+ 1656 0686 01       		.uleb128 0x1
+ 1657 0687 50       		.byte	0x50
+ 1658 0688 02       		.uleb128 0x2
+ 1659 0689 75       		.byte	0x75
+ 1660 068a 00       		.sleb128 0
+ 1661 068b 0B       		.uleb128 0xb
+ 1662 068c 01       		.uleb128 0x1
+ 1663 068d 51       		.byte	0x51
+ 1664 068e 02       		.uleb128 0x2
+ 1665 068f 74       		.byte	0x74
+ 1666 0690 00       		.sleb128 0
+ 1667 0691 00       		.byte	0
+ 1668 0692 0A       		.uleb128 0xa
+ 1669 0693 F6010000 		.4byte	.LVL95
+ 1670 0697 FC070000 		.4byte	0x7fc
+ 1671 069b A5060000 		.4byte	0x6a5
+ 1672 069f 0B       		.uleb128 0xb
+ 1673 06a0 01       		.uleb128 0x1
+ 1674 06a1 50       		.byte	0x50
+ 1675 06a2 01       		.uleb128 0x1
+ 1676 06a3 31       		.byte	0x31
+ 1677 06a4 00       		.byte	0
+ 1678 06a5 0C       		.uleb128 0xc
+ 1679 06a6 FC010000 		.4byte	.LVL96
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 33
+
+
+ 1680 06aa D0070000 		.4byte	0x7d0
+ 1681 06ae 0B       		.uleb128 0xb
+ 1682 06af 01       		.uleb128 0x1
+ 1683 06b0 50       		.byte	0x50
+ 1684 06b1 01       		.uleb128 0x1
+ 1685 06b2 30       		.byte	0x30
+ 1686 06b3 00       		.byte	0
+ 1687 06b4 00       		.byte	0
+ 1688 06b5 14       		.uleb128 0x14
+ 1689 06b6 10000000 		.4byte	.LVL34
+ 1690 06ba 8E070000 		.4byte	0x78e
+ 1691 06be 14       		.uleb128 0x14
+ 1692 06bf 20000000 		.4byte	.LVL36
+ 1693 06c3 8E070000 		.4byte	0x78e
+ 1694 06c7 14       		.uleb128 0x14
+ 1695 06c8 3A000000 		.4byte	.LVL40
+ 1696 06cc 07080000 		.4byte	0x807
+ 1697 06d0 0A       		.uleb128 0xa
+ 1698 06d1 40000000 		.4byte	.LVL41
+ 1699 06d5 12080000 		.4byte	0x812
+ 1700 06d9 E3060000 		.4byte	0x6e3
+ 1701 06dd 0B       		.uleb128 0xb
+ 1702 06de 01       		.uleb128 0x1
+ 1703 06df 50       		.byte	0x50
+ 1704 06e0 01       		.uleb128 0x1
+ 1705 06e1 31       		.byte	0x31
+ 1706 06e2 00       		.byte	0
+ 1707 06e3 0A       		.uleb128 0xa
+ 1708 06e4 46000000 		.4byte	.LVL42
+ 1709 06e8 1D080000 		.4byte	0x81d
+ 1710 06ec F6060000 		.4byte	0x6f6
+ 1711 06f0 0B       		.uleb128 0xb
+ 1712 06f1 01       		.uleb128 0x1
+ 1713 06f2 50       		.byte	0x50
+ 1714 06f3 01       		.uleb128 0x1
+ 1715 06f4 30       		.byte	0x30
+ 1716 06f5 00       		.byte	0
+ 1717 06f6 0A       		.uleb128 0xa
+ 1718 06f7 4C000000 		.4byte	.LVL43
+ 1719 06fb D0070000 		.4byte	0x7d0
+ 1720 06ff 09070000 		.4byte	0x709
+ 1721 0703 0B       		.uleb128 0xb
+ 1722 0704 01       		.uleb128 0x1
+ 1723 0705 50       		.byte	0x50
+ 1724 0706 01       		.uleb128 0x1
+ 1725 0707 31       		.byte	0x31
+ 1726 0708 00       		.byte	0
+ 1727 0709 0A       		.uleb128 0xa
+ 1728 070a 52000000 		.4byte	.LVL44
+ 1729 070e F1070000 		.4byte	0x7f1
+ 1730 0712 1C070000 		.4byte	0x71c
+ 1731 0716 0B       		.uleb128 0xb
+ 1732 0717 01       		.uleb128 0x1
+ 1733 0718 50       		.byte	0x50
+ 1734 0719 01       		.uleb128 0x1
+ 1735 071a 31       		.byte	0x31
+ 1736 071b 00       		.byte	0
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 34
+
+
+ 1737 071c 0C       		.uleb128 0xc
+ 1738 071d 58000000 		.4byte	.LVL45
+ 1739 0721 FC070000 		.4byte	0x7fc
+ 1740 0725 0B       		.uleb128 0xb
+ 1741 0726 01       		.uleb128 0x1
+ 1742 0727 50       		.byte	0x50
+ 1743 0728 01       		.uleb128 0x1
+ 1744 0729 30       		.byte	0x30
+ 1745 072a 00       		.byte	0
+ 1746 072b 00       		.byte	0
+ 1747 072c 15       		.uleb128 0x15
+ 1748 072d A6000000 		.4byte	0xa6
+ 1749 0731 3C070000 		.4byte	0x73c
+ 1750 0735 16       		.uleb128 0x16
+ 1751 0736 9F000000 		.4byte	0x9f
+ 1752 073a 95       		.byte	0x95
+ 1753 073b 00       		.byte	0
+ 1754 073c 15       		.uleb128 0x15
+ 1755 073d 52070000 		.4byte	0x752
+ 1756 0741 52070000 		.4byte	0x752
+ 1757 0745 16       		.uleb128 0x16
+ 1758 0746 9F000000 		.4byte	0x9f
+ 1759 074a 60       		.byte	0x60
+ 1760 074b 16       		.uleb128 0x16
+ 1761 074c 9F000000 		.4byte	0x9f
+ 1762 0750 0F       		.byte	0xf
+ 1763 0751 00       		.byte	0
+ 1764 0752 17       		.uleb128 0x17
+ 1765 0753 6B000000 		.4byte	0x6b
+ 1766 0757 18       		.uleb128 0x18
+ 1767 0758 2E020000 		.4byte	.LASF52
+ 1768 075c 03       		.byte	0x3
+ 1769 075d 42       		.byte	0x42
+ 1770 075e 68070000 		.4byte	0x768
+ 1771 0762 05       		.uleb128 0x5
+ 1772 0763 03       		.byte	0x3
+ 1773 0764 00000000 		.4byte	GLCD_FONT8x16
+ 1774 0768 17       		.uleb128 0x17
+ 1775 0769 3C070000 		.4byte	0x73c
+ 1776 076d 19       		.uleb128 0x19
+ 1777 076e F1010000 		.4byte	.LASF30
+ 1778 0772 F1010000 		.4byte	.LASF30
+ 1779 0776 03       		.byte	0x3
+ 1780 0777 32       		.byte	0x32
+ 1781 0778 19       		.uleb128 0x19
+ 1782 0779 CE010000 		.4byte	.LASF31
+ 1783 077d CE010000 		.4byte	.LASF31
+ 1784 0781 03       		.byte	0x3
+ 1785 0782 37       		.byte	0x37
+ 1786 0783 19       		.uleb128 0x19
+ 1787 0784 0B000000 		.4byte	.LASF32
+ 1788 0788 0B000000 		.4byte	.LASF32
+ 1789 078c 03       		.byte	0x3
+ 1790 078d 31       		.byte	0x31
+ 1791 078e 19       		.uleb128 0x19
+ 1792 078f 3C020000 		.4byte	.LASF33
+ 1793 0793 3C020000 		.4byte	.LASF33
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 35
+
+
+ 1794 0797 04       		.byte	0x4
+ 1795 0798 88       		.byte	0x88
+ 1796 0799 19       		.uleb128 0x19
+ 1797 079a AA020000 		.4byte	.LASF34
+ 1798 079e AA020000 		.4byte	.LASF34
+ 1799 07a2 05       		.byte	0x5
+ 1800 07a3 D9       		.byte	0xd9
+ 1801 07a4 19       		.uleb128 0x19
+ 1802 07a5 C2020000 		.4byte	.LASF35
+ 1803 07a9 C2020000 		.4byte	.LASF35
+ 1804 07ad 06       		.byte	0x6
+ 1805 07ae 32       		.byte	0x32
+ 1806 07af 19       		.uleb128 0x19
+ 1807 07b0 00010000 		.4byte	.LASF36
+ 1808 07b4 00010000 		.4byte	.LASF36
+ 1809 07b8 07       		.byte	0x7
+ 1810 07b9 32       		.byte	0x32
+ 1811 07ba 19       		.uleb128 0x19
+ 1812 07bb 82010000 		.4byte	.LASF37
+ 1813 07bf 82010000 		.4byte	.LASF37
+ 1814 07c3 08       		.byte	0x8
+ 1815 07c4 32       		.byte	0x32
+ 1816 07c5 19       		.uleb128 0x19
+ 1817 07c6 97020000 		.4byte	.LASF38
+ 1818 07ca 97020000 		.4byte	.LASF38
+ 1819 07ce 09       		.byte	0x9
+ 1820 07cf 32       		.byte	0x32
+ 1821 07d0 19       		.uleb128 0x19
+ 1822 07d1 4B020000 		.4byte	.LASF39
+ 1823 07d5 4B020000 		.4byte	.LASF39
+ 1824 07d9 0A       		.byte	0xa
+ 1825 07da 33       		.byte	0x33
+ 1826 07db 19       		.uleb128 0x19
+ 1827 07dc EC000000 		.4byte	.LASF40
+ 1828 07e0 EC000000 		.4byte	.LASF40
+ 1829 07e4 0A       		.byte	0xa
+ 1830 07e5 32       		.byte	0x32
+ 1831 07e6 19       		.uleb128 0x19
+ 1832 07e7 B2020000 		.4byte	.LASF41
+ 1833 07eb B2020000 		.4byte	.LASF41
+ 1834 07ef 0B       		.byte	0xb
+ 1835 07f0 32       		.byte	0x32
+ 1836 07f1 19       		.uleb128 0x19
+ 1837 07f2 62020000 		.4byte	.LASF42
+ 1838 07f6 62020000 		.4byte	.LASF42
+ 1839 07fa 0C       		.byte	0xc
+ 1840 07fb 33       		.byte	0x33
+ 1841 07fc 19       		.uleb128 0x19
+ 1842 07fd A8010000 		.4byte	.LASF43
+ 1843 0801 A8010000 		.4byte	.LASF43
+ 1844 0805 0D       		.byte	0xd
+ 1845 0806 33       		.byte	0x33
+ 1846 0807 19       		.uleb128 0x19
+ 1847 0808 00000000 		.4byte	.LASF44
+ 1848 080c 00000000 		.4byte	.LASF44
+ 1849 0810 03       		.byte	0x3
+ 1850 0811 2C       		.byte	0x2c
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 36
+
+
+ 1851 0812 19       		.uleb128 0x19
+ 1852 0813 1D000000 		.4byte	.LASF45
+ 1853 0817 1D000000 		.4byte	.LASF45
+ 1854 081b 0E       		.byte	0xe
+ 1855 081c 33       		.byte	0x33
+ 1856 081d 19       		.uleb128 0x19
+ 1857 081e 72020000 		.4byte	.LASF46
+ 1858 0822 72020000 		.4byte	.LASF46
+ 1859 0826 03       		.byte	0x3
+ 1860 0827 2E       		.byte	0x2e
+ 1861 0828 00       		.byte	0
+ 1862              		.section	.debug_abbrev,"",%progbits
+ 1863              	.Ldebug_abbrev0:
+ 1864 0000 01       		.uleb128 0x1
+ 1865 0001 11       		.uleb128 0x11
+ 1866 0002 01       		.byte	0x1
+ 1867 0003 25       		.uleb128 0x25
+ 1868 0004 0E       		.uleb128 0xe
+ 1869 0005 13       		.uleb128 0x13
+ 1870 0006 0B       		.uleb128 0xb
+ 1871 0007 03       		.uleb128 0x3
+ 1872 0008 0E       		.uleb128 0xe
+ 1873 0009 1B       		.uleb128 0x1b
+ 1874 000a 0E       		.uleb128 0xe
+ 1875 000b 55       		.uleb128 0x55
+ 1876 000c 17       		.uleb128 0x17
+ 1877 000d 11       		.uleb128 0x11
+ 1878 000e 01       		.uleb128 0x1
+ 1879 000f 10       		.uleb128 0x10
+ 1880 0010 17       		.uleb128 0x17
+ 1881 0011 00       		.byte	0
+ 1882 0012 00       		.byte	0
+ 1883 0013 02       		.uleb128 0x2
+ 1884 0014 24       		.uleb128 0x24
+ 1885 0015 00       		.byte	0
+ 1886 0016 0B       		.uleb128 0xb
+ 1887 0017 0B       		.uleb128 0xb
+ 1888 0018 3E       		.uleb128 0x3e
+ 1889 0019 0B       		.uleb128 0xb
+ 1890 001a 03       		.uleb128 0x3
+ 1891 001b 0E       		.uleb128 0xe
+ 1892 001c 00       		.byte	0
+ 1893 001d 00       		.byte	0
+ 1894 001e 03       		.uleb128 0x3
+ 1895 001f 24       		.uleb128 0x24
+ 1896 0020 00       		.byte	0
+ 1897 0021 0B       		.uleb128 0xb
+ 1898 0022 0B       		.uleb128 0xb
+ 1899 0023 3E       		.uleb128 0x3e
+ 1900 0024 0B       		.uleb128 0xb
+ 1901 0025 03       		.uleb128 0x3
+ 1902 0026 08       		.uleb128 0x8
+ 1903 0027 00       		.byte	0
+ 1904 0028 00       		.byte	0
+ 1905 0029 04       		.uleb128 0x4
+ 1906 002a 16       		.uleb128 0x16
+ 1907 002b 00       		.byte	0
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 37
+
+
+ 1908 002c 03       		.uleb128 0x3
+ 1909 002d 0E       		.uleb128 0xe
+ 1910 002e 3A       		.uleb128 0x3a
+ 1911 002f 0B       		.uleb128 0xb
+ 1912 0030 3B       		.uleb128 0x3b
+ 1913 0031 05       		.uleb128 0x5
+ 1914 0032 49       		.uleb128 0x49
+ 1915 0033 13       		.uleb128 0x13
+ 1916 0034 00       		.byte	0
+ 1917 0035 00       		.byte	0
+ 1918 0036 05       		.uleb128 0x5
+ 1919 0037 13       		.uleb128 0x13
+ 1920 0038 01       		.byte	0x1
+ 1921 0039 03       		.uleb128 0x3
+ 1922 003a 0E       		.uleb128 0xe
+ 1923 003b 0B       		.uleb128 0xb
+ 1924 003c 0B       		.uleb128 0xb
+ 1925 003d 3A       		.uleb128 0x3a
+ 1926 003e 0B       		.uleb128 0xb
+ 1927 003f 3B       		.uleb128 0x3b
+ 1928 0040 0B       		.uleb128 0xb
+ 1929 0041 01       		.uleb128 0x1
+ 1930 0042 13       		.uleb128 0x13
+ 1931 0043 00       		.byte	0
+ 1932 0044 00       		.byte	0
+ 1933 0045 06       		.uleb128 0x6
+ 1934 0046 0D       		.uleb128 0xd
+ 1935 0047 00       		.byte	0
+ 1936 0048 03       		.uleb128 0x3
+ 1937 0049 0E       		.uleb128 0xe
+ 1938 004a 3A       		.uleb128 0x3a
+ 1939 004b 0B       		.uleb128 0xb
+ 1940 004c 3B       		.uleb128 0x3b
+ 1941 004d 0B       		.uleb128 0xb
+ 1942 004e 49       		.uleb128 0x49
+ 1943 004f 13       		.uleb128 0x13
+ 1944 0050 38       		.uleb128 0x38
+ 1945 0051 0B       		.uleb128 0xb
+ 1946 0052 00       		.byte	0
+ 1947 0053 00       		.byte	0
+ 1948 0054 07       		.uleb128 0x7
+ 1949 0055 2E       		.uleb128 0x2e
+ 1950 0056 01       		.byte	0x1
+ 1951 0057 3F       		.uleb128 0x3f
+ 1952 0058 19       		.uleb128 0x19
+ 1953 0059 03       		.uleb128 0x3
+ 1954 005a 0E       		.uleb128 0xe
+ 1955 005b 3A       		.uleb128 0x3a
+ 1956 005c 0B       		.uleb128 0xb
+ 1957 005d 3B       		.uleb128 0x3b
+ 1958 005e 0B       		.uleb128 0xb
+ 1959 005f 27       		.uleb128 0x27
+ 1960 0060 19       		.uleb128 0x19
+ 1961 0061 11       		.uleb128 0x11
+ 1962 0062 01       		.uleb128 0x1
+ 1963 0063 12       		.uleb128 0x12
+ 1964 0064 06       		.uleb128 0x6
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 38
+
+
+ 1965 0065 40       		.uleb128 0x40
+ 1966 0066 18       		.uleb128 0x18
+ 1967 0067 9742     		.uleb128 0x2117
+ 1968 0069 19       		.uleb128 0x19
+ 1969 006a 01       		.uleb128 0x1
+ 1970 006b 13       		.uleb128 0x13
+ 1971 006c 00       		.byte	0
+ 1972 006d 00       		.byte	0
+ 1973 006e 08       		.uleb128 0x8
+ 1974 006f 05       		.uleb128 0x5
+ 1975 0070 00       		.byte	0
+ 1976 0071 03       		.uleb128 0x3
+ 1977 0072 08       		.uleb128 0x8
+ 1978 0073 3A       		.uleb128 0x3a
+ 1979 0074 0B       		.uleb128 0xb
+ 1980 0075 3B       		.uleb128 0x3b
+ 1981 0076 0B       		.uleb128 0xb
+ 1982 0077 49       		.uleb128 0x49
+ 1983 0078 13       		.uleb128 0x13
+ 1984 0079 02       		.uleb128 0x2
+ 1985 007a 17       		.uleb128 0x17
+ 1986 007b 00       		.byte	0
+ 1987 007c 00       		.byte	0
+ 1988 007d 09       		.uleb128 0x9
+ 1989 007e 05       		.uleb128 0x5
+ 1990 007f 00       		.byte	0
+ 1991 0080 03       		.uleb128 0x3
+ 1992 0081 0E       		.uleb128 0xe
+ 1993 0082 3A       		.uleb128 0x3a
+ 1994 0083 0B       		.uleb128 0xb
+ 1995 0084 3B       		.uleb128 0x3b
+ 1996 0085 0B       		.uleb128 0xb
+ 1997 0086 49       		.uleb128 0x49
+ 1998 0087 13       		.uleb128 0x13
+ 1999 0088 02       		.uleb128 0x2
+ 2000 0089 17       		.uleb128 0x17
+ 2001 008a 00       		.byte	0
+ 2002 008b 00       		.byte	0
+ 2003 008c 0A       		.uleb128 0xa
+ 2004 008d 898201   		.uleb128 0x4109
+ 2005 0090 01       		.byte	0x1
+ 2006 0091 11       		.uleb128 0x11
+ 2007 0092 01       		.uleb128 0x1
+ 2008 0093 31       		.uleb128 0x31
+ 2009 0094 13       		.uleb128 0x13
+ 2010 0095 01       		.uleb128 0x1
+ 2011 0096 13       		.uleb128 0x13
+ 2012 0097 00       		.byte	0
+ 2013 0098 00       		.byte	0
+ 2014 0099 0B       		.uleb128 0xb
+ 2015 009a 8A8201   		.uleb128 0x410a
+ 2016 009d 00       		.byte	0
+ 2017 009e 02       		.uleb128 0x2
+ 2018 009f 18       		.uleb128 0x18
+ 2019 00a0 9142     		.uleb128 0x2111
+ 2020 00a2 18       		.uleb128 0x18
+ 2021 00a3 00       		.byte	0
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 39
+
+
+ 2022 00a4 00       		.byte	0
+ 2023 00a5 0C       		.uleb128 0xc
+ 2024 00a6 898201   		.uleb128 0x4109
+ 2025 00a9 01       		.byte	0x1
+ 2026 00aa 11       		.uleb128 0x11
+ 2027 00ab 01       		.uleb128 0x1
+ 2028 00ac 31       		.uleb128 0x31
+ 2029 00ad 13       		.uleb128 0x13
+ 2030 00ae 00       		.byte	0
+ 2031 00af 00       		.byte	0
+ 2032 00b0 0D       		.uleb128 0xd
+ 2033 00b1 0B       		.uleb128 0xb
+ 2034 00b2 01       		.byte	0x1
+ 2035 00b3 11       		.uleb128 0x11
+ 2036 00b4 01       		.uleb128 0x1
+ 2037 00b5 12       		.uleb128 0x12
+ 2038 00b6 06       		.uleb128 0x6
+ 2039 00b7 01       		.uleb128 0x1
+ 2040 00b8 13       		.uleb128 0x13
+ 2041 00b9 00       		.byte	0
+ 2042 00ba 00       		.byte	0
+ 2043 00bb 0E       		.uleb128 0xe
+ 2044 00bc 34       		.uleb128 0x34
+ 2045 00bd 00       		.byte	0
+ 2046 00be 03       		.uleb128 0x3
+ 2047 00bf 08       		.uleb128 0x8
+ 2048 00c0 3A       		.uleb128 0x3a
+ 2049 00c1 0B       		.uleb128 0xb
+ 2050 00c2 3B       		.uleb128 0x3b
+ 2051 00c3 0B       		.uleb128 0xb
+ 2052 00c4 49       		.uleb128 0x49
+ 2053 00c5 13       		.uleb128 0x13
+ 2054 00c6 02       		.uleb128 0x2
+ 2055 00c7 17       		.uleb128 0x17
+ 2056 00c8 00       		.byte	0
+ 2057 00c9 00       		.byte	0
+ 2058 00ca 0F       		.uleb128 0xf
+ 2059 00cb 0B       		.uleb128 0xb
+ 2060 00cc 01       		.byte	0x1
+ 2061 00cd 11       		.uleb128 0x11
+ 2062 00ce 01       		.uleb128 0x1
+ 2063 00cf 12       		.uleb128 0x12
+ 2064 00d0 06       		.uleb128 0x6
+ 2065 00d1 00       		.byte	0
+ 2066 00d2 00       		.byte	0
+ 2067 00d3 10       		.uleb128 0x10
+ 2068 00d4 2E       		.uleb128 0x2e
+ 2069 00d5 01       		.byte	0x1
+ 2070 00d6 3F       		.uleb128 0x3f
+ 2071 00d7 19       		.uleb128 0x19
+ 2072 00d8 03       		.uleb128 0x3
+ 2073 00d9 0E       		.uleb128 0xe
+ 2074 00da 3A       		.uleb128 0x3a
+ 2075 00db 0B       		.uleb128 0xb
+ 2076 00dc 3B       		.uleb128 0x3b
+ 2077 00dd 0B       		.uleb128 0xb
+ 2078 00de 27       		.uleb128 0x27
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 40
+
+
+ 2079 00df 19       		.uleb128 0x19
+ 2080 00e0 49       		.uleb128 0x49
+ 2081 00e1 13       		.uleb128 0x13
+ 2082 00e2 8701     		.uleb128 0x87
+ 2083 00e4 19       		.uleb128 0x19
+ 2084 00e5 11       		.uleb128 0x11
+ 2085 00e6 01       		.uleb128 0x1
+ 2086 00e7 12       		.uleb128 0x12
+ 2087 00e8 06       		.uleb128 0x6
+ 2088 00e9 40       		.uleb128 0x40
+ 2089 00ea 18       		.uleb128 0x18
+ 2090 00eb 9642     		.uleb128 0x2116
+ 2091 00ed 19       		.uleb128 0x19
+ 2092 00ee 01       		.uleb128 0x1
+ 2093 00ef 13       		.uleb128 0x13
+ 2094 00f0 00       		.byte	0
+ 2095 00f1 00       		.byte	0
+ 2096 00f2 11       		.uleb128 0x11
+ 2097 00f3 34       		.uleb128 0x34
+ 2098 00f4 00       		.byte	0
+ 2099 00f5 03       		.uleb128 0x3
+ 2100 00f6 0E       		.uleb128 0xe
+ 2101 00f7 3A       		.uleb128 0x3a
+ 2102 00f8 0B       		.uleb128 0xb
+ 2103 00f9 3B       		.uleb128 0x3b
+ 2104 00fa 0B       		.uleb128 0xb
+ 2105 00fb 49       		.uleb128 0x49
+ 2106 00fc 13       		.uleb128 0x13
+ 2107 00fd 1C       		.uleb128 0x1c
+ 2108 00fe 0B       		.uleb128 0xb
+ 2109 00ff 00       		.byte	0
+ 2110 0100 00       		.byte	0
+ 2111 0101 12       		.uleb128 0x12
+ 2112 0102 34       		.uleb128 0x34
+ 2113 0103 00       		.byte	0
+ 2114 0104 03       		.uleb128 0x3
+ 2115 0105 0E       		.uleb128 0xe
+ 2116 0106 3A       		.uleb128 0x3a
+ 2117 0107 0B       		.uleb128 0xb
+ 2118 0108 3B       		.uleb128 0x3b
+ 2119 0109 0B       		.uleb128 0xb
+ 2120 010a 49       		.uleb128 0x49
+ 2121 010b 13       		.uleb128 0x13
+ 2122 010c 02       		.uleb128 0x2
+ 2123 010d 17       		.uleb128 0x17
+ 2124 010e 00       		.byte	0
+ 2125 010f 00       		.byte	0
+ 2126 0110 13       		.uleb128 0x13
+ 2127 0111 34       		.uleb128 0x34
+ 2128 0112 00       		.byte	0
+ 2129 0113 03       		.uleb128 0x3
+ 2130 0114 0E       		.uleb128 0xe
+ 2131 0115 3A       		.uleb128 0x3a
+ 2132 0116 0B       		.uleb128 0xb
+ 2133 0117 3B       		.uleb128 0x3b
+ 2134 0118 0B       		.uleb128 0xb
+ 2135 0119 49       		.uleb128 0x49
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 41
+
+
+ 2136 011a 13       		.uleb128 0x13
+ 2137 011b 02       		.uleb128 0x2
+ 2138 011c 18       		.uleb128 0x18
+ 2139 011d 00       		.byte	0
+ 2140 011e 00       		.byte	0
+ 2141 011f 14       		.uleb128 0x14
+ 2142 0120 898201   		.uleb128 0x4109
+ 2143 0123 00       		.byte	0
+ 2144 0124 11       		.uleb128 0x11
+ 2145 0125 01       		.uleb128 0x1
+ 2146 0126 31       		.uleb128 0x31
+ 2147 0127 13       		.uleb128 0x13
+ 2148 0128 00       		.byte	0
+ 2149 0129 00       		.byte	0
+ 2150 012a 15       		.uleb128 0x15
+ 2151 012b 01       		.uleb128 0x1
+ 2152 012c 01       		.byte	0x1
+ 2153 012d 49       		.uleb128 0x49
+ 2154 012e 13       		.uleb128 0x13
+ 2155 012f 01       		.uleb128 0x1
+ 2156 0130 13       		.uleb128 0x13
+ 2157 0131 00       		.byte	0
+ 2158 0132 00       		.byte	0
+ 2159 0133 16       		.uleb128 0x16
+ 2160 0134 21       		.uleb128 0x21
+ 2161 0135 00       		.byte	0
+ 2162 0136 49       		.uleb128 0x49
+ 2163 0137 13       		.uleb128 0x13
+ 2164 0138 2F       		.uleb128 0x2f
+ 2165 0139 0B       		.uleb128 0xb
+ 2166 013a 00       		.byte	0
+ 2167 013b 00       		.byte	0
+ 2168 013c 17       		.uleb128 0x17
+ 2169 013d 26       		.uleb128 0x26
+ 2170 013e 00       		.byte	0
+ 2171 013f 49       		.uleb128 0x49
+ 2172 0140 13       		.uleb128 0x13
+ 2173 0141 00       		.byte	0
+ 2174 0142 00       		.byte	0
+ 2175 0143 18       		.uleb128 0x18
+ 2176 0144 34       		.uleb128 0x34
+ 2177 0145 00       		.byte	0
+ 2178 0146 03       		.uleb128 0x3
+ 2179 0147 0E       		.uleb128 0xe
+ 2180 0148 3A       		.uleb128 0x3a
+ 2181 0149 0B       		.uleb128 0xb
+ 2182 014a 3B       		.uleb128 0x3b
+ 2183 014b 0B       		.uleb128 0xb
+ 2184 014c 49       		.uleb128 0x49
+ 2185 014d 13       		.uleb128 0x13
+ 2186 014e 3F       		.uleb128 0x3f
+ 2187 014f 19       		.uleb128 0x19
+ 2188 0150 02       		.uleb128 0x2
+ 2189 0151 18       		.uleb128 0x18
+ 2190 0152 00       		.byte	0
+ 2191 0153 00       		.byte	0
+ 2192 0154 19       		.uleb128 0x19
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 42
+
+
+ 2193 0155 2E       		.uleb128 0x2e
+ 2194 0156 00       		.byte	0
+ 2195 0157 3F       		.uleb128 0x3f
+ 2196 0158 19       		.uleb128 0x19
+ 2197 0159 3C       		.uleb128 0x3c
+ 2198 015a 19       		.uleb128 0x19
+ 2199 015b 6E       		.uleb128 0x6e
+ 2200 015c 0E       		.uleb128 0xe
+ 2201 015d 03       		.uleb128 0x3
+ 2202 015e 0E       		.uleb128 0xe
+ 2203 015f 3A       		.uleb128 0x3a
+ 2204 0160 0B       		.uleb128 0xb
+ 2205 0161 3B       		.uleb128 0x3b
+ 2206 0162 0B       		.uleb128 0xb
+ 2207 0163 00       		.byte	0
+ 2208 0164 00       		.byte	0
+ 2209 0165 00       		.byte	0
+ 2210              		.section	.debug_loc,"",%progbits
+ 2211              	.Ldebug_loc0:
+ 2212              	.LLST0:
+ 2213 0000 00000000 		.4byte	.LVL0
+ 2214 0004 0D000000 		.4byte	.LVL1-1
+ 2215 0008 0100     		.2byte	0x1
+ 2216 000a 50       		.byte	0x50
+ 2217 000b 0D000000 		.4byte	.LVL1-1
+ 2218 000f 34000000 		.4byte	.LVL5
+ 2219 0013 0100     		.2byte	0x1
+ 2220 0015 55       		.byte	0x55
+ 2221 0016 34000000 		.4byte	.LVL5
+ 2222 001a 36000000 		.4byte	.LFE32
+ 2223 001e 0400     		.2byte	0x4
+ 2224 0020 F3       		.byte	0xf3
+ 2225 0021 01       		.uleb128 0x1
+ 2226 0022 50       		.byte	0x50
+ 2227 0023 9F       		.byte	0x9f
+ 2228 0024 00000000 		.4byte	0
+ 2229 0028 00000000 		.4byte	0
+ 2230              	.LLST1:
+ 2231 002c 00000000 		.4byte	.LVL0
+ 2232 0030 0D000000 		.4byte	.LVL1-1
+ 2233 0034 0100     		.2byte	0x1
+ 2234 0036 51       		.byte	0x51
+ 2235 0037 0D000000 		.4byte	.LVL1-1
+ 2236 003b 34000000 		.4byte	.LVL4
+ 2237 003f 0100     		.2byte	0x1
+ 2238 0041 54       		.byte	0x54
+ 2239 0042 34000000 		.4byte	.LVL4
+ 2240 0046 36000000 		.4byte	.LFE32
+ 2241 004a 0400     		.2byte	0x4
+ 2242 004c F3       		.byte	0xf3
+ 2243 004d 01       		.uleb128 0x1
+ 2244 004e 51       		.byte	0x51
+ 2245 004f 9F       		.byte	0x9f
+ 2246 0050 00000000 		.4byte	0
+ 2247 0054 00000000 		.4byte	0
+ 2248              	.LLST2:
+ 2249 0058 00000000 		.4byte	.LVL0
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 43
+
+
+ 2250 005c 0D000000 		.4byte	.LVL1-1
+ 2251 0060 0100     		.2byte	0x1
+ 2252 0062 52       		.byte	0x52
+ 2253 0063 0D000000 		.4byte	.LVL1-1
+ 2254 0067 36000000 		.4byte	.LFE32
+ 2255 006b 0400     		.2byte	0x4
+ 2256 006d F3       		.byte	0xf3
+ 2257 006e 01       		.uleb128 0x1
+ 2258 006f 52       		.byte	0x52
+ 2259 0070 9F       		.byte	0x9f
+ 2260 0071 00000000 		.4byte	0
+ 2261 0075 00000000 		.4byte	0
+ 2262              	.LLST3:
+ 2263 0079 00000000 		.4byte	.LVL0
+ 2264 007d 0D000000 		.4byte	.LVL1-1
+ 2265 0081 0100     		.2byte	0x1
+ 2266 0083 53       		.byte	0x53
+ 2267 0084 0D000000 		.4byte	.LVL1-1
+ 2268 0088 34000000 		.4byte	.LVL6
+ 2269 008c 0100     		.2byte	0x1
+ 2270 008e 56       		.byte	0x56
+ 2271 008f 34000000 		.4byte	.LVL6
+ 2272 0093 36000000 		.4byte	.LFE32
+ 2273 0097 0400     		.2byte	0x4
+ 2274 0099 F3       		.byte	0xf3
+ 2275 009a 01       		.uleb128 0x1
+ 2276 009b 53       		.byte	0x53
+ 2277 009c 9F       		.byte	0x9f
+ 2278 009d 00000000 		.4byte	0
+ 2279 00a1 00000000 		.4byte	0
+ 2280              	.LLST4:
+ 2281 00a5 00000000 		.4byte	.LVL7
+ 2282 00a9 0A000000 		.4byte	.LVL9
+ 2283 00ad 0100     		.2byte	0x1
+ 2284 00af 50       		.byte	0x50
+ 2285 00b0 0A000000 		.4byte	.LVL9
+ 2286 00b4 3E000000 		.4byte	.LVL18
+ 2287 00b8 0100     		.2byte	0x1
+ 2288 00ba 55       		.byte	0x55
+ 2289 00bb 3E000000 		.4byte	.LVL18
+ 2290 00bf 48000000 		.4byte	.LFE33
+ 2291 00c3 0400     		.2byte	0x4
+ 2292 00c5 F3       		.byte	0xf3
+ 2293 00c6 01       		.uleb128 0x1
+ 2294 00c7 50       		.byte	0x50
+ 2295 00c8 9F       		.byte	0x9f
+ 2296 00c9 00000000 		.4byte	0
+ 2297 00cd 00000000 		.4byte	0
+ 2298              	.LLST5:
+ 2299 00d1 00000000 		.4byte	.LVL7
+ 2300 00d5 0A000000 		.4byte	.LVL9
+ 2301 00d9 0100     		.2byte	0x1
+ 2302 00db 51       		.byte	0x51
+ 2303 00dc 0A000000 		.4byte	.LVL9
+ 2304 00e0 3E000000 		.4byte	.LVL19
+ 2305 00e4 0100     		.2byte	0x1
+ 2306 00e6 56       		.byte	0x56
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 44
+
+
+ 2307 00e7 3E000000 		.4byte	.LVL19
+ 2308 00eb 48000000 		.4byte	.LFE33
+ 2309 00ef 0400     		.2byte	0x4
+ 2310 00f1 F3       		.byte	0xf3
+ 2311 00f2 01       		.uleb128 0x1
+ 2312 00f3 51       		.byte	0x51
+ 2313 00f4 9F       		.byte	0x9f
+ 2314 00f5 00000000 		.4byte	0
+ 2315 00f9 00000000 		.4byte	0
+ 2316              	.LLST6:
+ 2317 00fd 06000000 		.4byte	.LVL8
+ 2318 0101 0A000000 		.4byte	.LVL9
+ 2319 0105 0200     		.2byte	0x2
+ 2320 0107 30       		.byte	0x30
+ 2321 0108 9F       		.byte	0x9f
+ 2322 0109 0A000000 		.4byte	.LVL9
+ 2323 010d 1E000000 		.4byte	.LVL12
+ 2324 0111 0100     		.2byte	0x1
+ 2325 0113 54       		.byte	0x54
+ 2326 0114 00000000 		.4byte	0
+ 2327 0118 00000000 		.4byte	0
+ 2328              	.LLST7:
+ 2329 011c 20000000 		.4byte	.LVL13
+ 2330 0120 3E000000 		.4byte	.LVL17
+ 2331 0124 0100     		.2byte	0x1
+ 2332 0126 54       		.byte	0x54
+ 2333 0127 00000000 		.4byte	0
+ 2334 012b 00000000 		.4byte	0
+ 2335              	.LLST8:
+ 2336 012f 00000000 		.4byte	.LVL20
+ 2337 0133 0A000000 		.4byte	.LVL22
+ 2338 0137 0100     		.2byte	0x1
+ 2339 0139 50       		.byte	0x50
+ 2340 013a 0A000000 		.4byte	.LVL22
+ 2341 013e 32000000 		.4byte	.LVL30
+ 2342 0142 0100     		.2byte	0x1
+ 2343 0144 55       		.byte	0x55
+ 2344 0145 32000000 		.4byte	.LVL30
+ 2345 0149 38000000 		.4byte	.LFE34
+ 2346 014d 0400     		.2byte	0x4
+ 2347 014f F3       		.byte	0xf3
+ 2348 0150 01       		.uleb128 0x1
+ 2349 0151 50       		.byte	0x50
+ 2350 0152 9F       		.byte	0x9f
+ 2351 0153 00000000 		.4byte	0
+ 2352 0157 00000000 		.4byte	0
+ 2353              	.LLST9:
+ 2354 015b 00000000 		.4byte	.LVL20
+ 2355 015f 0A000000 		.4byte	.LVL22
+ 2356 0163 0100     		.2byte	0x1
+ 2357 0165 51       		.byte	0x51
+ 2358 0166 0A000000 		.4byte	.LVL22
+ 2359 016a 32000000 		.4byte	.LVL31
+ 2360 016e 0100     		.2byte	0x1
+ 2361 0170 56       		.byte	0x56
+ 2362 0171 32000000 		.4byte	.LVL31
+ 2363 0175 38000000 		.4byte	.LFE34
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 45
+
+
+ 2364 0179 0400     		.2byte	0x4
+ 2365 017b F3       		.byte	0xf3
+ 2366 017c 01       		.uleb128 0x1
+ 2367 017d 51       		.byte	0x51
+ 2368 017e 9F       		.byte	0x9f
+ 2369 017f 00000000 		.4byte	0
+ 2370 0183 00000000 		.4byte	0
+ 2371              	.LLST10:
+ 2372 0187 06000000 		.4byte	.LVL21
+ 2373 018b 0A000000 		.4byte	.LVL22
+ 2374 018f 0200     		.2byte	0x2
+ 2375 0191 30       		.byte	0x30
+ 2376 0192 9F       		.byte	0x9f
+ 2377 0193 0A000000 		.4byte	.LVL22
+ 2378 0197 1E000000 		.4byte	.LVL25
+ 2379 019b 0100     		.2byte	0x1
+ 2380 019d 54       		.byte	0x54
+ 2381 019e 00000000 		.4byte	0
+ 2382 01a2 00000000 		.4byte	0
+ 2383              	.LLST11:
+ 2384 01a6 20000000 		.4byte	.LVL26
+ 2385 01aa 32000000 		.4byte	.LVL29
+ 2386 01ae 0100     		.2byte	0x1
+ 2387 01b0 54       		.byte	0x54
+ 2388 01b1 00000000 		.4byte	0
+ 2389 01b5 00000000 		.4byte	0
+ 2390              	.LLST12:
+ 2391 01b9 08000000 		.4byte	.LVL32
+ 2392 01bd 0C000000 		.4byte	.LVL33
+ 2393 01c1 0200     		.2byte	0x2
+ 2394 01c3 30       		.byte	0x30
+ 2395 01c4 9F       		.byte	0x9f
+ 2396 01c5 0C000000 		.4byte	.LVL33
+ 2397 01c9 30000000 		.4byte	.LVL38
+ 2398 01cd 0100     		.2byte	0x1
+ 2399 01cf 54       		.byte	0x54
+ 2400 01d0 32000000 		.4byte	.LVL39
+ 2401 01d4 5C000000 		.4byte	.LVL46
+ 2402 01d8 0100     		.2byte	0x1
+ 2403 01da 54       		.byte	0x54
+ 2404 01db 5E000000 		.4byte	.LVL47
+ 2405 01df 62000000 		.4byte	.LVL48
+ 2406 01e3 0200     		.2byte	0x2
+ 2407 01e5 30       		.byte	0x30
+ 2408 01e6 9F       		.byte	0x9f
+ 2409 01e7 62000000 		.4byte	.LVL48
+ 2410 01eb 7A000000 		.4byte	.LVL50
+ 2411 01ef 0100     		.2byte	0x1
+ 2412 01f1 56       		.byte	0x56
+ 2413 01f2 7C000000 		.4byte	.LVL51
+ 2414 01f6 A4000000 		.4byte	.LVL57
+ 2415 01fa 0100     		.2byte	0x1
+ 2416 01fc 56       		.byte	0x56
+ 2417 01fd 00000000 		.4byte	0
+ 2418 0201 00000000 		.4byte	0
+ 2419              	.LLST13:
+ 2420 0205 08000000 		.4byte	.LVL32
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 46
+
+
+ 2421 0209 5E000000 		.4byte	.LVL47
+ 2422 020d 0300     		.2byte	0x3
+ 2423 020f 08       		.byte	0x8
+ 2424 0210 3E       		.byte	0x3e
+ 2425 0211 9F       		.byte	0x9f
+ 2426 0212 5E000000 		.4byte	.LVL47
+ 2427 0216 22010000 		.4byte	.LVL69
+ 2428 021a 0100     		.2byte	0x1
+ 2429 021c 55       		.byte	0x55
+ 2430 021d 24010000 		.4byte	.LVL70
+ 2431 0221 76010000 		.4byte	.LVL79
+ 2432 0225 0100     		.2byte	0x1
+ 2433 0227 55       		.byte	0x55
+ 2434 0228 78010000 		.4byte	.LVL80
+ 2435 022c 0C020000 		.4byte	.LFE35
+ 2436 0230 0100     		.2byte	0x1
+ 2437 0232 55       		.byte	0x55
+ 2438 0233 00000000 		.4byte	0
+ 2439 0237 00000000 		.4byte	0
+ 2440              	.LLST14:
+ 2441 023b 08000000 		.4byte	.LVL32
+ 2442 023f 5E000000 		.4byte	.LVL47
+ 2443 0243 0300     		.2byte	0x3
+ 2444 0245 08       		.byte	0x8
+ 2445 0246 3E       		.byte	0x3e
+ 2446 0247 9F       		.byte	0x9f
+ 2447 0248 5E000000 		.4byte	.LVL47
+ 2448 024c F6000000 		.4byte	.LVL64
+ 2449 0250 0100     		.2byte	0x1
+ 2450 0252 54       		.byte	0x54
+ 2451 0253 F8000000 		.4byte	.LVL65
+ 2452 0257 4C010000 		.4byte	.LVL74
+ 2453 025b 0100     		.2byte	0x1
+ 2454 025d 54       		.byte	0x54
+ 2455 025e 4E010000 		.4byte	.LVL75
+ 2456 0262 0C020000 		.4byte	.LFE35
+ 2457 0266 0100     		.2byte	0x1
+ 2458 0268 54       		.byte	0x54
+ 2459 0269 00000000 		.4byte	0
+ 2460 026d 00000000 		.4byte	0
+ 2461              	.LLST15:
+ 2462 0271 08000000 		.4byte	.LVL32
+ 2463 0275 5E000000 		.4byte	.LVL47
+ 2464 0279 0300     		.2byte	0x3
+ 2465 027b 08       		.byte	0x8
+ 2466 027c 64       		.byte	0x64
+ 2467 027d 9F       		.byte	0x9f
+ 2468 027e 5E000000 		.4byte	.LVL47
+ 2469 0282 CA010000 		.4byte	.LVL89
+ 2470 0286 0100     		.2byte	0x1
+ 2471 0288 57       		.byte	0x57
+ 2472 0289 CA010000 		.4byte	.LVL89
+ 2473 028d CC010000 		.4byte	.LVL90
+ 2474 0291 0200     		.2byte	0x2
+ 2475 0293 30       		.byte	0x30
+ 2476 0294 9F       		.byte	0x9f
+ 2477 0295 CC010000 		.4byte	.LVL90
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 47
+
+
+ 2478 0299 FC010000 		.4byte	.LVL96
+ 2479 029d 0100     		.2byte	0x1
+ 2480 029f 57       		.byte	0x57
+ 2481 02a0 FC010000 		.4byte	.LVL96
+ 2482 02a4 FE010000 		.4byte	.LVL97
+ 2483 02a8 0200     		.2byte	0x2
+ 2484 02aa 30       		.byte	0x30
+ 2485 02ab 9F       		.byte	0x9f
+ 2486 02ac FE010000 		.4byte	.LVL97
+ 2487 02b0 0C020000 		.4byte	.LFE35
+ 2488 02b4 0100     		.2byte	0x1
+ 2489 02b6 57       		.byte	0x57
+ 2490 02b7 00000000 		.4byte	0
+ 2491 02bb 00000000 		.4byte	0
+ 2492              	.LLST16:
+ 2493 02bf 9E000000 		.4byte	.LVL55
+ 2494 02c3 A0000000 		.4byte	.LVL56
+ 2495 02c7 0100     		.2byte	0x1
+ 2496 02c9 51       		.byte	0x51
+ 2497 02ca 00000000 		.4byte	0
+ 2498 02ce 00000000 		.4byte	0
+ 2499              		.section	.debug_aranges,"",%progbits
+ 2500 0000 34000000 		.4byte	0x34
+ 2501 0004 0200     		.2byte	0x2
+ 2502 0006 00000000 		.4byte	.Ldebug_info0
+ 2503 000a 04       		.byte	0x4
+ 2504 000b 00       		.byte	0
+ 2505 000c 0000     		.2byte	0
+ 2506 000e 0000     		.2byte	0
+ 2507 0010 00000000 		.4byte	.LFB32
+ 2508 0014 36000000 		.4byte	.LFE32-.LFB32
+ 2509 0018 00000000 		.4byte	.LFB33
+ 2510 001c 48000000 		.4byte	.LFE33-.LFB33
+ 2511 0020 00000000 		.4byte	.LFB34
+ 2512 0024 38000000 		.4byte	.LFE34-.LFB34
+ 2513 0028 00000000 		.4byte	.LFB35
+ 2514 002c 0C020000 		.4byte	.LFE35-.LFB35
+ 2515 0030 00000000 		.4byte	0
+ 2516 0034 00000000 		.4byte	0
+ 2517              		.section	.debug_ranges,"",%progbits
+ 2518              	.Ldebug_ranges0:
+ 2519 0000 00000000 		.4byte	.LFB32
+ 2520 0004 36000000 		.4byte	.LFE32
+ 2521 0008 00000000 		.4byte	.LFB33
+ 2522 000c 48000000 		.4byte	.LFE33
+ 2523 0010 00000000 		.4byte	.LFB34
+ 2524 0014 38000000 		.4byte	.LFE34
+ 2525 0018 00000000 		.4byte	.LFB35
+ 2526 001c 0C020000 		.4byte	.LFE35
+ 2527 0020 00000000 		.4byte	0
+ 2528 0024 00000000 		.4byte	0
+ 2529              		.section	.debug_line,"",%progbits
+ 2530              	.Ldebug_line0:
+ 2531 0000 52020000 		.section	.debug_str,"MS",%progbits,1
+ 2531      02002F01 
+ 2531      00000201 
+ 2531      FB0E0D00 
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 48
+
+
+ 2531      01010101 
+ 2532              	.LASF44:
+ 2533 0000 474C4344 		.ascii	"GLCD_Start\000"
+ 2533      5F537461 
+ 2533      727400
+ 2534              	.LASF32:
+ 2535 000b 474C4344 		.ascii	"GLCD_Pixel\000"
+ 2535      5F506978 
+ 2535      656C00
+ 2536              	.LASF18:
+ 2537 0016 72616469 		.ascii	"radius\000"
+ 2537      757300
+ 2538              	.LASF45:
+ 2539 001d 4261636B 		.ascii	"Backlight_Write\000"
+ 2539      6C696768 
+ 2539      745F5772 
+ 2539      69746500 
+ 2540              	.LASF27:
+ 2541 002d 636F756E 		.ascii	"count\000"
+ 2541      7400
+ 2542              	.LASF22:
+ 2543 0033 66697265 		.ascii	"fire2\000"
+ 2543      3200
+ 2544              	.LASF28:
+ 2545 0039 73746172 		.ascii	"stars\000"
+ 2545      7300
+ 2546              	.LASF3:
+ 2547 003f 73686F72 		.ascii	"short unsigned int\000"
+ 2547      7420756E 
+ 2547      7369676E 
+ 2547      65642069 
+ 2547      6E7400
+ 2548              	.LASF21:
+ 2549 0052 66697265 		.ascii	"fire1\000"
+ 2549      3100
+ 2550              	.LASF47:
+ 2551 0058 474E5520 		.ascii	"GNU C11 5.4.1 20160609 (release) [ARM/embedded-5-br"
+ 2551      43313120 
+ 2551      352E342E 
+ 2551      31203230 
+ 2551      31363036 
+ 2552 008b 616E6368 		.ascii	"anch revision 237715] -mcpu=cortex-m0 -mthumb -g -O"
+ 2552      20726576 
+ 2552      6973696F 
+ 2552      6E203233 
+ 2552      37373135 
+ 2553 00be 67202D66 		.ascii	"g -ffunction-sections -ffat-lto-objects\000"
+ 2553      66756E63 
+ 2553      74696F6E 
+ 2553      2D736563 
+ 2553      74696F6E 
+ 2554              	.LASF11:
+ 2555 00e6 666C6F61 		.ascii	"float\000"
+ 2555      7400
+ 2556              	.LASF40:
+ 2557 00ec 4C45445F 		.ascii	"LED_Red_Read\000"
+ 2557      5265645F 
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 49
+
+
+ 2557      52656164 
+ 2557      00
+ 2558              	.LASF16:
+ 2559 00f9 785F436F 		.ascii	"x_Coor\000"
+ 2559      6F7200
+ 2560              	.LASF36:
+ 2561 0100 415F5265 		.ascii	"A_Read\000"
+ 2561      616400
+ 2562              	.LASF10:
+ 2563 0107 696E7431 		.ascii	"int16\000"
+ 2563      3600
+ 2564              	.LASF50:
+ 2565 010d 53746172 		.ascii	"Star\000"
+ 2565      00
+ 2566              	.LASF9:
+ 2567 0112 75696E74 		.ascii	"uint8\000"
+ 2567      3800
+ 2568              	.LASF1:
+ 2569 0118 756E7369 		.ascii	"unsigned char\000"
+ 2569      676E6564 
+ 2569      20636861 
+ 2569      7200
+ 2570              	.LASF12:
+ 2571 0126 646F7562 		.ascii	"double\000"
+ 2571      6C6500
+ 2572              	.LASF49:
+ 2573 012d 433A5C55 		.ascii	"C:\\Users\\sur\\Documents\\PSoC Creator\\StarBlaste"
+ 2573      73657273 
+ 2573      5C737572 
+ 2573      5C446F63 
+ 2573      756D656E 
+ 2574 015b 725C5374 		.ascii	"r\\StarBlaster.cydsn\000"
+ 2574      6172426C 
+ 2574      61737465 
+ 2574      722E6379 
+ 2574      64736E00 
+ 2575              	.LASF19:
+ 2576 016f 636F6C6F 		.ascii	"color\000"
+ 2576      7200
+ 2577              	.LASF29:
+ 2578 0175 72616E64 		.ascii	"randomS\000"
+ 2578      6F6D5300 
+ 2579              	.LASF51:
+ 2580 017d 6D61696E 		.ascii	"main\000"
+ 2580      00
+ 2581              	.LASF37:
+ 2582 0182 425F5265 		.ascii	"B_Read\000"
+ 2582      616400
+ 2583              	.LASF5:
+ 2584 0189 6C6F6E67 		.ascii	"long unsigned int\000"
+ 2584      20756E73 
+ 2584      69676E65 
+ 2584      6420696E 
+ 2584      7400
+ 2585              	.LASF8:
+ 2586 019b 756E7369 		.ascii	"unsigned int\000"
+ 2586      676E6564 
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 50
+
+
+ 2586      20696E74 
+ 2586      00
+ 2587              	.LASF43:
+ 2588 01a8 4C45445F 		.ascii	"LED_Blue_Write\000"
+ 2588      426C7565 
+ 2588      5F577269 
+ 2588      746500
+ 2589              	.LASF7:
+ 2590 01b7 6C6F6E67 		.ascii	"long long unsigned int\000"
+ 2590      206C6F6E 
+ 2590      6720756E 
+ 2590      7369676E 
+ 2590      65642069 
+ 2591              	.LASF31:
+ 2592 01ce 474C4344 		.ascii	"GLCD_DrawLine\000"
+ 2592      5F447261 
+ 2592      774C696E 
+ 2592      6500
+ 2593              	.LASF24:
+ 2594 01dc 795F4365 		.ascii	"y_Center\000"
+ 2594      6E746572 
+ 2594      00
+ 2595              	.LASF25:
+ 2596 01e5 78437572 		.ascii	"xCur\000"
+ 2596      00
+ 2597              	.LASF17:
+ 2598 01ea 795F436F 		.ascii	"y_Coor\000"
+ 2598      6F7200
+ 2599              	.LASF30:
+ 2600 01f1 474C4344 		.ascii	"GLCD_DrawCircle\000"
+ 2600      5F447261 
+ 2600      77436972 
+ 2600      636C6500 
+ 2601              	.LASF6:
+ 2602 0201 6C6F6E67 		.ascii	"long long int\000"
+ 2602      206C6F6E 
+ 2602      6720696E 
+ 2602      7400
+ 2603              	.LASF15:
+ 2604 020f 73697A65 		.ascii	"sizetype\000"
+ 2604      74797065 
+ 2604      00
+ 2605              	.LASF48:
+ 2606 0218 6D61696E 		.ascii	"main.c\000"
+ 2606      2E6300
+ 2607              	.LASF13:
+ 2608 021f 63686172 		.ascii	"char\000"
+ 2608      00
+ 2609              	.LASF20:
+ 2610 0224 63726F73 		.ascii	"crosshair\000"
+ 2610      73686169 
+ 2610      7200
+ 2611              	.LASF52:
+ 2612 022e 474C4344 		.ascii	"GLCD_FONT8x16\000"
+ 2612      5F464F4E 
+ 2612      54387831 
+ 2612      3600
+ARM GAS  C:\Users\sur\AppData\Local\Temp\ccHOGAJy.s 			page 51
+
+
+ 2613              	.LASF33:
+ 2614 023c 72616E64 		.ascii	"rand\000"
+ 2614      00
+ 2615              	.LASF2:
+ 2616 0241 73686F72 		.ascii	"short int\000"
+ 2616      7420696E 
+ 2616      7400
+ 2617              	.LASF39:
+ 2618 024b 4C45445F 		.ascii	"LED_Red_Write\000"
+ 2618      5265645F 
+ 2618      57726974 
+ 2618      6500
+ 2619              	.LASF23:
+ 2620 0259 785F4365 		.ascii	"x_Center\000"
+ 2620      6E746572 
+ 2620      00
+ 2621              	.LASF42:
+ 2622 0262 4C45445F 		.ascii	"LED_Green_Write\000"
+ 2622      47726565 
+ 2622      6E5F5772 
+ 2622      69746500 
+ 2623              	.LASF46:
+ 2624 0272 474C4344 		.ascii	"GLCD_Clear\000"
+ 2624      5F436C65 
+ 2624      617200
+ 2625              	.LASF4:
+ 2626 027d 6C6F6E67 		.ascii	"long int\000"
+ 2626      20696E74 
+ 2626      00
+ 2627              	.LASF26:
+ 2628 0286 79437572 		.ascii	"yCur\000"
+ 2628      00
+ 2629              	.LASF14:
+ 2630 028b 6C6F6E67 		.ascii	"long double\000"
+ 2630      20646F75 
+ 2630      626C6500 
+ 2631              	.LASF38:
+ 2632 0297 435F5265 		.ascii	"C_Read\000"
+ 2632      616400
+ 2633              	.LASF0:
+ 2634 029e 7369676E 		.ascii	"signed char\000"
+ 2634      65642063 
+ 2634      68617200 
+ 2635              	.LASF34:
+ 2636 02aa 43794465 		.ascii	"CyDelay\000"
+ 2636      6C617900 
+ 2637              	.LASF41:
+ 2638 02b2 4A6F795F 		.ascii	"Joy_Center_Read\000"
+ 2638      43656E74 
+ 2638      65725F52 
+ 2638      65616400 
+ 2639              	.LASF35:
+ 2640 02c2 445F5265 		.ascii	"D_Read\000"
+ 2640      616400
+ 2641              		.ident	"GCC: (GNU Tools for ARM Embedded Processors) 5.4.1 20160609 (release) [ARM/embedded-5-bran

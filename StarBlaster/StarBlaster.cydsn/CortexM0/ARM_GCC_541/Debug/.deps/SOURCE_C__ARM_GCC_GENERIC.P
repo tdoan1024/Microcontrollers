@@ -1,0 +1,98 @@
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/CortexM0/ARM_GCC_541/Debug/main.o : C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/A.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/A_aliases.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/B.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/B_aliases.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/Backlight.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/Backlight_aliases.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/C.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/C_aliases.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/CyFlash.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/CyLFClk.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/CyLib.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/D.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/D_aliases.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/GLCD.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/GLCD_MOSI.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/GLCD_MOSI_aliases.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/GLCD_Reset.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/GLCD_Reset_aliases.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/GLCD_SCLK.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/GLCD_SCLK_aliases.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/GLCD_SPIM_UDB.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/GLCD_SPIM_UDB_IntClock.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/GLCD_SPIM_UDB_PVT.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/GLCD_SS.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/GLCD_SS_aliases.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/Joy_Center.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/Joy_Center_aliases.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/LED_Blue.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/LED_Blue_aliases.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/LED_Green.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/LED_Green_aliases.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/LED_Red.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/LED_Red_aliases.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/cmsis_armcc.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/cmsis_compiler.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/cmsis_gcc.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/core_cm0.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/core_cm0_psoc4.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/cyPm.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/cy_em_eeprom.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/cydevice_trm.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/cydisabledsheets.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/cyfitter.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/cyfitter_cfg.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/cypins.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/cytypes.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/project.h C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/main.c 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/A.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/A_aliases.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/B.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/B_aliases.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/Backlight.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/Backlight_aliases.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/C.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/C_aliases.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/CyFlash.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/CyLFClk.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/CyLib.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/D.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/D_aliases.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/GLCD.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/GLCD_MOSI.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/GLCD_MOSI_aliases.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/GLCD_Reset.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/GLCD_Reset_aliases.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/GLCD_SCLK.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/GLCD_SCLK_aliases.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/GLCD_SPIM_UDB.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/GLCD_SPIM_UDB_IntClock.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/GLCD_SPIM_UDB_PVT.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/GLCD_SS.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/GLCD_SS_aliases.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/Joy_Center.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/Joy_Center_aliases.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/LED_Blue.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/LED_Blue_aliases.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/LED_Green.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/LED_Green_aliases.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/LED_Red.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/LED_Red_aliases.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/cmsis_armcc.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/cmsis_compiler.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/cmsis_gcc.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/core_cm0.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/core_cm0_psoc4.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/cyPm.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/cy_em_eeprom.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/cydevice_trm.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/cydisabledsheets.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/cyfitter.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/cyfitter_cfg.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/cypins.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/cytypes.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/Generated_Source/PSoC4/project.h : 
+
+C:/Users/sur/Documents/PSoC\ Creator/StarBlaster/StarBlaster.cydsn/main.c : 
+

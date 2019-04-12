@@ -1,0 +1,6 @@
+C:\Users\sur\Documents\PSoC Creator\StarBlaster\StarBlaster.cydsn\StarBlaster.cyprj|5c1d0687-9673-401d-bae9-96b8c59a58dd
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\default\CyAnnotationLibrary\CyAnnotationLibrary.cylib\CyAnnotationLibrary.cyprj|5a400354-c014-43ff-9c99-671caf68c48e
+C:\Users\sur\Documents\PSoC Creator\4.2\Downloads ( 4.2).cylib\Downloads ( 4.2).cyprj|2d85a518-7f38-4002-989c-8c69fac017a5
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibraryupdates\CyComponentLibraryUpdates.cylib\CyComponentLibraryUpdates.cyprj|f548813b-e84b-405e-adab-84eacd33bf1c
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cycomponentlibrary\CyComponentLibrary.cylib\CyComponentLibrary.cyprj|a0caf1b3-15cf-41fb-a446-8f1e59d9f181
+C:\Program Files (x86)\Cypress\PSoC Creator\4.2\PSoC Creator\psoc\content\cyprimitives\CyPrimitives.cylib\CyPrimitives.cyprj|6f8b2d77-0413-45ee-8b14-0a29274cee96
